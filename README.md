@@ -2,20 +2,20 @@
 #### Firstly, i am not using the dotfiles to manage my config files, i am using multiply repositories to manage all the config files. But i found that it is very hard to manage all the files. After i repeating git add, git commit, git push for couple of times, i think that i should make a change. But the problem come, i don't really know how to do. I spend some time to do research and summarize something. This also can remind me how i do this.
 
 ###### First, have to create one file to store all the configuration file
----bash
+--- bash
 mkdir ~/.dotfiles
 ---
 
 ###### Next, will be mv all your configuration files which you want to upload to your github
 ###### If you mv config files from .config file, you have to make sure .config file have created in your .dotfiles/
----bash
+--- bash
 mv .bashrc ~/.dotfiles/
 mv .zshrc ~/.dotfiles/
 mv .config/nvim ~/.dotfiles/.config
 ---
 
 ###### After the config files have move into .dotfiles/, all the configuration will lose, so you have to link the file in your home directory to make sure the applications can work
----bash
+--- bash
 ln -sf ~/.dotfiles/bashrc ~/
 ln -sf ~/.dotfiles/zshrc ~/
 ln -sf ~/.dotfiles/.config/nvim ~/.config/
@@ -29,7 +29,7 @@ ln -sf ~/.dotfiles/.config/nvim ~/.config/
 ###### Then you are done with your dotfiles
 
 ## A minimal and fast terminal emulator
-*[alacritty](https://github.com/Alfredchong260/Dotfiles/tree/main/.config/alacritty)
+* [alacritty](https://github.com/Alfredchong260/Dotfiles/tree/main/.config/alacritty)
 
 ## Window manager
 ### The configuration tutorial is from derek taylor
