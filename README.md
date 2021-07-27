@@ -1,5 +1,5 @@
 # Dotfile
-### Wwhy using a dotfiles ? 
+### Why using a dotfiles ? 
 ##### Initially, i am not using the dotfiles to manage my config files, i am using multiply repositories to manage all the config files. But i found that it is very hard to manage all the files. After i repeating git add, git commit, git push for couple of times, i think that i should make a change. But the problem come, i don't really know how to do. I spend some time to do research and summarize something. This also can remind me how i do this.
 
 #### First, have to create one file to store all the configuration file
