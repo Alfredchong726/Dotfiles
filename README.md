@@ -2,26 +2,24 @@
 #### Firstly, i am not using the dotfiles to manage my config files, i am using multiply repositories to manage all the config files. But i found that it is very hard to manage all the files. After i repeating git add, git commit, git push for couple of times, i think that i should make a change. But the problem come, i don't really know how to do. I spend some time to do research and summarize something. This also can remind me how i do this.
 
 ###### First, have to create one file to store all the configuration file
-<code>
+``` sh
 mkdir ~/.dotfiles
-</code>
+```
 
 ###### Next, will be mv all your configuration files which you want to upload to your github
-###### If you mv config files from .config file, you have to make sure .config file have created in your .dotfiles/
-<code>
+###### If you mv config files from .config file, you have to make sure .config file have created in your .dotfiles
+``` sh
 mv .bashrc ~/.dotfiles/
-<br>
 mv .zshrc ~/.dotfiles/
-<br>
 mv .config/nvim ~/.dotfiles/.config
-</code>
+```
 
 ###### After the config files have move into .dotfiles/, all the configuration will lose, so you have to link the file in your home directory to make sure the applications can work
-<code>
+``` sh
 ln -sf ~/.dotfiles/bashrc ~/
 ln -sf ~/.dotfiles/zshrc ~/
 ln -sf ~/.dotfiles/.config/nvim ~/.config/
-</code>
+```
 
 ###### If all these done, your config file in your home directory should be like this
 ###### After finishing all these our dotfiles almost done
