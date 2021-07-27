@@ -23,10 +23,12 @@ ln -sf ~/.dotfiles/.config/nvim ~/.config/
 ```
 
 #### If all these done, your config file in your home directory should be like this
+<img src="https://raw.githubusercontent.com/Alfredchong260/Dotfiles/main/image/dotfiles.png" height="450">
+
 #### After finishing all these our dotfiles almost done
-
 #### Lastly, you need to create a new repository and link with your dotfiles
-
+<img src="
+https://raw.githubusercontent.com/Alfredchong260/Dotfiles/main/image/github.png" height="450">
 #### Then you are done with your dotfiles
 
 ## A minimal and fast terminal emulator
