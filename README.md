@@ -8,18 +8,18 @@ mkdir ~/.dotfiles
 
 ###### Next, will be mv all your configuration files which you want to upload to your github
 ###### If you mv config files from .config file, you have to make sure .config file have created in your .dotfiles/
---- bash
+<code>
 mv .bashrc ~/.dotfiles/
 mv .zshrc ~/.dotfiles/
 mv .config/nvim ~/.dotfiles/.config
----
+</code>
 
 ###### After the config files have move into .dotfiles/, all the configuration will lose, so you have to link the file in your home directory to make sure the applications can work
---- bash
+<code>
 ln -sf ~/.dotfiles/bashrc ~/
 ln -sf ~/.dotfiles/zshrc ~/
 ln -sf ~/.dotfiles/.config/nvim ~/.config/
----
+</code>
 
 ###### If all these done, your config file in your home directory should be like this
 ###### After finishing all these our dotfiles almost done
