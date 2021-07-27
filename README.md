@@ -35,7 +35,7 @@ ln -sf ~/.dotfiles/.config/nvim ~/.config/
 * [Alacritty](https://github.com/Alfredchong260/Dotfiles/tree/main/.config/alacritty)
 
 ## Window manager
-### The configuration tutorial is from derek taylor
+#### The configuration tutorial is from derek taylor
 [Derek Taylor's Youtube channel](https://www.youtube.com/channel/UCVls1GmFKf6WlTraIb_IaJg)
 
 #### Tiling window manager
@@ -46,10 +46,10 @@ ln -sf ~/.dotfiles/.config/nvim ~/.config/
 * [Openbox](https://github.com/Alfredchong260/Dotfiles/tree/main/.config/openbox)
 
 ## Applications
-### Rofi
+#### Rofi
 *[Rofi](https://github.com/Alfredchong260/Dotfiles/tree/main/.config/rofi)
 
-### Neovim
+#### Neovim
 *[Neovim](https://github.com/Alfredchong260/Dotfiles/tree/main/.config/nvim)
 
 ## Sources
