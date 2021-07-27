@@ -32,7 +32,7 @@ ln -sf ~/.dotfiles/.config/nvim ~/.config/
 #### Then you are done with your dotfiles
 
 ## A minimal and fast terminal emulator
-* [alacritty](https://github.com/Alfredchong260/Dotfiles/tree/main/.config/alacritty)
+* [Alacritty](https://github.com/Alfredchong260/Dotfiles/tree/main/.config/alacritty)
 
 ## Window manager
 ### The configuration tutorial is from derek taylor
