@@ -10,7 +10,11 @@ mkdir ~/.dotfiles
 ###### If you mv config files from .config file, you have to make sure .config file have created in your .dotfiles/
 <code>
 mv .bashrc ~/.dotfiles/
+</code>
+<code>
 mv .zshrc ~/.dotfiles/
+</code>
+<code>
 mv .config/nvim ~/.dotfiles/.config
 </code>
 
