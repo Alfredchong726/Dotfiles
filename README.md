@@ -47,10 +47,10 @@ ln -sf ~/.dotfiles/.config/nvim ~/.config/
 
 ## Applications
 #### Rofi
-*[Rofi](https://github.com/Alfredchong260/Dotfiles/tree/main/.config/rofi)
+* [Rofi](https://github.com/Alfredchong260/Dotfiles/tree/main/.config/rofi)
 
 #### Neovim
-*[Neovim](https://github.com/Alfredchong260/Dotfiles/tree/main/.config/nvim)
+* [Neovim](https://github.com/Alfredchong260/Dotfiles/tree/main/.config/nvim)
 
 ## Sources
 * [Derek Taylor's Gitlab](https://gitlab.com/dwt1)
