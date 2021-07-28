@@ -376,7 +376,7 @@ cursor_warp = False
 @hook.subscribe.startup_once
 def start_once():
     home = os.path.expanduser('~')
-    subprocess.call([home + '/.config/qtile/scripts/autostart.sh'])
+    subprocess.call([home + '/.config/qtile/autostart.sh'])
 
 @hook.subscribe.startup
 def start_always():
