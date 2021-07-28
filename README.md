@@ -32,25 +32,25 @@ ln -sf ~/.dotfiles/.config/nvim ~/.config/
 #### Then you are done with your dotfiles
 
 ## A minimal and fast terminal emulator
-* [Alacritty](https://github.com/Alfredchong260/Dotfiles/tree/main/.config/alacritty)
+* [Alacritty configuration](https://github.com/Alfredchong260/Dotfiles/tree/main/.config/alacritty)
 
 ## Window manager
 #### The configuration tutorial is from derek taylor
 [Derek Taylor's Youtube channel](https://www.youtube.com/channel/UCVls1GmFKf6WlTraIb_IaJg)
 
 #### Tiling window manager
-* [Qtile](https://github.com/Alfredchong260/Dotfiles/tree/main/.config/qtile)
-* [Awesome](https://github.com/Alfredchong260/Dotfiles/tree/main/.config/awesome)
+* [Qtile configuration](https://github.com/Alfredchong260/Dotfiles/tree/main/.config/qtile)
+* [Awesome configuration](https://github.com/Alfredchong260/Dotfiles/tree/main/.config/awesome)
 
 #### Floating window manager
-* [Openbox](https://github.com/Alfredchong260/Dotfiles/tree/main/.config/openbox)
+* [Openbox configuration](https://github.com/Alfredchong260/Dotfiles/tree/main/.config/openbox)
 
 ## Applications
 #### Rofi
-* [Rofi](https://github.com/Alfredchong260/Dotfiles/tree/main/.config/rofi)
+* [Rofi configuration](https://github.com/Alfredchong260/Dotfiles/tree/main/.config/rofi)
 
 #### Neovim
-* [Neovim](https://github.com/Alfredchong260/Dotfiles/tree/main/.config/nvim)
+* [Neovim configuration](https://github.com/Alfredchong260/Dotfiles/tree/main/.config/nvim)
 
 ## Sources
 * [Derek Taylor's Gitlab](https://gitlab.com/dwt1)
