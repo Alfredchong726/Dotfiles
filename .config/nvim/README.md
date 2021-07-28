@@ -16,7 +16,7 @@
 ```
 
 #### All these steps finished then your NeoVim can work well
-
+<img src='https://github.com/Alfredchong260/Dotfiles/blob/main/image/nvim.png'>
 ##### Here is some usage of the NeoVim
 
 ###### You can straightly type nvim on your terminal, then this may show
