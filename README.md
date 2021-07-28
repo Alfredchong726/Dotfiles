@@ -53,4 +53,4 @@ ln -sf ~/.dotfiles/.config/nvim ~/.config/
 *[Neovim](https://github.com/Alfredchong260/Dotfiles/tree/main/.config/nvim)
 
 ## Sources
-* [Gitlab](https://gitlab.com/dwt1)
+* [Derek Taylor's Gitlab](https://gitlab.com/dwt1)
