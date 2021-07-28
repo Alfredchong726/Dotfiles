@@ -37,7 +37,7 @@ return require('packer').startup(function()
     -- gc & gcc to coment
     use 'tpope/vim-commentary'
 
-    -- Startify (Customize the menu)
+    -- Customize the menu
     -- use 'mhinz/vim-startify'
     use 'glepnir/dashboard-nvim'
 
