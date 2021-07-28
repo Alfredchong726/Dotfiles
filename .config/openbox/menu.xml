@@ -206,6 +206,7 @@
 				<action name="Execute">
 					<execute>alacritty -e nvim ~/.config/tint2/tint2rc</execute>
 				</action>
+                <separator/>
 			</item>
 		</menu>
 <menu id="system-menu" label="System">
@@ -235,17 +236,26 @@
     <action name="Reconfigure" />
   </item>
 </menu>
-
 <menu id="root-menu" label="Openbox 3">
   <separator label="Applications" />
   <menu id="apps-accessories-menu"/>
   <menu id="apps-editors-menu"/>
-  <menu id="apps-office-menu"/>
+  <menu id="apps-net-menu"/>
+  <!-- <menu id="apps-office-menu"/> -->
   <menu id="apps-multimedia-menu"/>
   <menu id="apps-fileman-menu"/>
+  <separator label="Preferences" />
+  <menu id="root-menu-604715"/>
+  <separator label="Config Files" />
+  <menu id="root-menu-46598"/>
   <separator label="System" />
   <menu id="system-menu"/>
   <separator />
+  <separator/>
+  <menu execute="~/.config/openbox/pipemenus/deadbeef.sh" id="Music Player" label="Music Player"/>
+  <menu execute="~/.config/openbox/pipemenus/sysinfo.py" id="sysinfo" label="System Info"/>
+  <menu execute="~/.config/openbox/pipemenus/date-menu.py" id="datetime" label="Time and Date"/>
+  <separator/>
   <item label="Log Out">
     <action name="Exit">
       <prompt>yes</prompt>
