@@ -274,3 +274,4 @@ neofetch
 # install lolcat
 #sfetch | lolcat
 alias config='/usr/bin/git --git-dir=/home/cms/Dotfiles/ --work-tree=/home/cms'
+. "$HOME/.cargo/env"

@@ -388,9 +388,8 @@
         <command>oblogout</command>
       </action>
     </keybind>
-  </keyboard>
-
 </keyboard>
+
 
 <mouse>
   <dragThreshold>1</dragThreshold>

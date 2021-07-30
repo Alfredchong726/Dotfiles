@@ -252,7 +252,7 @@
   <menu id="system-menu"/>
   <separator />
   <separator/>
-  <menu execute="~/.config/openbox/pipemenus/deadbeef.sh" id="Music Player" label="Music Player"/>
+  <!-- <menu execute="~/.config/openbox/pipemenus/deadbeef.sh" id="Music Player" label="Music Player"/> -->
   <menu execute="~/.config/openbox/pipemenus/sysinfo.py" id="sysinfo" label="System Info"/>
   <menu execute="~/.config/openbox/pipemenus/date-menu.py" id="datetime" label="Time and Date"/>
   <separator/>
