@@ -20,13 +20,6 @@ vim.cmd('luafile ~/.config/nvim/plugin/colorscheme.lua')
 require('lv-telescope')
 require('lv-treesitter')
 
--- -- LSP
--- require('lsp')
--- require('lsp.python-ls')
--- -- require('lsp.java-ls')
--- require('lsp.lua-ls')
--- require('lsp.vim-ls')
-
 require'nvim-treesitter.configs'.setup {
   ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
   highlight = {
