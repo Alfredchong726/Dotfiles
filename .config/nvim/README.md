@@ -53,4 +53,5 @@
 :CocInstall coc-json coc-spell-checker
 ```
 #### If you want others coc extensions or you worth others coc functions you can go to coc extensions to download others extensions
-[coc extensions](https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions)
+
+ffjj[coc extensions](https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions)
