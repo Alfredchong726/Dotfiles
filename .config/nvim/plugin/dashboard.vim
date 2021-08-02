@@ -44,20 +44,4 @@ let g:dashboard_custom_header=[
 " let g:dashboard_custom_shortcut_icon['find_word'] = ' '
 " let g:dashboard_custom_shortcut_icon['book_marks'] = ' '
 
-lua << EOF
-function _G.get_message()
-  local messages = {
-    "Vim powered by EVIL", 
-    "If my friends are olive oil, then I must be extra virgin.",
-    "It's not cheating if you don't get caught",
-    "If you ran like your mouth, you'd be in good shape.",
-    "Life is a soup and I'm a fork",
-    "Brain out. Soup in."
-    }
-
-  return messages[math.random(#(messages))]
-end
-EOF
-
-let message=v:lua.get_message()
-let g:dashboard_custom_footer=[message]
+let g:dashboard_custom_footer=["BLACKPINK IN YOUR AREA"]
