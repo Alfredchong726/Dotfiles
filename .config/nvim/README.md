@@ -38,7 +38,7 @@
   Space w     | Write file                        |(:w)
   Space w q   | Write and quit the file           |(:wq)
   Space q     | Quit the file without saving      |(:q)
-  Space w a s | Write and source the config file  |(:w | luafile%)
+  Space w a s | Write and source the config file  |(:w \| luafile%)
   Space y y   | Copy the whole line               |
   Space b d   | Add a new buffer                  |(:bd)
   Space d d   | Detele current buffer             |(:badd)
