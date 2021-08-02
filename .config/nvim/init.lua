@@ -27,3 +27,8 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 
+vim.cmd("let g:neovide_cursor_vfx_mode = 'railgun'")
+vim.cmd("let g:neovide_refresh_rate=140")
+vim.cmd("let g:neovide_transparency=0.8")
+-- vim.cmd("let g:neovide_fullscreen=v:true")
+vim.cmd("let g:neovide_cursor_animation_length=0.13")

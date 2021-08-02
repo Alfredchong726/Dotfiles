@@ -43,6 +43,7 @@ picom --config $HOME/.config/qtile/scripts/picom.conf &
 run volumeicon &
 #run discord &
 nitrogen --random --set-tiled &
+# ./xrandr-ext-mon &
 # xset led on &
 #run vivaldi-stable &
 #run firefox &

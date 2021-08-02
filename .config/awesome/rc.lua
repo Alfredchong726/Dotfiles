@@ -2,6 +2,8 @@
 -- found (e.g. lgi). If LuaRocks is not installed, do nothing.
 pcall(require, "luarocks.loader")
 
+-- To make sure my dual screen is in correct positin
+
 -- Standard awesome library
 local gears = require("gears")
 local awful = require("awful")
@@ -252,6 +254,17 @@ globalkeys = gears.table.join(
     ),
     awful.key({ modkey,           }, "w", function () mymainmenu:show() end,
               {description = "show main menu", group = "awesome"}),
+
+    -- Applications
+    awful.key({ modkey,           }, "d", function () awful.spawn('Thunar') end,
+              {description = "open file manager", group = "applications"}),
+    awful.key({ modkey,           }, "v", function () awful.spawn('vmplayer') end,
+              {description = "open vmplayer", group = "applications"}),
+    awful.key({ modkey, "Shift"   }, "f", function () awful.spawn('firefox') end,
+              {description = "open firefox", group = "applications"}),
+
+    -- HotKey
+
 
     -- Layout manipulation
     awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end,
@@ -531,7 +544,7 @@ client.connect_signal("request::titlebars", function(c)
         end)
     )
 
-    awful.titlebar(c) : setup {
+    awful.titlebar(c, {size = 21}) : setup {
         { -- Left
             awful.titlebar.widget.iconwidget(c),
             buttons = buttons,
@@ -571,3 +584,4 @@ awful.spawn.with_shell("fcitx5")
 awful.spawn.with_shell("nitrogen --random --set-tiled")
 awful.spawn.with_shell("picom --config  $HOME/.config/awesome/picom.conf")
 awful.spawn.with_shell("volumeicon")
+awful.spawn.with_shell("xrandr --output HDMI-2 --left-of eDP-1")

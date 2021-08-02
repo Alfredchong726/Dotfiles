@@ -10,6 +10,9 @@ augroup exe_code
                 \ :sp<CR> :term java %<CR> :startinsert<CR>
 
     " execute c language code
-    autocmd FileType c nnoremap <buffer> <leader>r
-                \ :sp<CR> :term gcc %<CR> :startinsert<CR>
+    autocmd filetype c nnoremap <buffer> <leader>r
+                \ :sp<cr> :term gcc %<cr> :startinsert<cr>
+
+    autocmd filetype c nnoremap <buffer> <leader>r
+                \ :sp<cr> :term gcc %<cr> :startinsert<cr>
 augroup END
