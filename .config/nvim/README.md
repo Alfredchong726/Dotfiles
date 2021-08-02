@@ -1,6 +1,6 @@
 # NeoVim configuration by lua and vim scripts
 
-#### Before clone the whole nvim config file into home direcoty you need to make sure you have vim-packer installed for managing all the vim plugins
+#### Before clone the whole nvim config file into home directory you need to make sure you have vim-packer installed for managing all the vim plugins
 [vim-packer](https://github.com/hashivim/vim-packer)
 
 #### After installed tje vim-packer, can start to clone the whole nvim file into home directory
