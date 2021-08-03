@@ -17,3 +17,4 @@
 #xfce-mcs-manager &
 tint2 &
 nitrogen --random --set-tiled &
+picom --config ~/.config/openbox/picom.conf

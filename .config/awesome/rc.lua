@@ -18,8 +18,8 @@ local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
-require("awful.hotkeys_popup.keys")
 
+require("awful.hotkeys_popup.keys")
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -216,8 +216,7 @@ awful.screen.connect_for_each_screen(function(s)
             wibox.widget.systray(),
             mytextclock,
             s.mylayoutbox,
-        },
-    }
+        }}
 end)
 -- }}}
 
@@ -260,8 +259,12 @@ globalkeys = gears.table.join(
               {description = "open file manager", group = "applications"}),
     awful.key({ modkey,           }, "v", function () awful.spawn('vmplayer') end,
               {description = "open vmplayer", group = "applications"}),
+    awful.key({ modkey,           }, "t", function () awful.spawn('xfce4-taskmanager') end,
+              {description = "open taskmanager", group = "applications"}),
     awful.key({ modkey, "Shift"   }, "f", function () awful.spawn('firefox') end,
               {description = "open firefox", group = "applications"}),
+    awful.key({ modkey, "Shift"   }, "t", function () awful.spawn('teams') end,
+              {description = "open teams", group = "applications"}),
 
     -- HotKey
 
@@ -581,7 +584,8 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 -- Autostart Application
 awful.spawn.with_shell("fcitx5")
-awful.spawn.with_shell("nitrogen --random --set-tiled")
 awful.spawn.with_shell("picom --config  $HOME/.config/awesome/picom.conf")
-awful.spawn.with_shell("volumeicon")
+
+-- awful.spawn.with_shell("volumeicon")
 awful.spawn.with_shell("xrandr --output HDMI-2 --left-of eDP-1")
+awful.spawn.with_shell("nitrogen --random --set-tiled")

@@ -13,6 +13,7 @@ augroup exe_code
     autocmd filetype c nnoremap <buffer> <leader>r
                 \ :sp<cr> :term gcc %<cr> :startinsert<cr>
 
-    autocmd filetype c nnoremap <buffer> <leader>r
-                \ :sp<cr> :term gcc %<cr> :startinsert<cr>
+    " execute html code
+    autocmd filetype html nnoremap <buffer> <leader>r
+                \ :sp<cr> :term firefox %<cr> 
 augroup END

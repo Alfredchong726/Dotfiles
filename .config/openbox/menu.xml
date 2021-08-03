@@ -3,22 +3,36 @@
 <openbox_menu xmlns="http://openbox.org/3.4/menu">
 
 <menu id="apps-accessories-menu" label="Accessories">
-  <item label="Calculator">
+  <item label="Rofi">
     <action name="Execute">
-      <command>gnome-calculator</command>
+      <command>rofi -show run</command>
       <startupnotify>
         <enabled>yes</enabled>
       </startupnotify>
     </action>
   </item>
-  <item label="Character Map">
+  <item label="VmPlayer">
     <action name="Execute">
-      <command>gnome-character-map</command>
+      <command>vmplayer</command>
       <startupnotify>
         <enabled>yes</enabled>
       </startupnotify>
     </action>
   </item>
+  <item label="Teams">
+    <action name="Execute">
+      <command>teams</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+  <item label="Terminal">
+    <action name="Execute">
+      <execute>alacritty</execute>
+    </action>
+  </item>
+
   <item label="Ark File Archiver">
     <action name="Execute">
       <command>ark</command>
@@ -32,7 +46,7 @@
 <menu id="apps-editors-menu" label="Editors">
   <item label="NeoVim">
     <action name="Execute">
-      <execute>nvim</execute>
+      <execute>alacritty -e nvim</execute>
       <startupnotify>
         <enabled>yes</enabled>
         <wmclass>NeoVim</wmclass>
@@ -40,9 +54,13 @@
     </action>
   </item>
 
-  <item label="Terminal">
+  <item label="NeoVide">
     <action name="Execute">
-      <execute>alacritty</execute>
+      <execute>alacritty -e neovide</execute>
+      <startupnotify>
+        <enabled>yes</enabled>
+        <wmclass>NeoVide</wmclass>
+      </startupnotify>
     </action>
   </item>
 
@@ -69,6 +87,15 @@
       <startupnotify>
         <enabled>yes</enabled>
         <wmclass>Firefox</wmclass>
+      </startupnotify>
+    </action>
+  </item>
+  <item label="Chrome">
+    <action name="Execute">
+      <command>chromium</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+        <wmclass>Chrome</wmclass>
       </startupnotify>
     </action>
   </item>
@@ -218,7 +245,7 @@
   </item>
   <item label="Xfce Settings">
     <action name="Execute">
-      <command>xfce-setting-show</command>
+      <command>xfce4-settings-manager</command>
       <startupnotify><enabled>yes</enabled></startupnotify>
     </action>
   </item>
@@ -241,7 +268,7 @@
   <menu id="apps-accessories-menu"/>
   <menu id="apps-editors-menu"/>
   <menu id="apps-net-menu"/>
-  <!-- <menu id="apps-office-menu"/> -->
+  <menu id="apps-office-menu"/>
   <menu id="apps-multimedia-menu"/>
   <menu id="apps-fileman-menu"/>
   <separator label="Preferences" />
