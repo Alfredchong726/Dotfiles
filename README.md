@@ -52,5 +52,9 @@ ln -sf ~/.dotfiles/.config/nvim ~/.config/
 #### Neovim
 * [Neovim configuration](https://github.com/Alfredchong260/Dotfiles/tree/main/.config/nvim)
 
+#### Starship
+###### Increase the gui of shell prompt
+* [Starship Configuration](https://github.com/Alfredchong260/Dotfiles/blob/main/.config/starship.toml)
+
 ## Sources
 * [Derek Taylor's Gitlab](https://gitlab.com/dwt1)
