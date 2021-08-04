@@ -13,11 +13,6 @@ return require('packer').startup(function()
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
 
-    -- LSP
-    use 'neovim/nvim-lspconfig'
-    use 'kabouzeid/nvim-lspinstall'
-    use 'hrsh7th/nvim-compe'
-
     -- Autocomplete COC
     use {'neoclide/coc.nvim', branch = 'master', run = 'yarn install --frozen-lockfile'}
 
@@ -38,7 +33,6 @@ return require('packer').startup(function()
     use 'tpope/vim-commentary'
 
     -- Customize the menu
-    -- use 'mhinz/vim-startify'
     use 'glepnir/dashboard-nvim'
 
     -- Airline

@@ -12,8 +12,9 @@ export ZSH=/usr/share/oh-my-zsh/
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 # if you installed the package oh-my-zsh-powerline-theme-git then you type here "powerline" as zsh theme
-ZSH_THEME="random"
-
+# ZSH_THEME="random"
+eval "$(starship init zsh)"
+colorscript random
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
@@ -348,7 +349,7 @@ alias personal='cp -Rf /personal/* ~'
 
 # reporting tools - install when not installed
 # install neofetch
-neofetch
+# neofetch
 # install screenfetch
 #screenfetch
 # install ufetch-git
