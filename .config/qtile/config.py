@@ -1,5 +1,4 @@
 import os
-import re
 import socket
 import subprocess
 from libqtile.config import Drag, Key, Screen, Group, Drag, Click, Rule
@@ -38,6 +37,7 @@ keys = [
     Key([mod], "Return", lazy.spawn(myTerm)),
     Key([mod], "m", lazy.spawn("deadbeef")),
     Key([mod], "n", lazy.spawn("nitrogen")),
+    Key([mod], "c", lazy.spawn("galculator")),
     Key([mod], "o", lazy.spawn("wps")),
     Key([mod], "t", lazy.spawn("xfce4-taskmanager")),
     Key([mod], "d", lazy.spawn("thunar")),
