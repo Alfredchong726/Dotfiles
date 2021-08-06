@@ -378,6 +378,7 @@ cursor_warp = False
 def start_once():
     home = os.path.expanduser('~')
     subprocess.call([home + '/.config/qtile/autostart.sh'])
+    subprocess.call([home + '~/.xrandr-ext-mon'])
 
 @hook.subscribe.startup
 def start_always():
