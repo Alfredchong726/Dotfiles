@@ -17,7 +17,7 @@ vim.cmd('source ~/.config/nvim/plugin/airline.vim')
 vim.cmd('source ~/.config/nvim/plugin/telescope.vim')
 vim.cmd('luafile ~/.config/nvim/plugin/colorscheme.lua')
 
-require('lv-telescope')
+-- require('lv-telescope')
 require('lv-treesitter')
 
 require'nvim-treesitter.configs'.setup {

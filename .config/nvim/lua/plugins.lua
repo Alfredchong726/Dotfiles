@@ -42,7 +42,7 @@ return require('packer').startup(function()
     -- Auto pair for [{(
     use 'jiangmiao/auto-pairs'
 
-    -- Fuzzy finder
+    -- -- Fuzzy finder
     use {
         'nvim-telescope/telescope.nvim',
         requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
