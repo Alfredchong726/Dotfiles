@@ -93,7 +93,7 @@ format = "gambling with [$env_value]($style)"
 
 # techno specific
 [aws]
-symbol = " "
+symbol = ""
 
 [conda]
 symbol = " "
