@@ -21,7 +21,7 @@
 <img src='https://github.com/Alfredchong260/Dotfiles/blob/main/image/nvim.png'>
 ##### Here is some usage of the NeoVim
 
-###### You can straightly type nvim on your terminal, then this may show
+##### You can straightly type nvim on your terminal, then this may show
 ###### You can follow the command show on your screen
    Command    | What will do ?
 ------------- | ------------- 
@@ -91,4 +91,22 @@ echo $PATH
 // run this command on your terminal then it will fix
 
 npm install coc.nvim@0.0.81-next.5 
+```
+
+### To code with java you have to setup java environment
+### First, check your java version
+```sh
+java --version
+```
+
+#### If it appear the java version then that is fine, but if there show java is unknown command, you have to install jkd
+
+###### For Arch Linux 
+```sh
+sudo pacman -S jre-openjdk jdk-openjdk
+```
+
+###### For Ubuntu
+```sh
+sudo apt-get install openjdk-8-jre openjdk-8-jdk
 ```
