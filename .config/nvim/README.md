@@ -54,4 +54,41 @@
 ```
 #### If you want others coc extensions or you worth others coc functions you can go to coc extensions to download others extensions
 
-ffjj[coc extensions](https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions)
+[coc extensions](https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions)
+
+### Some troubles you might face during using the coc completion
+##### "node" is not executable
+##### build/index.js not found, please compile coc.nvim ny npm run build
+```sh
+// Solution of first scenario 
+// Go to nodejs.org and install node.js file
+
+// run these command on your terminal to setup the environment for nodejs
+cd /usr/local/lib/
+mkdir -p nodejs
+
+cd ~/Downloads
+sudo tar -xJvf node-v14.15.4-linux-x64.tar.xz /usr/local/lib/nodejs/
+
+// Then this step will be different, it depends on what shell you are using
+
+// Bash
+// In your .bashrc add this line
+export PATH=cd /usr/local/lib/nodejs/node-v14.17.4-linux-x64/bin:$PATH
+
+// Fish
+// In your ~/.config/fish/config.fish add this line
+set -gx PATH $PATH /usr/local/lib/nodejs/node-v14.17.4-linux-x64/bin/
+
+// Then  you can check the path by using this command
+echo $PATH
+```
+###### Then you can see this 
+<img src='https://github.com/Alfredchong260/Dotfiles/blob/main/image/example.png'>
+
+```sh
+// Solution of second scenario 
+// run this command on your terminal then it will fix
+
+npm install coc.nvim@0.0.81-next.5 
+```
