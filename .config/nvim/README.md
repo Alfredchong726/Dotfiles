@@ -1,4 +1,5 @@
 # NeoVim configuration by lua and vim scripts
+###### This nvim config can also used for NeoVide which contain a better view experience
 
 ### Before start you need to make sure your nvim at least is 0.5.0 if not you may not use some features of this config file. Moreover, thee may occur some errors.
 
