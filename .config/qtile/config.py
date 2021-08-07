@@ -26,6 +26,7 @@ def window_to_next_group(qtile):
         i = qtile.groups.index(qtile.currentGroup)
         qtile.currentWindow.togroup(qtile.groups[i + 1].name)
 
+# START_KEYS
 keys = [
 
 # Most of our keybindings are in sxhkd file - except these
@@ -128,6 +129,7 @@ keys = [
     Key([mod, "shift"], "l", lazy.layout.shuffle_right()),
 
     ]
+# END_KEYS
 
 group_names = [("WWW", {'layout': 'max'}),
                ("FISH", {'layout': 'monadtall'}),
