@@ -62,8 +62,8 @@
 ##### "node" is not executable
 ##### build/index.js not found, please compile coc.nvim ny npm run build
 ```sh
-// Solution of first scenario 
-// Go to nodejs.org and install node.js file
+-- Solution of first scenario 
+-- Go to nodejs.org and install node.js file
 
 // run these command on your terminal to setup the environment for nodejs
 cd /usr/local/lib/
