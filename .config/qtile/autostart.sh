@@ -26,13 +26,14 @@ run dex $HOME/.config/autostart/arcolinux-welcome-app.desktop &
 run dex /usr/share/applications/org.fcitx.Fcitx5.desktop &
 
 #start the conky to learn the shortcuts
-# (conky -c $HOME/.config/qtile/scripts/system-overview) &
+conky -c $HOME/.config/conky/AUR-Redux-LUA.conkyrc &
 
 
 #starting utility applications at boot time
 run nm-applet &
 run pamac-tray &
 run xfce4-power-manager &
+run ./.xrandr-ext-mon &
 numlockx on &
 blueberry-tray &
 picom --config $HOME/.config/qtile/scripts/picom.conf &
@@ -43,7 +44,6 @@ picom --config $HOME/.config/qtile/scripts/picom.conf &
 run volumeicon &
 #run discord &
 nitrogen --random --set-tiled &
-# ./xrandr-ext-mon &
 # xset led on &
 #run vivaldi-stable &
 #run firefox &
