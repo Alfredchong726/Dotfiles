@@ -114,7 +114,7 @@ keys = [
     Key([mod, "shift"], "m", lazy.layout.maximize()),
 
 # FLIP LAYOUT FOR MONADTALL/MONADWIDE
-    Key([mod, "shift"], "f", lazy.layout.flip()),
+    Key([mod, "control"], "f", lazy.layout.flip()),
 
 # FLIP LAYOUT FOR BSP
     Key([mod, "mod1"], "k", lazy.layout.flip_up()),
@@ -313,7 +313,7 @@ def init_widgets_list():
                         foreground=colors[2],
                         background=colors[1],
                         padding = 0,
-                        mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(myTerm + ' -e cal -y')},
+                        mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(myTerm + ' -e htop')},
                         fontsize=16
                         ),
                 widget.Clock(
