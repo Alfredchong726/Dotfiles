@@ -592,6 +592,7 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- Autostart Application
 awful.spawn.with_shell("fcitx5")
 awful.spawn.with_shell("picom --config  $HOME/.config/awesome/picom.conf")
+awful.spawn.with_shell("conky -c ~/.config/conky/AUR-Redux-LUA.conkyrc")
 awful.spawn.with_shell("volumeicon")
 awful.spawn.with_shell("xrandr --output HDMI-2 --left-of eDP-1")
 awful.spawn.with_shell("nitrogen --random --set-tiled")
