@@ -51,7 +51,7 @@ utils.map('n', '<Leader>was', ':w | luafile %<CR>')
 utils.map('x', 'K', ':move \'<-2<CR>gv-gv\'')
 utils.map('x', 'J', ':move \'>+1<CR>gv-gv\'')
 
--- Space ts for running python code
+-- Space ts for calling terminal
 utils.map('n', '<Leader>ts', ':bel split term://fish<CR>:resize 10<CR>i')
 
 -- Call Startify
