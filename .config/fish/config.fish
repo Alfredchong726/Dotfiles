@@ -15,6 +15,13 @@ function ll
     ls -lh $argv
 end
 
+function Get_Qtile
+    sed -n '/START_KEYS/,/END_KEYS/p' ~/.config/qtile/config.py | \
+    grep -v '#' | \
+    grep 'Key' | \
+    sed -e 's/^[ \t]*//'
+end
+
 # change wallpaper
 function change
     nitrogen --random --set-tiled
@@ -23,7 +30,7 @@ end
 # git push in one line of command 
 function Git
     git add .
-    git commit -m '$argv'
+    git commit -m $argv
     git push origin main
 end
 
@@ -75,3 +82,4 @@ alias tofish="sudo chsh $USER -s /bin/fish && echo 'Now log out.'"
 set PATH $PATH /usr/local/bin
 export PATH
 set -gx PATH $PATH /usr/local/lib/nodejs/node-v14.17.4-linux-x64/bin/
+set -gx PATH $PATH $HOME/.cargo/bin/
