@@ -163,6 +163,18 @@ local function set_wallpaper(s)
     end
 end
 
+local function backlight_inc()
+    current_brightness = io.popen("brightnessctl g"):read("*a")
+    new_brightness = current_brightness + current_brightness * 0.1
+    os.execute("brightnessctl set " .. new_brightness)
+end
+
+local function backlight_dec()
+    current_brightness = io.popen("brightnessctl g"):read("*a")
+    new_brightness = current_brightness - current_brightness * 0.1
+    os.execute("brightnessctl set " .. new_brightness)
+end
+
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
 screen.connect_signal("property::geometry", set_wallpaper)
 
@@ -231,12 +243,6 @@ root.buttons(gears.table.join(
 -- {{{ Key bindings
 globalkeys = gears.table.join(
 
-    -- Brightness
-    awful.key({ }, "F1", function ()
-        awful.util.spawn("xbacklight -dec 15") end),
-    awful.key({ }, "XF86MonBrightnessUp", function ()
-        awful.util.spawn("xbacklight -inc 15") end),
-
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
               {description="show help", group="awesome"}),
     awful.key({ modkey,           }, "Left",   awful.tag.viewprev,
@@ -258,8 +264,6 @@ globalkeys = gears.table.join(
         end,
         {description = "focus previous by index", group = "client"}
     ),
-    awful.key({ modkey,           }, "w", function () mymainmenu:show() end,
-              {description = "show main menu", group = "awesome"}),
 
     -- Applications
     awful.key({ modkey,           }, "d", function () awful.spawn('Thunar') end,
@@ -272,9 +276,22 @@ globalkeys = gears.table.join(
               {description = "open firefox", group = "applications"}),
     awful.key({ modkey, "Shift"   }, "t", function () awful.spawn('teams') end,
               {description = "open teams", group = "applications"}),
+    awful.key({ modkey,           }, "w", function () awful.spawn('whatsapp-for-linux') end,
+              {description = "show main menu", group = "awesome"}),
 
     -- HotKey
+    awful.key({ modkey, "Shift"    }, "s", function () awful.spawn(terminal.." -e shutdown now") end,
+              {description = "shutdown", group = "HotKey"}),
 
+    awful.key({ modkey, "Control"  }, "r", function () awful.spawn(terminal.."-e reboot") end,
+              {description = "reboot", group = "HotKey"}),
+    
+            -- Brightness
+    awful.key({ modkey }, "=", function() backlight_inc() end,
+              { description = "Increase brightness", group = "HotKey"}),
+
+    awful.key({ modkey }, "-", function() backlight_dec() end,
+              { description = "Decrease brightness", group = "HotKey"}),
 
     -- Layout manipulation
     awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end,
@@ -596,3 +613,10 @@ awful.spawn.with_shell("conky -c ~/.config/conky/AUR-Redux-LUA.conkyrc")
 awful.spawn.with_shell("volumeicon")
 awful.spawn.with_shell("xrandr --output HDMI-2 --left-of eDP-1")
 awful.spawn.with_shell("nitrogen --random --set-tiled")
+awful.spawn.with_shell("nm-applet")
+awful.spawn.with_shell("pamac-tray")
+awful.spawn.with_shell("pamac-tray")
+awful.spawn.with_shell("xfce4-power-manager")
+awful.spawn.with_shell("numlockx on")
+awful.spawn.with_shell("blueberry-tray")
+awful.spawn.with_shell("/usr/lib/xfce4/notifyd/xfce4-notifyd")
