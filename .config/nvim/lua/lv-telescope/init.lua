@@ -11,7 +11,6 @@ require('telescope').setup {
         selection_caret = " ",
         entry_prefix = "  ",
         initial_mode = "insert",
-        -- initial_mode = "insert",
         selection_strategy = "reset",
         sorting_strategy = "descending",
         layout_strategy = "horizontal",
@@ -63,5 +62,21 @@ require('telescope').setup {
             }
         }
     },
+    extensions = {
+        fzy_native = {
+            override_generic_sorter = false,
+            override_file_sorter = true,
+        }
+    }
 }
 
+require('telescope').load_extensions('fzy_native')
+local M = {}
+M.search_dotfiles = function()
+    require("telescope.builtin").find_files({
+        prompt_title = "<Init.Lua>",
+        cwd = "~/.Dotfiles/.config/nvim/init.lua/",
+})
+end
+
+return M
