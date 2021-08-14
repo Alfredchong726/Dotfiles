@@ -28,6 +28,8 @@ return require('packer').startup(function()
     use 'gruvbox-community/gruvbox'
     use 'liuchengxu/space-vim-dark'
     use 'drewtempelmeyer/palenight.vim'
+    use 'sonph/onehalf'
+    use 'tomasr/molokai'
 
     -- gc & gcc to coment
     use 'tpope/vim-commentary'
