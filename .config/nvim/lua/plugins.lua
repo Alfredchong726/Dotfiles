@@ -16,9 +16,6 @@ return require('packer').startup(function()
     -- Autocomplete COC
     use {'neoclide/coc.nvim', branch = 'master', run = 'yarn install --frozen-lockfile'}
 
-    -- Formater
-    use 'Chiel92/vim-autoformat'
-
     -- Treesitter
     use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}
     use {"windwp/nvim-ts-autotag", opt = true}
