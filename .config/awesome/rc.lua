@@ -278,13 +278,18 @@ globalkeys = gears.table.join(
               {description = "open teams", group = "applications"}),
     awful.key({ modkey,           }, "w", function () awful.spawn('whatsapp-for-linux') end,
               {description = "show main menu", group = "awesome"}),
+    awful.key({ modkey,           }, "n", function () awful.spawn('nitrogen') end,
+              {description = "show main menu", group = "awesome"}),
 
     -- HotKey
     awful.key({ modkey, "Shift"    }, "s", function () awful.spawn(terminal.." -e shutdown now") end,
               {description = "shutdown", group = "HotKey"}),
-
     awful.key({ modkey, "Control"  }, "r", function () awful.spawn(terminal.."-e reboot") end,
               {description = "reboot", group = "HotKey"}),
+    awful.key({ modkey,            }, "a", function () awful.spawn(terminal.."-e pavucontrol") end,
+              {description = "start pulseaudio", group = "HotKey"}),
+    awful.key({ modkey,            }, "b", function () awful.spawn(terminal.."-e bpytop") end,
+              {description = "start pulseaudio", group = "HotKey"}),
     
             -- Brightness
     awful.key({ modkey }, "=", function() backlight_inc() end,
@@ -612,11 +617,10 @@ awful.spawn.with_shell("picom --config  $HOME/.config/awesome/picom.conf")
 awful.spawn.with_shell("conky -c ~/.config/conky/AUR-Redux-LUA.conkyrc")
 awful.spawn.with_shell("volumeicon")
 awful.spawn.with_shell("xrandr --output HDMI-2 --left-of eDP-1")
-awful.spawn.with_shell("nitrogen --random --set-tiled")
 awful.spawn.with_shell("nm-applet")
-awful.spawn.with_shell("pamac-tray")
 awful.spawn.with_shell("pamac-tray")
 awful.spawn.with_shell("xfce4-power-manager")
 awful.spawn.with_shell("numlockx on")
 awful.spawn.with_shell("blueberry-tray")
 awful.spawn.with_shell("/usr/lib/xfce4/notifyd/xfce4-notifyd")
+awful.spawn.with_shell("nitrogen --random --set-tiled")
