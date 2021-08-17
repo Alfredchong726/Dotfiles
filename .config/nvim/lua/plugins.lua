@@ -40,6 +40,7 @@ return require('packer').startup(function()
     -- Airline
     use 'vim-airline/vim-airline'
     use 'vim-airline/vim-airline-themes'
+    use 'edkolev/tmuxline.vim'
 
     -- Auto pair for [{(
     use 'jiangmiao/auto-pairs'
