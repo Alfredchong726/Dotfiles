@@ -405,6 +405,11 @@
        switching due to hitting the edge of the screen -->
 
   <context name="Frame">
+    <mousebind button="Right" action="Press">
+    <action name="ShowMenu">
+      <menu>root-menu</menu>
+    </action>
+  </mousebind>
     <mousebind button="A-Left" action="Press">
       <action name="Focus"/>
       <action name="Raise"/>

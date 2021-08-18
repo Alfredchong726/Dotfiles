@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<openbox_menu xmlns="http://openbox.org/3.4/menu">
+<openbox_menu x<openbox_menu xmlns="http://openbox.org/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://openbox.org/                 file:///usr/share/openbox/menu.xsd">mlns="http://openbox.org/3.4/menu">
 
 <menu id="apps-accessories-menu" label="Accessories">
   <item label="Rofi">
@@ -279,7 +279,7 @@
   <menu id="system-menu"/>
   <separator />
   <separator/>
-  <!-- <menu execute="~/.config/openbox/pipemenus/deadbeef.sh" id="Music Player" label="Music Player"/> -->
+  <menu execute="~/.config/openbox/pipemenus/deadbeef.sh" id="Music Player" label="Music Player"/>
   <menu execute="~/.config/openbox/pipemenus/sysinfo.py" id="sysinfo" label="System Info"/>
   <menu execute="~/.config/openbox/pipemenus/date-menu.py" id="datetime" label="Time and Date"/>
   <separator/>
