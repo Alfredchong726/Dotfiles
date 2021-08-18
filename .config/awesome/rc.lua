@@ -284,7 +284,7 @@ globalkeys = gears.table.join(
     -- HotKey
     awful.key({ modkey, "Shift"    }, "s", function () awful.spawn(terminal.." -e shutdown now") end,
               {description = "shutdown", group = "HotKey"}),
-    awful.key({ modkey, "Control"  }, "r", function () awful.spawn(terminal.."-e reboot") end,
+    awful.key({ modkey, "Control"  }, "r", function () awful.spawn(terminal.."-e reboot now") end,
               {description = "reboot", group = "HotKey"}),
     awful.key({ modkey,            }, "a", function () awful.spawn(terminal.."-e pavucontrol") end,
               {description = "start pulseaudio", group = "HotKey"}),
@@ -613,7 +613,7 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 -- Autostart Application
 awful.spawn.with_shell("fcitx5")
-awful.spawn.with_shell("picom --config  $HOME/.config/awesome/picom.conf")
+awful.spawn.with_shell("picom --config  $HOME/.config/picom/picom.conf")
 awful.spawn.with_shell("conky -c ~/.config/conky/AUR-Redux-LUA.conkyrc")
 awful.spawn.with_shell("volumeicon")
 awful.spawn.with_shell("xrandr --output HDMI-2 --left-of eDP-1")
