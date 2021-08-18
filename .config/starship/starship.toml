@@ -93,16 +93,16 @@ format = "gambling with [$env_value]($style)"
 
 # techno specific
 [aws]
-symbol = ""
+symbol = "☁️"
 
 [conda]
 symbol = " "
 
 [dart]
-symbol = " "
+symbol = "🎯"
 
 [elixir]
-symbol = " "
+symbol = "💧 "
 
 [elm]
 symbol = " "
@@ -110,24 +110,24 @@ symbol = " "
 [lua]
 symbol = " "
 
-# [java]
-# symbol = " "
+[java]
+symbol = "☕ "
 
 [nix_shell]
 symbol = " "
 
 [nodejs]
-symbol = " "
-
-[php]
-symbol = " "
-
-[python]
 symbol = " "
 
+[php]
+symbol = "🐘 "
+
+[python]
+symbol = "🐍 "
+
 [ruby]
-symbol = " "
+symbol = "💎 "
 
 [rust]
-symbol = " "
+symbol = "🦀 "
 style = "fg:#ffa07a"
