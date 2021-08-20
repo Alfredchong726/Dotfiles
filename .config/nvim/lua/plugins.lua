@@ -37,15 +37,16 @@ return require('packer').startup(function()
     -- Airline
     use 'vim-airline/vim-airline'
     use 'vim-airline/vim-airline-themes'
-    use 'edkolev/tmuxline.vim'
 
     -- Auto pair for [{(
     use 'jiangmiao/auto-pairs'
 
-    -- -- Fuzzy finder
+    -- Fuzzy finder
     use {
         'nvim-telescope/telescope.nvim',
         requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
     }
 
+    -- Vim Surround
+    use 'tpope/vim-surround'
 end)
