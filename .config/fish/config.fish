@@ -40,8 +40,8 @@ function v -a change
         set len_of_has_git (count $has_git)
 
         if test $len_of_has_git -eq 1
-            cd $has_git
-            cd ..
+           cd $has_git
+           cd ..
         end
     end
     nvim $file
@@ -110,5 +110,6 @@ alias tofish="sudo chsh $USER -s /bin/fish && echo 'Now log out.'"
 # setup the environment
 set PATH $PATH /usr/local/bin
 set -gx PATH $PATH /usr/local/lib/nodejs/node-v14.17.4-linux-x64/bin/
+set -gx PATH $PATH $HOME/.cargo/bin/
 set -gx PATH $PATH $HOME/.cargo/bin/
 export PATH
