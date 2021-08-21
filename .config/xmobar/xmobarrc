@@ -1,0 +1,39 @@
+Config { font    = "xft:Ubuntu:weight=bold:pixelsize=11:antialias=true:hinting=true"
+       , additionalFonts = [ "xft:Mononoki Nerd Font:pixelsize=11:antialias=true:hinting=true"
+                           , "xft:Font Awesome 5 Free Solid:pixelsize=12"
+                           , "xft:Font Awesome 5 Brands:pixelsize=12"
+                           ]
+       , bgColor = "#282c34"
+       , fgColor = "#ff6c6b"
+       , position = Static { xpos = 0 , ypos = 0, width = 1920, height = 24 }
+       , lowerOnStart = True
+       , hideOnStart = False
+       , allDesktops = True
+       , persistent = True
+       , commands = [
+                    -- Time and date
+                      Run Date "<fn=2>\xf017</fn>  %b %d %Y - (%H:%M) " "date" 50
+
+                      -- Network up and down
+                    , Run Network "enp6s0" ["-t", "<fn=2>\xf0ab</fn>  <rx>kb  <fn=2>\xf0aa</fn>  <tx>kb"] 20
+
+                      -- Cpu usage in percent
+                    , Run Cpu ["-t", "<fn=2>\xf108</fn>  cpu: (<total>%)","-H","50","--high","red"] 20
+
+                      -- Ram used number and percent
+                    , Run Memory ["-t", "<fn=2>\xf233</fn>  mem: <used>M (<usedratio>%)"] 20
+
+                      -- Disk space free
+                    , Run DiskU [("/", "<fn=2>\xf0c7</fn>  hdd: <free> free")] [] 60
+
+                      -- Runs custom script to check for pacman updates.
+                      -- This script is in my dotfiles repo in .local/bin.
+                    , Run Com "/home/cms/.local/bin/pacupdate" [] "pacupdate" 36000
+                      -- Runs a standard shell command 'uname -r' to get kernel version
+                    , Run Com "uname" ["-r"] "" 3600
+                    , Run UnsafeStdinReader
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = " <fc=white><fn=2><action=button=4><action=button=5>%UnsafeStdinReader%</action></action></fn></fc>}<action=`gsimplecal` button=1>%date%</action>{<fc=white> %update% |<fn=2>  </fn></fc> %kbd% | %coretemp% | %multicpu% | %memory% | <action=`pavucontrol` button=3><action=`XMMute` button=1><action=button=4><action=button=5>%XVol% </action></action></action></action>   "
+       }
