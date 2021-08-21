@@ -284,7 +284,7 @@ globalkeys = gears.table.join(
     -- HotKey
     awful.key({ modkey, "Shift"    }, "s", function () awful.spawn(terminal.." -e shutdown now") end,
               {description = "shutdown", group = "HotKey"}),
-    awful.key({ modkey, "Control"  }, "r", function () awful.spawn(terminal.."-e reboot") end,
+    awful.key({ modkey, "Control"  }, "r", function () awful.spawn(terminal.."-e reboot now") end,
               {description = "reboot", group = "HotKey"}),
     awful.key({ modkey,            }, "a", function () awful.spawn(terminal.."-e pavucontrol") end,
               {description = "start pulseaudio", group = "HotKey"}),
