@@ -286,7 +286,7 @@ myLayoutHook = avoidStruts $ mouseResize $ windowArrange $ T.toggleLayouts float
                                  ||| wideAccordion
 
 -- myWorkspaces = [" 1 ", " 2 ", " 3 ", " 4 ", " 5 ", " 6 ", " 7 ", " 8 ", " 9 "]
-myWorkspaces = [" WWW ", " FISH ", " PYTHON ", " JAVA ", " C ", " PHP ", " LUA ", " SYS ", " MUS "]
+myWorkspaces = [" dev ", " www ", " sys ", " doc ", " vbox ", " chat ", " mus ", " vid ", " gfx "]
 myWorkspaceIndices = M.fromList $ zipWith (,) myWorkspaces [1..] -- (,) == \x y -> (x,y)
 
 clickable ws = "<action=xdotool key super+"++show i++">"++ws++"</action>"
@@ -317,6 +317,9 @@ myKeys =
 
     -- KB_GROUP Run Prompt
         , ("M-S-<Return>", spawn "rofi -show run")  -- Rofi
+    --
+    -- KB_GROUP Application
+        , ("M-S-f", spawn "firefox")
 
     -- KB_GROUP Useful programs to have a keybinding for launch
         , ("M-<Return>", spawn (myTerminal))
@@ -396,7 +399,7 @@ myKeys =
     -- KB_GROUP Set wallpaper
     -- Set wallpaper with 'feh'. Type 'SUPER+F1' to launch sxiv in the wallpapers directory.
     -- Then in sxiv, type 'C-x w' to set the wallpaper that you choose.
-        , ("M-<F1>", spawn "nitrogen --random --set-tiled")
+        , ("M1-<Space>", spawn "nitrogen --random --set-tiled")
 
     -- KB_GROUP Controls for mocp music player (SUPER-u followed by a key)
         , ("M-u p", spawn "deadbeef --play")
