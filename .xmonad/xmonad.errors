@@ -1,5 +1,0 @@
-
-xmonad.hs:419:49: error: parse error on input ‘]’
-    |
-419 |         , ("<Print>", spawn "xfce4-screensaver")] 
-    |                                                 ^

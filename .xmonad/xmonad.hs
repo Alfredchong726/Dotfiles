@@ -286,7 +286,7 @@ myLayoutHook = avoidStruts $ mouseResize $ windowArrange $ T.toggleLayouts float
                                  ||| wideAccordion
 
 -- myWorkspaces = [" 1 ", " 2 ", " 3 ", " 4 ", " 5 ", " 6 ", " 7 ", " 8 ", " 9 "]
-myWorkspaces = [" dev ", " www ", " sys ", " doc ", " vbox ", " chat ", " mus ", " vid ", " gfx "]
+myWorkspaces = [" WWW ", " FISH ", " PYTHON ", " JAVA ", " PHP ", " C ", " LUA ", " SYS ", " MUS "]
 myWorkspaceIndices = M.fromList $ zipWith (,) myWorkspaces [1..] -- (,) == \x y -> (x,y)
 
 clickable ws = "<action=xdotool key super+"++show i++">"++ws++"</action>"
@@ -310,8 +310,8 @@ myManageHook = composeAll
 myKeys :: [(String, X ())]
 myKeys =
     -- KB_GROUP Xmonad
-        [ ("M-C-r", spawn "xmonad --recompile")  -- Recompiles xmonad
-        , ("M-S-r", spawn "xmonad --restart")    -- Restarts xmonad
+        -- [ ("M-C-r", spawn "xmonad --recompile")  -- Recompiles xmonad
+        [("M-S-r", spawn "xmonad --restart")    -- Restarts xmonad
         , ("M-S-q", io exitSuccess)              -- Quits xmonad
         , ("M-S-/", spawn "~/.xmonad/xmonad_keys.sh")
 
@@ -320,6 +320,12 @@ myKeys =
     --
     -- KB_GROUP Application
         , ("M-S-f", spawn "firefox")
+        , ("M-v", spawn "vmplayer")
+        , ("M-w", spawn "whatsapp-for-linux")
+
+    -- KB_GROUP HotKey
+        , ("M-S-s", spawn "shutdown now")
+        , ("M-S-r", spawn "reboot now")
 
     -- KB_GROUP Useful programs to have a keybinding for launch
         , ("M-<Return>", spawn (myTerminal))
@@ -415,8 +421,8 @@ myKeys =
         , ("<XF86AudioLowerVolume>", spawn "amixer set Master 5%- unmute")
         , ("<XF86AudioRaiseVolume>", spawn "amixer set Master 5%+ unmute")
         , ("<XF86Search>", spawn "dmsearch")
-        , ("<XF86Calculator>", runOrRaise "galculator"
-        , ("<Print>", spawn "xfce4-screensaver")] 
+        , ("<Print>", spawn "xfce4-screensaver")
+        ]
     -- The following lines are needed for named scratchpads.
           where nonNSP          = WSIs (return (\ws -> W.tag ws /= "NSP"))
                 nonEmptyNonNSP  = WSIs (return (\ws -> isJust (W.stack ws) && W.tag ws /= "NSP"))
