@@ -219,16 +219,19 @@ super + Tab
 	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
 # Move focus to other monitor
-super + space
+super + period
 		bspc monitor -f next
 
+# Move focus to other monitor
+super + comma
+		bspc monitor -f next
 # Move focused window to other monitor
-super + period
+super + o
 	bspc node -m next --follow
 
 # Move focused window to other monitor
-super + comma
-		bspc node -m next --follow
+# super + comma
+# 		bspc node -m next --follow
 
 #################################################################
 # SUPER + ALT KEYS
