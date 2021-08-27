@@ -321,6 +321,7 @@ myKeys =
     -- KB_GROUP Application
         , ("M-S-f", spawn "firefox")
         , ("M-v", spawn "vmplayer")
+        , ("M-d", spawn "thunar")
         , ("M-w", spawn "whatsapp-for-linux")
 
     -- KB_GROUP HotKey
