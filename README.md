@@ -41,13 +41,19 @@ ln -sf ~/.dotfiles/.config/nvim ~/.config/
 #### Tiling window manager
 * [Qtile configuration](https://github.com/Alfredchong260/Dotfiles/tree/main/.config/qtile)
 * [Awesome configuration](https://github.com/Alfredchong260/Dotfiles/tree/main/.config/awesome)
-* [Xmonad configuration](https://github.com/Alfredchong260/Dotfiles/tree/main/.xmonad)
+* [XMonad configuration](https://github.com/Alfredchong260/Dotfiles/tree/main/.xmonad)
 * [BspWM configuration](https://github.com/Alfredchong260/Dotfiles/tree/main/.config/bspwm)
 
 #### Floating window manager
 * [Openbox configuration](https://github.com/Alfredchong260/Dotfiles/tree/main/.config/openbox)
 
 ## Applications
+#### Status Bar for XMonad and BspWM
+###### Xmobar for XMonad
+* [Xmobar](https://github.com/Alfredchong260/Dotfiles/tree/main/.config/xmobar)
+###### PolyBar for BspWM
+* [PolyBar](https://github.com/Alfredchong260/Dotfiles/tree/main/.config/polybar)
+
 #### Rofi
 * [Rofi configuration](https://github.com/Alfredchong260/Dotfiles/tree/main/.config/rofi)
 
