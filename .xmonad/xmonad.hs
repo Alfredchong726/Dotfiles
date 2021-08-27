@@ -140,7 +140,7 @@ myAppGrid = [
 
 myScratchPads :: [NamedScratchpad]
 myScratchPads = [ NS "terminal" spawnTerm findTerm manageTerm
-                , NS "deadbeef" spawnDeadbeef findDeadbeef manageDeadbeef
+                , NS "mocp" spawnMocp findMocp manageMocp
                 , NS "calculator" spawnCalc findCalc manageCalc
                 ]
   where
@@ -152,23 +152,22 @@ myScratchPads = [ NS "terminal" spawnTerm findTerm manageTerm
                  w = 0.9
                  t = 0.95 -h
                  l = 0.95 -w
-    spawnDeadbeef  = myTerminal ++ " -t deadbeef -e deadbeef"
-    findDeadbeef   = title =? "deadbeef"
-    manageDeadbeef = customFloating $ W.RationalRect l t w h
+    spawnMocp  = myTerminal ++ " -t mocp -e mocp"
+    findMocp   = title =? "mocp"
+    manageMocp = customFloating $ W.RationalRect l t w h
                where
                  h = 0.9
                  w = 0.9
                  t = 0.95 -h
                  l = 0.95 -w 
-
-    spawnCalc  = "galculator"
+    spawnCalc  = "qalculate-gtk"
     findCalc   = className =? "Qalculate-gtk"
     manageCalc = customFloating $ W.RationalRect l t w h
                where
                  h = 0.5
                  w = 0.4
                  t = 0.75 -h
-                 l = 0.70 -w
+                 l = 0.70 -w 
 
 --Makes setting the spacingRaw simpler to write. The spacingRaw module adds a configurable amount of space around windows.
 mySpacing :: Integer -> l a -> XMonad.Layout.LayoutModifier.ModifiedLayout Spacing l a
