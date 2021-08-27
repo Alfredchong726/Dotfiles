@@ -65,7 +65,9 @@ keys = [
     Key([mod, "control"], "j", lazy.prev_screen()),
     Key([mod, "control"], "k", lazy.next_screen()),
 
+    Key(["mod1"], "space", lazy.spawn("nitrogen --random --set-tiled")),
 # FUNCTION KEY
+    Key([], "F4", lazy.spawn("~/.config/qtile/qtile_keys.sh")),
     Key([], "F3", lazy.spawn("xfce4-settings-manager")),
     Key([], "F2", lazy.spawn("xfce4-appfinder")),
     Key([], "F1", lazy.spawn("xfce4-find-cursor")),
@@ -109,6 +111,7 @@ keys = [
         ),
 
     Key([mod], "comma", lazy.window.toggle_minimize()),
+    Key([mod], "comma", lazy.window.toggle_minimize()),
     Key([mod, "shift"], "f", lazy.window.toggle_fullscreen()),
     Key([mod, "shift"], "n", lazy.layout.normalize()),
     Key([mod, "shift"], "m", lazy.layout.maximize()),
@@ -128,6 +131,7 @@ keys = [
     Key([mod, "shift"], "h", lazy.layout.shuffle_left()),
     Key([mod, "shift"], "l", lazy.layout.shuffle_right()),
 
+# CHANGE WALLPAPER
     ]
 # END_KEYS
 
