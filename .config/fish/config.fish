@@ -18,6 +18,7 @@ function Get_Qtile
     sed -e 's/^[ \t]*//'
 end
 
+# v function can easily get into file
 function v -a change
     set ori_dir (pwd)
     cd $HOME
