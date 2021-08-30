@@ -286,11 +286,11 @@ globalkeys = gears.table.join(
               {description = "shutdown", group = "HotKey"}),
     awful.key({ modkey, "Control"  }, "r", function () awful.spawn(terminal.."-e reboot now") end,
               {description = "reboot", group = "HotKey"}),
-    awful.key({ modkey,            }, "a", function () awful.spawn(terminal.."-e pavucontrol") end,
+    awful.key({ modkey,            }, "a", function () awful.spawn("pavucontrol") end,
               {description = "start pulseaudio", group = "HotKey"}),
     awful.key({ modkey,            }, "b", function () awful.spawn(terminal.."-e bpytop") end,
               {description = "start pulseaudio", group = "HotKey"}),
-    awful.key({ modkey,            }, "c", function () awful.spawn(terminal.."-e nitrogen --random --set-tiled") end,
+    awful.key({ modkey,            }, "c", function () awful.spawn("nitrogen --random --set-tiled") end,
               {description = "change wallpaper", group = "HotKey"}),
     
             -- Brightness
