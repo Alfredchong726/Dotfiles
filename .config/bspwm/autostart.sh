@@ -16,5 +16,4 @@ run xfce4-power-manager &
 blueberry-tray &
 picom --config $HOME/.config/picom/picom.conf &
 /usr/lib/xfce4/notifyd/xfce4-notifyd &
-run volumeicon &
 nitrogen --random --set-tiled &

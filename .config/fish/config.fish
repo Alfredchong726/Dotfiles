@@ -3,6 +3,16 @@ colorscript random                  # Random colorscript when enter fish shell
 starship init fish | source         # Start starship
 set TERM "xterm-256color"           # Set terminal type
 
+set fish_color_normal brcyan
+set fish_color_autosuggestion '#7d7d7d'
+set fish_color_command brcyan
+set fish_color_error '#ff6c6b'
+set fish_color_param brcyan
+
+
+### "bat" as manpager
+set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
+
 # Path to Oh My Fish install.
 set -q XDG_DATA_HOME
   and set -gx OMF_PATH "$XDG_DATA_HOME/omf"
@@ -10,6 +20,11 @@ set -q XDG_DATA_HOME
 
 # Load Oh My Fish configuration.
 source $OMF_PATH/init.fish
+
+function fish_user_key_bindings
+  # fish_default_key_bindings
+  fish_vi_key_bindings
+  end
 
 function Get_Qtile
     sed -n '/START_KEYS/,/END_KEYS/p' ~/.config/qtile/config.py | \
@@ -95,18 +110,42 @@ function edit
     nvim init.lua
 end
 
-set fish_color_normal brcyan
-set fish_color_autosuggestion '#7d7d7d'
-set fish_color_command brcyan
-set fish_color_error '#ff6c6b'
-set fish_color_param brcyan
-
+function activate
+    source venv/bin/activate.fish
+end
 
 # change the shell in a easy way
 alias tobash="sudo chsh $USER -s /bin/bash && echo 'Now log out.'"
 alias tozsh="sudo chsh $USER -s /bin/zsh && echo 'Now log out.'"
 alias tofish="sudo chsh $USER -s /bin/fish && echo 'Now log out.'"
 
+alias ..='cd ..'
+alias ...='cd ../..'
+alias .3='cd ../../..'
+alias .4='cd ../../../..'
+alias .5='cd ../../../../..'
+
+# git
+alias add='git add -u'
+alias addall='git add .'
+alias branch='git branch'
+alias checkout='git checkout'
+alias clone='git clone'
+alias commit='git commit -m'
+alias fetch='git fetch'
+alias pull='git pull origin'
+alias push='git push origin'
+alias tag='git tag'
+alias newtag='git tag -a'
+
+# pacman and yay
+alias pacsyu='sudo pacman -Syyu'                 # update only standard pkgs
+alias yaysua='yay -Sua --noconfirm'              # update only AUR pkgs (yay)
+alias yaysyu='yay -Syu --noconfirm'              # update standard pkgs and AUR pkgs (yay)
+alias parsua='paru -Sua --noconfirm'             # update only AUR pkgs (paru)
+alias parsyu='paru -Syu --noconfirm'             # update standard pkgs and AUR pkgs (paru)
+alias unlock='sudo rm /var/lib/pacman/db.lck'    # remove pacman lock
+alias cleanup='sudo pacman -Rns (pacman -Qtdq)'  # remove orphaned packages
 
 # setup the environment
 set PATH $PATH /usr/local/bin
