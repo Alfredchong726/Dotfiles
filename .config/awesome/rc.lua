@@ -290,8 +290,8 @@ globalkeys = gears.table.join(
               {description = "start pulseaudio", group = "HotKey"}),
     awful.key({ modkey,            }, "b", function () awful.spawn(terminal.."-e bpytop") end,
               {description = "start pulseaudio", group = "HotKey"}),
-    awful.key({ modkey,            }, "c", function () awful.spawn("nitrogen --random --set-tiled") end,
-              {description = "change wallpaper", group = "HotKey"}),
+    awful.key({ "Mod1"           }, "space", function () awful.spawn( "nitrogen --random --set-tiled" ) end,
+            {description = "change walpaper", group = "HotKey"}),
     
             -- Brightness
     awful.key({ modkey }, "=", function() backlight_inc() end,
