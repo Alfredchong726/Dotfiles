@@ -67,6 +67,10 @@ super + shift + Return
 super + shift + Escape
 	pkill -USR1 -x sxhkd
 
+# Teams
+super + shift + t
+    teams
+
 #################################################################
 # CONTROL + ALT KEYS
 #################################################################

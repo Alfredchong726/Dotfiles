@@ -13,6 +13,7 @@ run sxhkd -c ~/.config/sxhkd/sxhkdrc &
 run nm-applet &
 run pamac-tray &
 run xfce4-power-manager &
+run ./.xrandr-ext-mon &
 blueberry-tray &
 picom --config $HOME/.config/picom/picom.conf &
 /usr/lib/xfce4/notifyd/xfce4-notifyd &

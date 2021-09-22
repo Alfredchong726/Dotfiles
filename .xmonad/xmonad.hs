@@ -319,9 +319,12 @@ myKeys =
     --
     -- KB_GROUP Application
         , ("M-S-f", spawn "firefox")
-        , ("M-v", spawn "vmplayer")
+        , ("M-S-t", spawn "teams")
+        , ("M-t", spawn "xfce4-taskmanager")
+        , ("M-v", spawn "Virtualbox")
         , ("M-d", spawn "thunar")
         , ("M-w", spawn "whatsapp-for-linux")
+        , ("M-o", spawn "wps")
 
     -- KB_GROUP HotKey
         , ("M-S-s", spawn "shutdown now")

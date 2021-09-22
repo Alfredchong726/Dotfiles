@@ -1,6 +1,5 @@
 set fish_greeting                   # No welcome message during enter fish shell
 colorscript random                  # Random colorscript when enter fish shell
-starship init fish | source         # Start starship
 set TERM "xterm-256color"           # Set terminal type
 
 set fish_color_normal brcyan
@@ -34,7 +33,7 @@ function Get_Qtile
 end
 
 # v function can easily get into file
-function v -a change
+function f -a change
     set ori_dir (pwd)
     cd $HOME
     set file (fd -Hai . | fzf)
@@ -65,7 +64,7 @@ end
 
 function ll
     ls -lh $argv
-end
+ end
 
 # change wallpaper
 function change
@@ -110,9 +109,7 @@ function edit
     nvim init.lua
 end
 
-function activate
-    source venv/bin/activate.fish
-end
+alias activate="source venv/bin/activate.fish"
 
 # change the shell in a easy way
 alias tobash="sudo chsh $USER -s /bin/bash && echo 'Now log out.'"
@@ -153,3 +150,5 @@ set -gx PATH $PATH /usr/local/lib/nodejs/node-v14.17.4-linux-x64/bin/
 set -gx PATH $PATH $HOME/.cargo/bin/
 set -gx PATH $PATH $HOME/.cargo/bin/
 export PATH
+
+starship init fish | source         # Start starship
