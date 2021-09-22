@@ -5,9 +5,6 @@ vim.g.mapleader = ' '
 -- Clear highlights
 utils.map('n', '<Leader>', ':set hlsearch!<CR>')
 
--- Autoformat
-utils.map('n', '<F3>', ':Autoformat<CR>')
-
 -- Window move
 utils.map('n', '<C-h>', '<C-w>h')
 utils.map('n', '<C-j>', '<C-w>j')

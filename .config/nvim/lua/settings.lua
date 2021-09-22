@@ -41,3 +41,7 @@ utils.layout_config('o', 'clipboard','unnamed,unnamedplus')
 
 -- Highlight on yank
 vim.cmd 'au TextYankPost * lua vim.highlight.on_yank {on_visual = false}'
+
+-- Python Indent 
+vim.cmd 'let g:indentLine_setColors = 0'
+vim.cmd "let g:indentLine_char_list = ['|', '¦', '┆', '┊']"

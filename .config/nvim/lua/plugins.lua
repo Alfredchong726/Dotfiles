@@ -25,8 +25,6 @@ return require('packer').startup(function()
     use 'gruvbox-community/gruvbox'
     use 'liuchengxu/space-vim-dark'
     use 'drewtempelmeyer/palenight.vim'
-    use 'sonph/onehalf'
-    use 'tomasr/molokai'
 
     -- gc & gcc to coment
     use 'tpope/vim-commentary'
@@ -49,4 +47,13 @@ return require('packer').startup(function()
 
     -- Vim Surround
     use 'tpope/vim-surround'
+
+    -- Multiple cursor editing
+    use 'terryma/vim-multiple-cursors'
+
+    -- Python Indent Line
+    use 'Yggdroot/indentLine'
+
+    -- Sneak
+    use 'justinmk/vim-sneak'
 end)
