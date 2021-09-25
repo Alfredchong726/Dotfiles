@@ -1,10 +1,13 @@
 import os
+import re
 import socket
 import subprocess
-from libqtile.config import Drag, Key, Screen, Group, Drag, Click, Rule
-from libqtile.command import lazy
+from typing import List  # noqa: F401
 from libqtile import layout, bar, widget, hook
-from libqtile import qtile
+from libqtile.config import Click, Drag, Group, Key, Match, Screen, Rule
+from libqtile.command import lazy
+from libqtile.widget import Spacer
+#import arcobattery
 
 #mod4 or mod = super key
 mod = "mod4"
@@ -26,7 +29,6 @@ def window_to_next_group(qtile):
         i = qtile.groups.index(qtile.currentGroup)
         qtile.currentWindow.togroup(qtile.groups[i + 1].name)
 
-# START_KEYS
 keys = [
 
 # Most of our keybindings are in sxhkd file - except these
@@ -65,7 +67,6 @@ keys = [
     Key([mod,], "comma", lazy.prev_screen()),
     Key([mod,], "period", lazy.next_screen()),
 
-    Key(["mod1"], "space", lazy.spawn("nitrogen --random --set-tiled")),
 # FUNCTION KEY
     Key([], "F4", lazy.spawn("~/.config/qtile/qtile_keys.sh")),
     Key([], "F3", lazy.spawn("xfce4-settings-manager")),
@@ -77,8 +78,8 @@ keys = [
     Key([mod, "shift"], "r", lazy.restart()),
 
 # QTILE LAYOUT KEYS
-    Key([mod], "space", lazy.next_layout()),
-    Key([mod, "shift"], "space", lazy.prev_layout()),
+    Key([mod], "Tab", lazy.next_layout()),
+    Key([mod, "shift"], "Tab", lazy.prev_layout()),
 
 # CHANGE FOCUS
     Key([mod], "k", lazy.layout.up()),
@@ -131,9 +132,9 @@ keys = [
     Key([mod, "shift"], "l", lazy.layout.shuffle_right()),
 
 # CHANGE WALLPAPER
+    Key(["mod1"], "space", lazy.spawn("nitrogen --random --set-tiled")),
     ]
 # END_KEYS
-
 group_names = [("WWW", {'layout': 'max'}),
                ("FISH", {'layout': 'monadtall'}),
                ("BASH", {'layout': 'monadtall'}),
@@ -150,11 +151,6 @@ for i, (name, kwargs) in enumerate(group_names, 1):
     keys.append(Key([mod], str(i), lazy.group[name].toscreen()))        # Switch to another group
     keys.append(Key([mod, "shift"], str(i), lazy.window.togroup(name))) # Send current window to another group
 
-layout_theme = {"border_width": 2,
-                "margin": 8,
-                "border_focus": "e1acff",
-                "border_normal": "1D2330"
-                }
 
 def init_layout_theme():
     return {"margin":5,
@@ -177,27 +173,16 @@ layouts = [
 ]
 
 # COLORS FOR THE BAR
-
-colors = [["#282c34", "#282c34"], # panel background
-          ["#3d3f4b", "#434758"], # background for current screen tab
-          ["#ffffff", "#ffffff"], # font color for group names
-          ["#ff5555", "#ff5555"], # border line color for current tab
-          ["#74438f", "#74438f"], # border line color for 'other tabs' and color for 'odd widgets'
-          ["#4f76c7", "#4f76c7"], # color for the 'even widgets'
-          ["#e1acff", "#e1acff"], # window name
-          ["#ecbbfb", "#ecbbfb"]] # backbround for inactive screens
-
-prompt = "{0}@{1}: ".format(os.environ["USER"], socket.gethostname())
-
-
-# WIDGETS FOR THE BAR
-def init_widgets_defaults():
-    return dict(font="Noto Sans",
-                fontsize = 12,
-                padding = 2,
-                background=colors[1])
-
-widget_defaults = init_widgets_defaults()
+#Theme name : ArcoLinux Default
+def init_colors():
+    return [["#282c34", "#282c34"],# color 0
+           ["#3d3f4b", "#434758"],# color 1
+           ["#ffffff", "#ffffff"],# color 2
+           ["#ff5555", "#ff5555"],# color 3
+           ["#74438f", "#74438f"],# color 4
+           ["#4f76c7", "#4f76c7"],# color 5
+           ["#e1acff", "#e1acff"],# color 6
+           ["#ecbbfb", "#ecbbfb"]]# color 7
 
 class Battery(widget.Battery):
     def _get_text(self):
@@ -220,7 +205,22 @@ class Battery(widget.Battery):
             char = '■'
 
         return '{}{}{}'.format(char, no, 'B')
+
+colors = init_colors()
+
+
+# WIDGETS FOR THE BAR
+
+def init_widgets_defaults():
+    return dict(font="Noto Sans",
+                fontsize = 12,
+                padding = 2,
+                background=colors[1])
+
+widget_defaults = init_widgets_defaults()
+
 def init_widgets_list():
+    prompt = "{0}@{1}: ".format(os.environ["USER"], socket.gethostname())
     widgets_list = [
                 widget.Sep(
                        linewidth = 0,
@@ -259,16 +259,8 @@ def init_widgets_list():
                        foreground = colors[2],
                        background = colors[0]
                        ),
-                widget.Prompt(
-                       prompt = prompt,
-                       font = "Ubuntu Mono",
-                       padding = 10,
-                       foreground = colors[3],
-                       background = colors[1]
-                       ),
-
                widget.Sep(
-                        linewidth = 0,
+                        linewidth = 1,
                         padding = 10,
                         foreground = colors[2],
                         background = colors[1]
@@ -279,18 +271,40 @@ def init_widgets_list():
                         background = colors[1]
                         ),
                widget.Sep(
-                        linewidth = 0,
+                        linewidth = 1,
                         padding = 10,
                         foreground = colors[2],
                         background = colors[1]
                         ),
                widget.WindowName(font="Noto Sans",
                         fontsize = 12,
-                        foreground = colors[2],
+                        foreground = colors[5],
                         background = colors[1],
                         ),
                widget.Sep(
-                        linewidth = 0,
+                        linewidth = 1,
+                        padding = 10,
+                        foreground = colors[2],
+                        background = colors[1]
+                        ),
+               widget.TextBox(
+                        font="FontAwesome",
+                        text="  ",
+                        foreground=colors[3],
+                        background=colors[1],
+                        padding = 0,
+                        fontsize=16
+                        ),
+               widget.Memory(
+                        font="Noto Sans",
+                        format = '{MemUsed}M/{MemTotal}M',
+                        update_interval = 1,
+                        fontsize = 12,
+                        foreground = colors[2],
+                        background = colors[1],
+                       ),
+               widget.Sep(
+                        linewidth = 1,
                         padding = 10,
                         foreground = colors[2],
                         background = colors[1]
@@ -304,7 +318,7 @@ def init_widgets_list():
                         low_foreground = color_alert,
                         ),
                widget.Sep(
-                        linewidth = 0,
+                        linewidth = 1,
                         padding = 10,
                         foreground = colors[2],
                         background = colors[1]
@@ -312,28 +326,26 @@ def init_widgets_list():
                widget.TextBox(
                         font="FontAwesome",
                         text="  ",
-                        foreground=colors[2],
+                        foreground=colors[3],
                         background=colors[1],
                         padding = 0,
-                        mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(myTerm + ' -e cal')},
                         fontsize=16
                         ),
-                widget.Clock(
-                       font = "Ubuntu Bold",
-                       foreground = colors[2],
-                       background = colors[1],
-                       fontsize = 15,
-                       format = "%A, %B %d - %H:%M "
-                       ),
+               widget.Clock(
+                        foreground = colors[2],
+                        background = colors[1],
+                        fontsize = 12,
+                        format="%Y-%m-%d %H:%M"
+                        ),
                widget.Sep(
-                        linewidth = 0,
+                        linewidth = 1,
                         padding = 10,
                         foreground = colors[2],
                         background = colors[1]
                         ),
                widget.Systray(
                         background=colors[1],
-                        icon_size=21,
+                        icon_size=20,
                         padding = 4
                         ),
               ]
@@ -348,45 +360,17 @@ def init_widgets_screen1():
 
 def init_widgets_screen2():
     widgets_screen2 = init_widgets_list()
-    return widgets_screen2                 # Monitor 2 will display all widgets in widgets_list
+    return widgets_screen2
+
+widgets_screen1 = init_widgets_screen1()
+widgets_screen2 = init_widgets_screen2()
+
 
 def init_screens():
-    return [Screen(top=bar.Bar(widgets=init_widgets_screen1(), opacity=1.0, size=20)),
-            Screen(top=bar.Bar(widgets=init_widgets_screen2(), opacity=1.0, size=20)),
-            Screen(top=bar.Bar(widgets=init_widgets_screen1(), opacity=1.0, size=20))]
+    return [Screen(top=bar.Bar(widgets=init_widgets_screen1(), size=26, opacity=0.8)),
+            Screen(top=bar.Bar(widgets=init_widgets_screen2(), size=26, opacity=0.8))]
+screens = init_screens()
 
-if __name__ in ["config", "__main__"]:
-    screens = init_screens()
-    widgets_list = init_widgets_list()
-    widgets_screen1 = init_widgets_screen1()
-    widgets_screen2 = init_widgets_screen2()
-
-def window_to_prev_group(qtile):
-    if qtile.currentWindow is not None:
-        i = qtile.groups.index(qtile.currentGroup)
-        qtile.currentWindow.togroup(qtile.groups[i - 1].name)
-
-def window_to_next_group(qtile):
-    if qtile.currentWindow is not None:
-        i = qtile.groups.index(qtile.currentGroup)
-        qtile.currentWindow.togroup(qtile.groups[i + 1].name)
-
-def window_to_previous_screen(qtile):
-    i = qtile.screens.index(qtile.current_screen)
-    if i != 0:
-        group = qtile.screens[i - 1].group.name
-        qtile.current_window.togroup(group)
-
-def window_to_next_screen(qtile):
-    i = qtile.screens.index(qtile.current_screen)
-    if i + 1 != len(qtile.screens):
-        group = qtile.screens[i + 1].group.name
-        qtile.current_window.togroup(group)
-
-def switch_screens(qtile):
-    i = qtile.screens.index(qtile.current_screen)
-    group = qtile.screens[i - 1].group
-    qtile.current_screen.set_group(group)
 
 # MOUSE CONFIGURATION
 mouse = [
@@ -397,17 +381,15 @@ mouse = [
 ]
 
 dgroups_key_binder = None
-dgroups_app_rules = []  # type: List
+dgroups_app_rules = []
+
+
 main = None
-follow_mouse_focus = True
-bring_front_click = False
-cursor_warp = False
 
 @hook.subscribe.startup_once
 def start_once():
     home = os.path.expanduser('~')
     subprocess.call([home + '/.config/qtile/autostart.sh'])
-    subprocess.call([home + '~/.xrandr-ext-mon'])
 
 @hook.subscribe.startup
 def start_always():
@@ -427,33 +409,34 @@ follow_mouse_focus = True
 bring_front_click = False
 cursor_warp = False
 floating_layout = layout.Floating(float_rules=[
-    {'wmclass': 'Arcolinux-welcome-app.py'},
-    {'wmclass': 'Arcolinux-tweak-tool.py'},
-    {'wmclass': 'Arcolinux-calamares-tool.py'},
-    {'wmclass': 'confirm'},
-    {'wmclass': 'dialog'},
-    {'wmclass': 'download'},
-    {'wmclass': 'error'},
-    {'wmclass': 'file_progress'},
-    {'wmclass': 'notification'},
-    {'wmclass': 'splash'},
-    {'wmclass': 'toolbar'},
-    {'wmclass': 'confirmreset'},
-    {'wmclass': 'makebranch'},
-    {'wmclass': 'maketag'},
-    {'wmclass': 'Arandr'},
-    {'wmclass': 'feh'},
-    {'wmclass': 'Galculator'},
-    {'wmclass': 'arcolinux-logout'},
-    {'wmclass': 'xfce4-terminal'},
-    {'wname': 'branchdialog'},
-    {'wname': 'Open File'},
-    {'wname': 'pinentry'},
-    {'wmclass': 'ssh-askpass'},
+    # Run the utility of `xprop` to see the wm class and name of an X client.
+    *layout.Floating.default_float_rules, 
+    Match(wm_class='confirmreset'),  # gitk
+    Match(wm_class='makebranch'),  # gitk
+    Match(wm_class='maketag'),  # gitk
+    Match(wm_class='ssh-askpass'),  # ssh-askpass
+    Match(title='branchdialog'),  # gitk
+    Match(title='pinentry'),  # GPG key password entry
+    Match(wm_class='Arcolinux-welcome-app.py'),
+    Match(wm_class='Arcolinux-tweak-tool.py'),
+    Match(wm_class='Arcolinux-calamares-tool.py'),
+    Match(wm_class='confirm'),
+    Match(wm_class='dialog'),
+    Match(wm_class='download'),
+    Match(wm_class='error'),
+    Match(wm_class='file_progress'),
+    Match(wm_class='notification'),
+    Match(wm_class='splash'),
+    Match(wm_class='toolbar'),
+    Match(wm_class='Arandr'),
+    Match(wm_class='feh'),
+    Match(wm_class='Galculator'),
+    Match(wm_class='arcolinux-logout'),
+    Match(wm_class='xfce4-terminal'),
 
 ],  fullscreen_border_width = 0, border_width = 0)
 auto_fullscreen = True
 
-focus_on_window_activation = "smart" # or focus
+focus_on_window_activation = "focus" # or smart
 
 wmname = "LG3D"

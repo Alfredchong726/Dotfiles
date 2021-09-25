@@ -23,7 +23,7 @@ function run {
 
 #autostart ArcoLinux Welcome App
 # run dex $HOME/.config/autostart/arcolinux-welcome-app.desktop &
-run dex /usr/share/applications/org.fcitx.Fcitx5.desktop &
+# run dex /usr/share/applications/org.fcitx.Fcitx5.desktop &
 
 #start the conky to learn the shortcuts
 # conky -c $HOME/.config/conky/AUR-Redux-LUA.conkyrc &
