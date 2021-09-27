@@ -278,7 +278,7 @@ def init_widgets_list():
                         ),
                widget.WindowName(font="Noto Sans",
                         fontsize = 12,
-                        foreground = colors[5],
+                        foreground = colors[6],
                         background = colors[1],
                         ),
                widget.Sep(
