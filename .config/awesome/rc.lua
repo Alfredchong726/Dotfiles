@@ -276,6 +276,8 @@ globalkeys = gears.table.join(
               {description = "open firefox", group = "applications"}),
     awful.key({ modkey, "Shift"   }, "t", function () awful.spawn('teams') end,
               {description = "open teams", group = "applications"}),
+    awful.key({ modkey, "Shift"   }, "o", function () awful.spawn('obsidian-insider') end,
+              {description = "open teams", group = "applications"}),
     awful.key({ modkey,           }, "w", function () awful.spawn('whatsapp-for-linux') end,
               {description = "show main menu", group = "awesome"}),
     awful.key({ modkey,           }, "n", function () awful.spawn('nitrogen') end,

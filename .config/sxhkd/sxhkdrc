@@ -71,6 +71,10 @@ super + shift + Escape
 super + shift + t
     teams
 
+# Obsidian
+super + shift + o
+    obsidian-insider
+
 #################################################################
 # CONTROL + ALT KEYS
 #################################################################

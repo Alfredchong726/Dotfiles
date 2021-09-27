@@ -23,8 +23,8 @@ return require('packer').startup(function()
 
     -- Colorscheme
     use 'gruvbox-community/gruvbox'
-    use 'liuchengxu/space-vim-dark'
     use 'drewtempelmeyer/palenight.vim'
+    use 'arcticicestudio/nord-vim'
 
     -- gc & gcc to coment
     use 'tpope/vim-commentary'

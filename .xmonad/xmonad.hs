@@ -325,6 +325,7 @@ myKeys =
         , ("M-d", spawn "thunar")
         , ("M-w", spawn "whatsapp-for-linux")
         , ("M-o", spawn "wps")
+        , ("M-S-o", spawn "obsidian-insider")
 
     -- KB_GROUP HotKey
         , ("M-S-s", spawn "shutdown now")
