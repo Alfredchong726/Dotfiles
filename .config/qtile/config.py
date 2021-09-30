@@ -47,7 +47,7 @@ keys = [
     Key([mod], "s", lazy.spawn("xfce4-screenshooter")),
     Key([mod], "v", lazy.spawn("vmplayer")),
     Key([mod], "w", lazy.spawn("whatsapp-for-linux")),
-    Key([mod], "a", lazy.spawn(myTerm+" -e pavucontrol")),
+    Key([mod], "a", lazy.spawn("pavucontrol")),
     Key([mod, 'shift'], "o", lazy.spawn("obsidian-insider")),
     Key([mod, "shift"], "t", lazy.spawn("teams")),
     Key([mod, "shift"], "Return", lazy.spawn("rofi -show run")),
