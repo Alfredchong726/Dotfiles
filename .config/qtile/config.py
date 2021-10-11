@@ -45,7 +45,7 @@ keys = [
     Key([mod], "t", lazy.spawn("xfce4-taskmanager")),
     Key([mod], "d", lazy.spawn("thunar")),
     Key([mod], "s", lazy.spawn("xfce4-screenshooter")),
-    Key([mod], "v", lazy.spawn("vmplayer")),
+    Key([mod], "v", lazy.spawn("virt-manager")),
     Key([mod], "w", lazy.spawn("whatsapp-for-linux")),
     Key([mod], "a", lazy.spawn("pavucontrol")),
     Key([mod, 'shift'], "o", lazy.spawn("obsidian-insider")),

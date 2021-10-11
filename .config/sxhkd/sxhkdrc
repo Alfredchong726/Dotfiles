@@ -42,13 +42,17 @@ super + Escape
 super + d
     thunar
 
-# Vmplayer
+# Virtual Machine
 super + v
-    vmplayer
+    virt-manager
 
 # deadbeef
 super + m
     deadbeef
+
+# wps office
+# super + o
+#     wps
 
 # Keyboard dependent
 # alacritty
