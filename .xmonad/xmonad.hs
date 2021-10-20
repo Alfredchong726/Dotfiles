@@ -321,7 +321,7 @@ myKeys =
         , ("M-S-f", spawn "firefox")
         , ("M-S-t", spawn "teams")
         , ("M-t", spawn "xfce4-taskmanager")
-        , ("M-v", spawn "virt-manager")
+        , ("M-v", spawn "VirtualBox")
         , ("M-d", spawn "thunar")
         , ("M-w", spawn "whatsapp-for-linux")
         , ("M-o", spawn "wps")

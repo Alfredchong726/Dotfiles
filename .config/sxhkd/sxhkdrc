@@ -44,7 +44,7 @@ super + d
 
 # Virtual Machine
 super + v
-    virt-manager
+    VirtualBox
 
 # deadbeef
 super + m

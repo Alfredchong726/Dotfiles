@@ -37,8 +37,8 @@ bspc config presel_feedback_color	"#5e81ac"
 
 
 #Single monitor
-bspc monitor eDP-1 -d 1 2 3 4 5 6 7 8 9 10
-bspc monitor HDMI-2 -d 1 2 3 4 5 6 7 8 9 10
+bspc monitor eDP1 -d 1 2 3 4 5 6 7 8 9 10
+bspc monitor HDMI2 -d 1 2 3 4 5 6 7 8 9 10
 
 #Fullscreen applications
 bspc rule -a vlc state=fullscreen
@@ -55,5 +55,5 @@ bspc rule -a Xfce4-appfinder state=floating sticky=on
 bspc rule -a Gnome-disks state=tiled
 bspc rule -a Xfce4-settings-manager state=tiled
 
-xdo below -t $(xdo id -n root) $(xdo id -a polybar-main_eDP-1)
-xdo below -t $(xdo id -n root) $(xdo id -a polybar-main_HDMI1-2)
+xdo below -t $(xdo id -n root) $(xdo id -a polybar-main_eDP1)
+xdo below -t $(xdo id -n root) $(xdo id -a polybar-main_HDMI2)
