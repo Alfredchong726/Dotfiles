@@ -54,6 +54,6 @@ return require('packer').startup(function()
     -- Python Indent Line
     use 'Yggdroot/indentLine'
 
-    -- Sneak
-    use 'justinmk/vim-sneak'
+    -- Debug
+    use 'puremourning/vimspector'
 end)

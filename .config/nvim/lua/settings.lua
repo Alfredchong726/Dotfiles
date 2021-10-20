@@ -45,3 +45,7 @@ vim.cmd 'au TextYankPost * lua vim.highlight.on_yank {on_visual = false}'
 -- Python Indent 
 vim.cmd 'let g:indentLine_setColors = 0'
 vim.cmd "let g:indentLine_char_list = ['|', '¦', '┆', '┊']"
+
+-- Debug
+vim.cmd "let g:vimspector_enable_mappings = 'HUMAN'"
+vim.cmd "packadd! vimspector"
