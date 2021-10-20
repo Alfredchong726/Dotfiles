@@ -268,7 +268,7 @@ globalkeys = gears.table.join(
     -- Applications
     awful.key({ modkey,           }, "d", function () awful.spawn('Thunar') end,
               {description = "open file manager", group = "applications"}),
-    awful.key({ modkey,           }, "v", function () awful.spawn('virt-manager') end,
+    awful.key({ modkey,           }, "v", function () awful.spawn('VirtualBox') end,
               {description = "open virtual machine", group = "applications"}),
     awful.key({ modkey,           }, "t", function () awful.spawn('xfce4-taskmanager') end,
               {description = "open taskmanager", group = "applications"}),
@@ -620,7 +620,7 @@ awful.spawn.with_shell("fcitx5")
 awful.spawn.with_shell("picom --config  $HOME/.config/picom/picom.conf")
 awful.spawn.with_shell("conky -c ~/.config/conky/AUR-Redux-LUA.conkyrc")
 awful.spawn.with_shell("volumeicon")
-awful.spawn.with_shell("xrandr --output HDMI-2 --left-of eDP-1")
+awful.spawn.with_shell("xrandr --auto --output eDP1 --mode 2160x1440 --right-of HDMI2")
 awful.spawn.with_shell("nm-applet")
 awful.spawn.with_shell("pamac-tray")
 awful.spawn.with_shell("xfce4-power-manager")
