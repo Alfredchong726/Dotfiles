@@ -319,7 +319,7 @@ myKeys =
     --
     -- KB_GROUP Application
         , ("M-S-f", spawn "firefox")
-        , ("M-S-t", spawn "teams")
+        , ("M-S-t", spawn "teams-for-linux")
         , ("M-t", spawn "xfce4-taskmanager")
         , ("M-v", spawn "VirtualBox")
         , ("M-d", spawn "thunar")

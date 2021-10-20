@@ -274,7 +274,7 @@ globalkeys = gears.table.join(
               {description = "open taskmanager", group = "applications"}),
     awful.key({ modkey, "Shift"   }, "f", function () awful.spawn('firefox') end,
               {description = "open firefox", group = "applications"}),
-    awful.key({ modkey, "Shift"   }, "t", function () awful.spawn('teams') end,
+    awful.key({ modkey, "Shift"   }, "t", function () awful.spawn('teams-for-linux') end,
               {description = "open teams", group = "applications"}),
     awful.key({ modkey, "Shift"   }, "o", function () awful.spawn('obsidian-insider') end,
               {description = "open teams", group = "applications"}),
@@ -620,7 +620,7 @@ awful.spawn.with_shell("fcitx5")
 awful.spawn.with_shell("picom --config  $HOME/.config/picom/picom.conf")
 awful.spawn.with_shell("conky -c ~/.config/conky/AUR-Redux-LUA.conkyrc")
 awful.spawn.with_shell("volumeicon")
-awful.spawn.with_shell("xrandr --auto --output eDP1 --mode 2160x1440 --right-of HDMI2")
+awful.spawn.with_shell("xrandr --output HDMI-2 --left-of eDP-1")
 awful.spawn.with_shell("nm-applet")
 awful.spawn.with_shell("pamac-tray")
 awful.spawn.with_shell("xfce4-power-manager")

@@ -49,7 +49,7 @@ keys = [
     Key([mod], "w", lazy.spawn("whatsapp-for-linux")),
     Key([mod], "a", lazy.spawn("pavucontrol")),
     Key([mod, 'shift'], "o", lazy.spawn("obsidian-insider")),
-    Key([mod, "shift"], "t", lazy.spawn("teams")),
+    Key([mod, "shift"], "t", lazy.spawn("teams-for-linux")),
     Key([mod, "shift"], "Return", lazy.spawn("rofi -show run")),
     Key([mod], "Escape", lazy.spawn("xkill")),
     # Key([mod, "shift"], "Return", lazy.spawn("dmenu_run -p 'Run: '")),
