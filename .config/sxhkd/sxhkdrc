@@ -79,6 +79,10 @@ super + shift + t
 super + shift + o
     obsidian-insider
 
+# Change alacritty color theme in easy way
+super + shift + c
+    ./alchanger.sh
+
 #################################################################
 # CONTROL + ALT KEYS
 #################################################################
