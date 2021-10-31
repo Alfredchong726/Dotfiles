@@ -16,6 +16,7 @@ vim.cmd('source ~/.config/nvim/vim_scripts/default_coc.vim')
 vim.cmd('source ~/.config/nvim/vim_scripts/airline.vim')
 vim.cmd('source ~/.config/nvim/vim_scripts/telescope.vim')
 vim.cmd('source ~/.config/nvim/vim_scripts/vimspector.vim')
+vim.cmd('source ~/.config/nvim/vim_scripts/dashboard.vim')
 vim.cmd('luafile ~/.config/nvim/lua/colorscheme.lua')
 
 -- require('lv-telescope')

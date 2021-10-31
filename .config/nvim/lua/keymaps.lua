@@ -53,3 +53,7 @@ utils.map('n', '<Leader>ts', ':bel split term://fish<CR>:resize 10<CR>i')
 
 -- Call Startify
 utils.map('n', '<Leader>S', ':Startify<CR>')
+
+utils.map('n', '<Leader>S', ':Startify<CR>')
+utils.map('n', '<Leader>S', ':Startify<CR>')
+utils.map('n', '<Leader>S', ':Startify<CR>')

@@ -15,6 +15,7 @@ return require('packer').startup(function()
 
     -- Autocomplete COC
     use {'neoclide/coc.nvim', branch = 'master', run = 'yarn install --frozen-lockfile'}
+    use {'neoclide/coc-jedi', branch = 'master', run = 'yarn install'}
 
     -- Treesitter
     use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}
