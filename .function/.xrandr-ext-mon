@@ -1,1 +1,1 @@
-xrandr --auto --output eDP1 --mode 2160x1440 --right-of HDMI2
+xrandr --output eDP1 --right-of HDMI2 --output HDMI2
