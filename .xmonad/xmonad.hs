@@ -76,7 +76,7 @@ myTerminal :: String
 myTerminal = "alacritty"    -- Sets default terminal
 
 myBrowser :: String
-myBrowser = "firefox "  -- Sets qutebrowser as browser
+myBrowser = "firefox "  -- Sets firefox as browser
 
 myEditor :: String
 myEditor = myTerminal ++ " -e nvim "    -- Sets nvim as editor
@@ -131,7 +131,6 @@ spawnSelected' lst = gridselect conf lst >>= flip whenJust spawn
 myAppGrid = [ 
                    ("Deadbeef", "deadbeef")
                  , ("Firefox", "firefox")
-                 , ("Gimp", "gimp")
                  , ("LibreOffice Impress", "loimpress")
                  , ("LibreOffice Writer", "lowriter")
                  , ("OBS", "obs")
@@ -300,7 +299,6 @@ myManageHook = composeAll
      [ className =? "confirm"         --> doFloat
      , className =? "error"           --> doFloat
      , className =? "notification"    --> doFloat
-     , title =? "Mozilla Firefox"     --> doShift ( myWorkspaces !! 1 )
      , (className =? "firefox" <&&> resource =? "Dialog") --> doFloat  -- Float Firefox Dialog
      , isFullscreen -->  doFullFloat
      ] <+> namedScratchpadManageHook myScratchPads
@@ -309,8 +307,8 @@ myManageHook = composeAll
 myKeys :: [(String, X ())]
 myKeys =
     -- KB_GROUP Xmonad
-        -- [ ("M-C-r", spawn "xmonad --recompile")  -- Recompiles xmonad
-        [("M-S-r", spawn "xmonad --restart")    -- Restarts xmonad
+        [ ("M-C-r", spawn "xmonad --recompile")  -- Recompiles xmonad
+        , ("M-S-r", spawn "xmonad --restart")    -- Restarts xmonad
         , ("M-S-q", io exitSuccess)              -- Quits xmonad
         , ("M-S-/", spawn "~/.xmonad/xmonad_keys.sh")
 
@@ -321,15 +319,17 @@ myKeys =
         , ("M-S-f", spawn "firefox")
         , ("M-S-t", spawn "teams-for-linux")
         , ("M-t", spawn "xfce4-taskmanager")
-        , ("M-v", spawn "VirtualBox")
+        , ("M-v", spawn "virt-manager")
         , ("M-d", spawn "thunar")
+        , ("M-a", spawn "pavucontrol")
         , ("M-w", spawn "whatsapp-for-linux")
         , ("M-o", spawn "wps")
         , ("M-S-o", spawn "obsidian-insider")
 
     -- KB_GROUP HotKey
-        , ("M-S-s", spawn "shutdown now")
-        , ("M-S-r", spawn "reboot now")
+        , ("M-S-s", spawn (myTerminal ++ "-e shutdown now"))
+        -- , ("M-S-r", spawn (myTerminal ++ "-e reboot"))
+        , ("M-S-c", spawn (myTerminal ++ "-e ./alchanger.sh"))
 
     -- KB_GROUP Useful programs to have a keybinding for launch
         , ("M-<Return>", spawn (myTerminal))
