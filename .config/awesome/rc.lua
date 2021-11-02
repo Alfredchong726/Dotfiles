@@ -246,7 +246,7 @@ globalkeys = gears.table.join(
     -- HotKey
     awful.key({ modkey, "Shift"    }, "s", function () awful.spawn(terminal.." -e shutdown now") end,
               {description = "shutdown", group = "HotKey"}),
-    awful.key({ modkey, "Control"  }, "r", function () awful.spawn(terminal.."-e reboot now") end,
+    awful.key({ modkey, "Control"  }, "r", function () awful.spawn(terminal.."-e reboot") end,
               {description = "reboot", group = "HotKey"}),
     awful.key({ modkey, "Shift"    }, "c", function () awful.spawn("./alchanger.sh") end,
               {description = "shutdown", group = "HotKey"}),
@@ -649,7 +649,8 @@ client.connect_signal("focus", border_adjust)
 client.connect_signal("property::maximized", border_adjust)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 
-awful.spawn.with_shell("nitrogen --restore")
+awful.spawn.with_shell("nitrogen --random --set-tiled")
+awful.spawn.with_shell("xrandr --output eDP1 --right-of HDMI2 --output HDMI2")
 awful.spawn.with_shell("picom --config  $HOME/.config/picom/picom.conf")
 awful.spawn.with_shell("nm-applet")
 awful.spawn.with_shell("volumeicon")
