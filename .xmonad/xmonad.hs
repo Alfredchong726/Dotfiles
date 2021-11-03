@@ -1,4 +1,4 @@
- -- Base
+  -- Base
 import XMonad
 import System.Directory
 import System.IO (hPutStrLn)
@@ -76,10 +76,10 @@ myTerminal :: String
 myTerminal = "alacritty"    -- Sets default terminal
 
 myBrowser :: String
-myBrowser = "firefox "  -- Sets firefox as browser
+myBrowser = "firefox "  -- Sets qutebrowser as browser
 
 myEditor :: String
-myEditor = myTerminal ++ " -e nvim "    -- Sets nvim as editor
+myEditor = myTerminal ++ " -e vi "    -- Sets vim as editor
 
 myBorderWidth :: Dimension
 myBorderWidth = 2           -- Sets border width for windows
@@ -166,20 +166,15 @@ myScratchPads = [ NS "terminal" spawnTerm findTerm manageTerm
                  h = 0.5
                  w = 0.4
                  t = 0.75 -h
-                 l = 0.70 -w 
+                 l = 0.70 -w
 
 --Makes setting the spacingRaw simpler to write. The spacingRaw module adds a configurable amount of space around windows.
 mySpacing :: Integer -> l a -> XMonad.Layout.LayoutModifier.ModifiedLayout Spacing l a
 mySpacing i = spacingRaw False (Border i i i i) True (Border i i i i) True
 
--- Below is a variation of the above except no borders are applied
--- if fewer than two windows. So a single window has no gaps.
 mySpacing' :: Integer -> l a -> XMonad.Layout.LayoutModifier.ModifiedLayout Spacing l a
 mySpacing' i = spacingRaw True (Border i i i i) True (Border i i i i) True
 
--- Defining a bunch of layouts, many that I don't use.
--- limitWindows n sets maximum number of windows displayed for layout.
--- mySpacing n sets the gap size around the windows.
 tall     = renamed [Replace "tall"]
            $ smartBorders
            $ windowNavigation
@@ -235,20 +230,15 @@ threeRow = renamed [Replace "threeRow"]
            $ addTabs shrinkText myTabTheme
            $ subLayout [] (smartBorders Simplest)
            $ limitWindows 7
-           -- Mirror takes a layout and rotates it by 90 degrees.
-           -- So we are applying Mirror to the ThreeCol layout.
            $ Mirror
            $ ThreeCol 1 (3/100) (1/2)
 tabs     = renamed [Replace "tabs"]
-           -- I cannot add spacing to this layout because it will
-           -- add spacing between window and tabs which looks bad.
            $ tabbed shrinkText myTabTheme
 tallAccordion  = renamed [Replace "tallAccordion"]
            $ Accordion
 wideAccordion  = renamed [Replace "wideAccordion"]
            $ Mirror Accordion
 
--- setting colors for tabs layout and tabs sublayout.
 myTabTheme = def { fontName            = myFont
                  , activeColor         = "#46d9ff"
                  , inactiveColor       = "#313846"
@@ -283,7 +273,6 @@ myLayoutHook = avoidStruts $ mouseResize $ windowArrange $ T.toggleLayouts float
                                  ||| tallAccordion
                                  ||| wideAccordion
 
--- myWorkspaces = [" 1 ", " 2 ", " 3 ", " 4 ", " 5 ", " 6 ", " 7 ", " 8 ", " 9 "]
 myWorkspaces = [" WWW ", " FISH ", " PYTHON ", " JAVA ", " PHP ", " C ", " LUA ", " SYS ", " MUS "]
 myWorkspaceIndices = M.fromList $ zipWith (,) myWorkspaces [1..] -- (,) == \x y -> (x,y)
 
@@ -297,8 +286,16 @@ myManageHook = composeAll
      -- I'm doing it this way because otherwise I would have to write out the full
      -- name of my workspaces and the names would be very long if using clickable workspaces.
      [ className =? "confirm"         --> doFloat
+     , className =? "file_progress"   --> doFloat
+     , className =? "dialog"          --> doFloat
+     , className =? "download"        --> doFloat
      , className =? "error"           --> doFloat
      , className =? "notification"    --> doFloat
+     , className =? "pinentry-gtk-2"  --> doFloat
+     , className =? "splash"          --> doFloat
+     , className =? "toolbar"         --> doFloat
+     , className =? "Yad"             --> doCenterFloat
+     , title =? "Oracle VM VirtualBox Manager"  --> doFloat
      , (className =? "firefox" <&&> resource =? "Dialog") --> doFloat  -- Float Firefox Dialog
      , isFullscreen -->  doFullFloat
      ] <+> namedScratchpadManageHook myScratchPads
@@ -313,26 +310,28 @@ myKeys =
         , ("M-S-/", spawn "~/.xmonad/xmonad_keys.sh")
 
     -- KB_GROUP Run Prompt
-        , ("M-S-<Return>", spawn "rofi -show run")  -- Rofi
-    --
+        , ("M-S-<Return>", spawn "rofi -show combi") -- Rofi
+
     -- KB_GROUP Application
-        , ("M-S-f", spawn "firefox")
         , ("M-S-t", spawn "teams-for-linux")
         , ("M-t", spawn "xfce4-taskmanager")
         , ("M-v", spawn "virt-manager")
         , ("M-d", spawn "thunar")
         , ("M-a", spawn "pavucontrol")
         , ("M-w", spawn "whatsapp-for-linux")
+        , ("M-S-w", spawn "rofi -show window")
         , ("M-o", spawn "wps")
         , ("M-S-o", spawn "obsidian-insider")
 
     -- KB_GROUP HotKey
         , ("M-S-s", spawn (myTerminal ++ "-e shutdown now"))
-        -- , ("M-S-r", spawn (myTerminal ++ "-e reboot"))
+        , ("M1-S-r", spawn (myTerminal ++ "-e reboot"))
         , ("M-S-c", spawn (myTerminal ++ "-e ./alchanger.sh"))
+        , ("M1-<Space>", spawn "nitrogen --random --set-tiled")
 
     -- KB_GROUP Useful programs to have a keybinding for launch
         , ("M-<Return>", spawn (myTerminal))
+        , ("M-S-f", spawn (myBrowser))
         , ("M-M1-h", spawn (myTerminal ++ " -e htop"))
 
     -- KB_GROUP Kill windows
@@ -342,11 +341,13 @@ myKeys =
     -- KB_GROUP Workspaces
         , ("M-.", nextScreen)  -- Switch focus to next monitor
         , ("M-,", prevScreen)  -- Switch focus to prev monitor
+        , ("M-S-<KP_Add>", shiftTo Next nonNSP >> moveTo Next nonNSP)       -- Shifts focused window to next ws
+        , ("M-S-<KP_Subtract>", shiftTo Prev nonNSP >> moveTo Prev nonNSP)  -- Shifts focused window to prev ws
 
     -- KB_GROUP Floating windows
         , ("M-f", sendMessage (T.Toggle "floats")) -- Toggles my 'floats' layout
-        , ("M-t", withFocused $ windows . W.sink)  -- Push floating window back to tile
-        , ("M-S-t", sinkAll)                       -- Push ALL floating windows to tile
+        , ("M-C-t", withFocused $ windows . W.sink)  -- Push floating window back to tile
+        -- , ("M-S-t", sinkAll)                       -- Push ALL floating windows to tile
 
     -- KB_GROUP Increase/decrease spacing (gaps)
         , ("C-M1-j", decWindowSpacing 4)         -- Decrease window spacing
@@ -402,30 +403,26 @@ myKeys =
     -- Toggle show/hide these programs.  They run on a hidden workspace.
     -- When you toggle them to show, it brings them to your current workspace.
     -- Toggle them to hide and it sends them back to hidden workspace (NSP).
-        , ("C-s t", namedScratchpadAction myScratchPads "terminal")
-        , ("C-s m", namedScratchpadAction myScratchPads "deadbeef")
-        , ("C-s c", namedScratchpadAction myScratchPads "calculator")
-
-    -- KB_GROUP Set wallpaper
-    -- Set wallpaper with 'feh'. Type 'SUPER+F1' to launch sxiv in the wallpapers directory.
-    -- Then in sxiv, type 'C-x w' to set the wallpaper that you choose.
-        , ("M1-<Space>", spawn "nitrogen --random --set-tiled")
+        , ("M-s t", namedScratchpadAction myScratchPads "terminal")
+        , ("M-s m", namedScratchpadAction myScratchPads "mocp")
+        , ("M-s c", namedScratchpadAction myScratchPads "calculator")
 
     -- KB_GROUP Controls for mocp music player (SUPER-u followed by a key)
-        , ("M-u p", spawn "deadbeef --play")
-        , ("M-u l", spawn "deadbeef --next")
-        , ("M-u h", spawn "deadbeef --previous")
-        , ("M-u <Space>", spawn "deadbeef --toggle-pause")
+        , ("M-u p", spawn "mocp --play")
+        , ("M-u l", spawn "mocp --next")
+        , ("M-u h", spawn "mocp --previous")
+        , ("M-u <Space>", spawn "mocp --toggle-pause")
 
     -- KB_GROUP Multimedia Keys
-        , ("<XF86AudioPlay>", spawn (myTerminal ++ "deadbeef --play"))
-        , ("<XF86AudioPrev>", spawn (myTerminal ++ "deadbeef --previous"))
-        , ("<XF86AudioNext>", spawn (myTerminal ++ "deadbeef --next"))
+        , ("<XF86AudioPlay>", spawn "mocp --play")
+        , ("<XF86AudioPrev>", spawn "mocp --previous")
+        , ("<XF86AudioNext>", spawn "mocp --next")
         , ("<XF86AudioMute>", spawn "amixer set Master toggle")
         , ("<XF86AudioLowerVolume>", spawn "amixer set Master 5%- unmute")
         , ("<XF86AudioRaiseVolume>", spawn "amixer set Master 5%+ unmute")
-        , ("<XF86Search>", spawn "dmsearch")
-        , ("<Print>", spawn "xfce4-screensaver")
+        , ("<XF86Calculator>", runOrRaise "qalculate-gtk" (resource =? "qalculate-gtk"))
+        , ("<XF86Eject>", spawn "toggleeject")
+        , ("<Print>", spawn "dm-maim")
         ]
     -- The following lines are needed for named scratchpads.
           where nonNSP          = WSIs (return (\ws -> W.tag ws /= "NSP"))
@@ -435,17 +432,12 @@ myKeys =
 main :: IO ()
 main = do
     -- Launching three instances of xmobar on their monitors.
-    xmproc0 <- spawnPipe "xmobar -x 0 $HOME/.config/xmobar/xmobarrc"
+    xmproc0 <- spawnPipe "xmobar -x 0 $HOME/.config/xmobar/doom-one-xmobarrc"
     xmproc1 <- spawnPipe "xmobar -x 1 $HOME/.config/xmobar/xmobarrc"
     -- the xmonad, ya know...what the WM is named after!
     xmonad $ ewmh def
         { manageHook         = myManageHook <+> manageDocks
         , handleEventHook    = docksEventHook
-                               -- Uncomment this line to enable fullscreen support on things like YouTube/Netflix.
-                               -- This works perfect on SINGLE monitor systems. On multi-monitor systems,
-                               -- it adds a border around the window if screen does not have focus. So, my solution
-                               -- is to use a keybinding to toggle fullscreen noborders instead.  (M-<Space>)
-                               -- <+> fullscreenEventHook
         , modMask            = myModMask
         , terminal           = myTerminal
         , startupHook        = myStartupHook
