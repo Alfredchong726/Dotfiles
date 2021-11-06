@@ -246,7 +246,7 @@ globalkeys = gears.table.join(
     -- HotKey
     awful.key({ modkey, "Shift"    }, "s", function () awful.spawn(terminal.." -e shutdown now") end,
               {description = "shutdown", group = "HotKey"}),
-    awful.key({ modkey, "Control"  }, "r", function () awful.spawn(terminal.."-e reboot") end,
+    awful.key({ modkey, "Control"  }, "r", function () awful.spawn('reboot') end,
               {description = "reboot", group = "HotKey"}),
     awful.key({ modkey, "Shift"    }, "c", function () awful.spawn("./alchanger.sh") end,
               {description = "shutdown", group = "HotKey"}),
