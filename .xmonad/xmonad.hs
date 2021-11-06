@@ -324,7 +324,7 @@ myKeys =
         , ("M-S-o", spawn "obsidian-insider")
 
     -- KB_GROUP HotKey
-        , ("M-S-s", spawn (myTerminal ++ "-e shutdown now"))
+        , ("M-S-s", spawn "shutdown now")
         , ("M1-S-r", spawn (myTerminal ++ "-e reboot"))
         , ("M-S-c", spawn (myTerminal ++ "-e ./alchanger.sh"))
         , ("M1-<Space>", spawn "nitrogen --random --set-tiled")
@@ -432,8 +432,8 @@ myKeys =
 main :: IO ()
 main = do
     -- Launching three instances of xmobar on their monitors.
-    xmproc0 <- spawnPipe "xmobar -x 0 $HOME/.config/xmobar/doom-one-xmobarrc"
-    xmproc1 <- spawnPipe "xmobar -x 1 $HOME/.config/xmobar/xmobarrc"
+    xmproc0 <- spawnPipe "xmobar -x 0 $HOME/.config/xmobar/solarized-dark-xmobarrc"
+    xmproc1 <- spawnPipe "xmobar -x 1 $HOME/.config/xmobar/gruvbox-dark-xmobarrc"
     -- the xmonad, ya know...what the WM is named after!
     xmonad $ ewmh def
         { manageHook         = myManageHook <+> manageDocks
