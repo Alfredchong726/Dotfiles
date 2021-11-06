@@ -1,8 +1,7 @@
 #
 # ~/.bashrc
 #
-eval "$(starship init bash)"
-colorscript random
+
 #Ibus settings if you need them
 #type ibus-setup in terminal to change settings and start the daemon
 #delete the hashtags of the next lines and restart
@@ -17,8 +16,8 @@ export HISTCONTROL=ignoreboth:erasedups
 
 # Make nano the default editor
 
-export EDITOR='nvim'
-export VISUAL='nvim'
+export EDITOR='nano'
+export VISUAL='nano'
 
 PS1='[\u@\h \W]\$ '
 
@@ -65,11 +64,11 @@ alias rmpacmanlock="sudo rm /var/lib/pacman/db.lck"
 #arcolinux logout unlock
 alias rmlogoutlock="sudo rm /tmp/arcologout.lock"
 
+#which graphical card is working
+alias whichvga="/usr/local/bin/arcolinux-which-vga"
+
 #free
 alias free="free -mt"
-
-#use all cores
-alias uac="sh ~/.bin/main/000*"
 
 #continue download
 alias wget="wget -c"
@@ -100,7 +99,7 @@ alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 alias update-fc='sudo fc-cache -fv'
 
 #copy/paste all content of /etc/skel over to home folder - backup of config created - beware
-alias skel='cp -Rf ~/.config ~/.config-backup-$(date +%Y.%m.%d-%H.%M.%S) && cp -rf /etc/skel/* ~'
+alias skel='[ -d ~/.config ] || mkdir ~/.config && cp -Rf ~/.config ~/.config-backup-$(date +%Y.%m.%d-%H.%M.%S) && cp -rf /etc/skel/* ~'
 #backup contents of /etc/skel to hidden backup folder in home/user
 alias bupskel='cp -Rf /etc/skel ~/.skel-backup-$(date +%Y.%m.%d-%H.%M.%S)'
 
@@ -112,14 +111,16 @@ alias cb='sudo cp /etc/skel/.bashrc ~/.bashrc && source ~/.bashrc'
 #switch between bash and zsh
 alias tobash="sudo chsh $USER -s /bin/bash && echo 'Now log out.'"
 alias tozsh="sudo chsh $USER -s /bin/zsh && echo 'Now log out.'"
-alias tofish="sudo chsh $USER -s /bin/fish && echo 'Now log out.'"
 
 #switch between lightdm and sddm
 alias tolightdm="sudo pacman -S lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings --noconfirm --needed ; sudo systemctl enable lightdm.service -f ; echo 'Lightm is active - reboot now'"
 alias tosddm="sudo pacman -S sddm --noconfirm --needed ; sudo systemctl enable sddm.service -f ; echo 'Sddm is active - reboot now'"
 
-#quickly kill conkies
+# kill commands
+# quickly kill conkies
 alias kc='killall conky'
+# quickly kill polybar
+alias kp='killall polybar'
 
 #hardware info --short
 alias hw="hwinfo --short"
@@ -140,6 +141,7 @@ alias mirrora="sudo reflector --latest 30 --number 10 --sort age --save /etc/pac
 #our experimental - best option for the moment
 alias mirrorx="sudo reflector --age 6 --latest 20  --fastest 20 --threads 5 --sort rate --protocol https --save /etc/pacman.d/mirrorlist"
 alias mirrorxx="sudo reflector --age 6 --latest 20  --fastest 20 --threads 20 --sort rate --protocol https --save /etc/pacman.d/mirrorlist"
+alias ram='rate-mirrors --allow-root arch | sudo tee /etc/pacman.d/mirrorlist'
 
 #mounting the folder Public for exchange between host and guest on virtualbox
 alias vbm="sudo /usr/local/bin/arcolinux-vbox-share"
@@ -188,10 +190,13 @@ alias ngrub="sudo $EDITOR /etc/default/grub"
 alias nconfgrub="sudo $EDITOR /boot/grub/grub.cfg"
 alias nmkinitcpio="sudo $EDITOR /etc/mkinitcpio.conf"
 alias nmirrorlist="sudo $EDITOR /etc/pacman.d/mirrorlist"
+alias narcomirrorlist='sudo nano /etc/pacman.d/arcolinux-mirrorlist'
 alias nsddm="sudo $EDITOR /etc/sddm.conf"
+alias nsddmk="sudo $EDITOR /etc/sddm.conf.d/kde_settings.conf"
 alias nfstab="sudo $EDITOR /etc/fstab"
 alias nnsswitch="sudo $EDITOR /etc/nsswitch.conf"
 alias nsamba="sudo $EDITOR /etc/samba/smb.conf"
+alias ngnupgconf="sudo nano /etc/pacman.d/gnupg/gpg.conf"
 alias nb="$EDITOR ~/.bashrc"
 alias nz="$EDITOR ~/.zshrc"
 
@@ -202,11 +207,25 @@ alias fix-gpg-check="gpg2 --keyserver-options auto-key-retrieve --verify"
 #receive the key of a developer
 alias gpg-retrieve="gpg2 --keyserver-options auto-key-retrieve --receive-keys"
 alias fix-gpg-retrieve="gpg2 --keyserver-options auto-key-retrieve --receive-keys"
-alias fix-key="[ -d ~/.gnupg ] || mkdir ~/.gnupg ; cp /etc/pacman.d/gnupg/gpg.conf ~/.gnupg/ ; echo 'done'"
+alias fix-keyserver="[ -d ~/.gnupg ] || mkdir ~/.gnupg ; cp /etc/pacman.d/gnupg/gpg.conf ~/.gnupg/ ; echo 'done'"
+
+#fixes
+alias fix-permissions="sudo chown -R $USER:$USER ~/.config ~/.local"
+alias keyfix="/usr/local/bin/arcolinux-fix-pacman-databases-and-keys"
+alias key-fix="/usr/local/bin/arcolinux-fix-pacman-databases-and-keys"
+alias fixkey="/usr/local/bin/arcolinux-fix-pacman-databases-and-keys"
+alias fix-key="/usr/local/bin/arcolinux-fix-pacman-databases-and-keys"
+alias fix-sddm-config="/usr/local/bin/arcolinux-fix-sddm-config"
+alias fix-pacman-conf="/usr/local/bin/arcolinux-fix-pacman-conf"
+alias fix-pacman-keyserver="/usr/local/bin/arcolinux-fix-pacman-gpg-conf"
 
 #maintenance
 alias big="expac -H M '%m\t%n' | sort -h | nl"
-alias downgrada="sudo downgrade --ala-url https://bike.seedhost.eu/arcolinux/"
+alias downgrada="sudo downgrade --ala-url https://ant.seedhost.eu/arcolinux/"
+
+#hblock (stop tracking with hblock)
+#use unhblock to stop using hblock
+alias unhblock="hblock -S none -D none"
 
 #systeminfo
 alias probe="sudo -E hw-probe -all -upload"
@@ -249,6 +268,27 @@ ex ()
   fi
 }
 
+#Leftwm aliases
+alias lti="leftwm-theme install"
+alias ltu="leftwm-theme uninstall"
+alias lta="leftwm-theme apply"
+alias ltupd="leftwm-theme update"
+alias ltupg="leftwm-theme upgrade"
+
+#arcolinux applications
+alias att="arcolinux-tweak-tool"
+alias adt="arcolinux-desktop-trasher"
+alias abl="arcolinux-betterlockscreen"
+alias agm="arcolinux-get-mirrors"
+alias amr="arcolinux-mirrorlist-rank-info"
+alias aom="arcolinux-osbeck-as-mirror"
+alias ars="arcolinux-reflector-simple"
+alias atm="arcolinux-tellme"
+alias avs="arcolinux-vbox-share"
+alias awa="arcolinux-welcome-app"
+
+#remove
+alias rmgitcache="rm -r ~/.cache/git"
 
 #moving your personal files and folders from /personal to ~
 alias personal='cp -Rf /personal/* ~'
@@ -259,23 +299,17 @@ alias personal='cp -Rf /personal/* ~'
 [[ -f ~/.bashrc-personal ]] && . ~/.bashrc-personal
 
 # reporting tools - install when not installed
-# install neofetch
-# neofetch
-# install screenfetch
+neofetch
 #screenfetch
-# install ufetch-git
-#ufetch
-# install ufetch-arco-git
-#ufetch-arco
-# install arcolinux-paleofetch-git
-#paleofetch
-# install alsi
 #alsi
-# install arcolinux-bin-git - standard on ArcoLinux isos (or sfetch - smaller)
+#paleofetch
+#fetch
 #hfetch
-# install lolcat
-#sfetch | lolcat
-# alias config='/usr/bin/git --git-dir=/home/cms/Dotfiles/ --work-tree=/home/cms'
-# . "$HOME/.cargo/env"
-
-export PATH=/home/cms/nodejs/bin:$PATH
+#sfetch
+#ufetch
+#ufetch-arco
+#pfetch
+#sysinfo
+#sysinfo-retro
+#cpufetch
+#colorscript random
