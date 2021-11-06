@@ -1,6 +1,14 @@
 #################################################################
-# KEYBOARD BINDINGS FOR ANY TWM
+# KEYBOARD BINDINGS FOR BSPWM
 #################################################################
+
+#################################################################
+# SUPER + FUNCTION KEYS
+#################################################################
+
+#Rofi Fullscreen
+super + F11
+    rofi -theme-str 'window \{width: 100%;height: 100%;\}' -show drun
 
 #################################################################
 # SUPER + ... KEYS
@@ -44,7 +52,7 @@ super + d
 
 # Virtual Machine
 super + v
-    VirtualBox
+    virt-manager
 
 # deadbeef
 super + m
@@ -54,18 +62,25 @@ super + m
 # super + o
 #     wps
 
-# Keyboard dependent
-# alacritty
-super + KP_Enter
-	alacritty
-
 #################################################################
 # SUPER + SHIFT KEYS
 #################################################################
 
+#Rofi show window
+super + shift + w
+    rofi -show window
+
+#dmenu
+super + shift + d
+	dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=14'
+
+#Toggle fullscreen of window
+super + shift + f
+	bspc node --state \~fullscreen
+
 # Prompt
 super + shift + Return
-	rofi -show run
+	rofi -show combi
 
 # reload sxhkd
 super + shift + Escape
@@ -83,9 +98,21 @@ super + shift + o
 super + shift + c
     ./alchanger.sh
 
+# Shutdown
+super + shift + s
+    shutdown now
+
 #################################################################
 # CONTROL + ALT KEYS
 #################################################################
+
+#arcolinux-welcome-app
+ctrl + alt + w
+    arcolinux-welcome-app
+
+#arcolinux-tweak-tool
+ctrl + alt + e
+    arcolinux-tweak-tool
 
 #################################################################
 # ALT + ... KEYS
@@ -183,13 +210,13 @@ super + y
 # CTRL + ALT KEYS
 #################################################################
 
+#Picom Toggle
+ctrl + alt + o
+    ~/.config/leftwm/scripts/picom-toggle.sh
+
 #################################################################
 # SUPER + KEYS
 #################################################################
-
-#Toggle fullscreen of window
-super + shift + f
-	bspc node --state \~fullscreen
 
 # Toggle pseudo tiling of window
 super + p
@@ -256,6 +283,10 @@ super + alt + shift + {h,j,k,l}
 #################################################################
 # SUPER + CONTROL KEYS
 #################################################################
+
+# Reboot
+super + control + r
+    reboot
 
 #################################################################
 # SUPER + SHIFT KEYS
