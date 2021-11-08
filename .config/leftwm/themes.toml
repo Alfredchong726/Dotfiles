@@ -260,3 +260,10 @@ commit = "*"
 version = "2.3.2"
 leftwm_versions = "*"
 current = false
+
+[[repos.themes]]
+name = "mesh"
+repository = "https://github.com/arcolinux/arcolinux-leftwm-theme-mesh/"
+commit = "*"
+version = "2.3.2"
+leftwm_versions = "*"

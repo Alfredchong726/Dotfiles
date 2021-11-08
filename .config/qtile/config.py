@@ -48,6 +48,7 @@ keys = [
     Key([mod], "v", lazy.spawn("VirtualBox")),
     Key([mod], "w", lazy.spawn("whatsapp-for-linux")),
     Key([mod], "a", lazy.spawn("pavucontrol")),
+    Key([mod], "x", lazy.spawn("arcolinux-logout")),
     Key([mod, 'shift'], "o", lazy.spawn("obsidian-insider")),
     Key([mod, "shift"], "t", lazy.spawn("teams-for-linux")),
     Key([mod, "shift"], "c", lazy.spawn("./alchanger.sh")),
@@ -55,7 +56,7 @@ keys = [
     Key([mod, "shift"], "w", lazy.spawn("rofi -show window")),
     Key([mod], "e", lazy.spawn("rofi -show emoji -modi emoji")),
     Key([mod], "Escape", lazy.spawn("xkill")),
-    # Key([mod, "shift"], "Return", lazy.spawn("dmenu_run -p 'Run: '")),
+    Key([mod, "shift"], "d", lazy.spawn("dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=14'")),
 
     # QTILE FUNCTION
     Key([mod], "q", lazy.window.kill()),

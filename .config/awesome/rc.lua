@@ -228,7 +228,7 @@ globalkeys = gears.table.join(
     -- Applications
     awful.key({ modkey,           }, "d", function () awful.spawn('Thunar') end,
               {description = "open file manager", group = "applications"}),
-    awful.key({ modkey,           }, "v", function () awful.spawn('VirtualBox') end,
+    awful.key({ modkey,           }, "v", function () awful.spawn('virt-manager') end,
               {description = "open virtual machine", group = "applications"}),
     awful.key({ modkey,           }, "t", function () awful.spawn('xfce4-taskmanager') end,
               {description = "open taskmanager", group = "applications"}),
