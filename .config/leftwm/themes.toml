@@ -125,6 +125,7 @@ current = false
 
 [[repos.themes]]
 name = "Ocean-night"
+directory = "/home/cms/.config/leftwm/themes/Ocean-night"
 repository = "https://github.com/TheRoniOne/ocean-night"
 commit = "*"
 version = "0.0.1"
@@ -267,3 +268,4 @@ repository = "https://github.com/arcolinux/arcolinux-leftwm-theme-mesh/"
 commit = "*"
 version = "2.3.2"
 leftwm_versions = "*"
+current = false

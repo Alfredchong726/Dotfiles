@@ -70,7 +70,8 @@ super + shift + Escape
 super + shift + s
     shutdown now
 
-# Teams super + shift + t
+# Teams 
+super + shift + t
     teams-for-linux
 
 # Obsidian
@@ -130,6 +131,9 @@ F2
 
 F3
     xfce4-settings-manager
+
+F12 
+    xfce4-terminal
 
 #################################################################
 #     MULTIMEDIA KEYS
