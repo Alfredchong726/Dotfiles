@@ -134,7 +134,6 @@ alt + Print
 #     FUNCTION KEYS
 #################################################################
 
-#xfce4-terminal dropdown
 F1
     xfce4-find-cursor
 
@@ -143,6 +142,9 @@ F2
 
 F3
     xfce4-settings-manager
+
+F12 
+    xfce4-terminal
 
 #################################################################
 #     MULTIMEDIA KEYS
@@ -223,7 +225,7 @@ ctrl + alt + o
 #################################################################
 # Reboot
 super + ctrl + r
-    reboot now
+    reboot
 
 #################################################################
 # ALT KEYS
