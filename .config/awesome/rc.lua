@@ -45,6 +45,19 @@ do
     end)
 end
 
+-- function to increase the backlight
+local function backlight_inc()
+    current_brightness = io.popen("brightnessctl g"):read("*a")
+    new_brightness = current_brightness + current_brightness * 0.1
+    os.execute("brightnessctl set " .. new_brightness)
+end
+
+-- function to decrease the backlight
+local function backlight_dec()
+    current_brightness = io.popen("brightnessctl g"):read("*a")
+    new_brightness = current_brightness - current_brightness * 0.1
+    os.execute("brightnessctl set " .. new_brightness)
+end
 local function run_once(cmd_arr)
     for _, cmd in ipairs(cmd_arr) do
         awful.spawn.with_shell(string.format("pgrep -u $USER -fx '%s' > /dev/null || (%s)", cmd, cmd))
@@ -652,5 +665,7 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 awful.spawn.with_shell("nitrogen --random --set-tiled")
 awful.spawn.with_shell("xrandr --output eDP1 --right-of HDMI2 --output HDMI2")
 awful.spawn.with_shell("picom --config  $HOME/.config/picom/picom.conf")
+awful.spawn.with_shell("conky -c  $HOME/.config/conky/awesome/tomorrow-night-01.conkyrc")
 awful.spawn.with_shell("nm-applet")
 awful.spawn.with_shell("volumeicon")
+awful.spawn.with_shell("fcitx5")
