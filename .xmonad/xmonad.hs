@@ -1,4 +1,4 @@
-  -- Base
+-- Base
 import XMonad
 import System.Directory
 import System.IO (hPutStrLn)
@@ -325,8 +325,8 @@ myKeys =
 
     -- KB_GROUP HotKey
         , ("M-S-s", spawn "shutdown now")
-        , ("M1-S-r", spawn (myTerminal ++ "-e reboot"))
-        , ("M-S-c", spawn (myTerminal ++ "-e ./alchanger.sh"))
+        , ("M1-S-r", spawn "reboot")
+        , ("M-S-c", spawn "~/alchanger.sh")
         , ("M1-<Space>", spawn "nitrogen --random --set-tiled")
 
     -- KB_GROUP Useful programs to have a keybinding for launch
