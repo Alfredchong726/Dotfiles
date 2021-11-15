@@ -30,6 +30,10 @@ return require('packer').startup(function()
     -- gc & gcc to coment
     use 'tpope/vim-commentary'
 
+    -- NerdTree
+    use 'preservim/nerdtree'
+    use 'tiagofumo/vim-nerdtree-syntax-highlight'
+
     -- Customize the menu
     use 'glepnir/dashboard-nvim'
 
