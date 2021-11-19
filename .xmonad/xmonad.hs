@@ -354,6 +354,7 @@ myKeys =
         , ("C-M1-k", incWindowSpacing 4)         -- Increase window spacing
         , ("C-M1-h", decScreenSpacing 4)         -- Decrease screen spacing
         , ("C-M1-l", incScreenSpacing 4)         -- Increase screen spacing
+        , ("C-M1-s", spawn "xfce4-screenshooter")         -- Increase screen spacing
 
     -- KB_GROUP Grid Select (CTR-g followed by a key)
         , ("C-g g", spawnSelected' myAppGrid)                 -- grid select favorite apps
