@@ -135,8 +135,8 @@ Print
     scrot 'ArcoLinux-%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f $$(xdg-user-dir PICTURES)'
 
 #screeenshooter
-alt + Print
-     xfce4-screenshooter
+ctrl + alt + s
+    xfce4-screenshooter
 
 #################################################################
 #     FUNCTION KEYS

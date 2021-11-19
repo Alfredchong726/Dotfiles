@@ -44,7 +44,6 @@ keys = [
     Key([mod], "o", lazy.spawn("wps")),
     Key([mod], "t", lazy.spawn("xfce4-taskmanager")),
     Key([mod], "d", lazy.spawn("thunar")),
-    Key([mod], "s", lazy.spawn("xfce4-screenshooter")),
     Key([mod], "v", lazy.spawn("VirtualBox")),
     Key([mod], "w", lazy.spawn("whatsapp-for-linux")),
     Key([mod], "a", lazy.spawn("pavucontrol")),
@@ -114,6 +113,7 @@ keys = [
         lazy.layout.increase_nmaster(),
         ),
 
+    Key(["control" + 'mod1'], "s", lazy.spawn("xfce4-screenshooter")),
     Key([mod,], "m", lazy.window.toggle_minimize()),
     Key([mod, "shift"], "f", lazy.window.toggle_fullscreen()),
     Key([mod, "shift"], "n", lazy.layout.normalize()),
@@ -275,17 +275,6 @@ def init_widgets_list():
                         foreground = colors[2],
                         background = colors[0]
                         ),
-               widget.CurrentLayout(
-                        font = "Noto Sans Bold",
-                        foreground = colors[6],
-                        background = colors[0]
-                        ),
-               widget.Sep(
-                        linewidth = 1,
-                        padding = 10,
-                        foreground = colors[2],
-                        background = colors[0]
-                        ),
                 widget.WindowName(
                        foreground = colors[6],
                        background = colors[0],
@@ -400,55 +389,6 @@ def init_widgets_list():
                         discharge_char = u'▼',
                         low_foreground = color_alert,
                         ),
-               # widget.Sep(
-               #          linewidth = 1,
-               #          padding = 10,
-               #          foreground = colors[2],
-               #          background = colors[1]
-               #          ),
-               # widget.TextBox(
-               #          font="FontAwesome",
-               #          text="  ",
-               #          foreground=colors[3],
-               #          background=colors[1],
-               #          padding = 0,
-               #          fontsize=16
-               #          ),
-               # widget.Clock(
-               #          foreground = colors[2],
-               #          background = colors[1],
-               #          fontsize = 12,
-               #          format="%Y-%m-%d %H:%M"
-               #          ),
-               # widget.Sep(
-               #          linewidth = 1,
-               #          padding = 10,
-               #          foreground = colors[2],
-               #          background = colors[1]
-               #          ),
-               #  widget.TextBox(
-               #        text = " Vol:",
-               #         foreground = colors[2],
-               #         background = colors[5],
-               #         padding = 0
-               #         ),
-              # widget.Volume(
-               #         foreground = colors[2],
-               #         background = colors[5],
-               #         padding = 5
-               #         ),
-              # widget.TextBox(
-               #         text = '',
-               #         background = colors[5],
-               #         foreground = colors[4],
-               #         padding = 0,
-               #         fontsize = 37
-               #         ),
-               # widget.Systray(
-               #          background=colors[1],
-               #          icon_size=20,
-               #          padding = 4
-               #          ),
               ]
     return widgets_list
 

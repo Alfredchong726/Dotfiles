@@ -339,7 +339,7 @@ globalkeys = gears.table.join(
               {description = "open rofi", group = "launcher"}),
 
     -- Screenshot
-    awful.key({ "Mod1"           }, "Print", function () awful.spawn( "xfce4-screenshooter" ) end,
+    awful.key({ "Control", "Mod1"}, "s", function () awful.spawn( "xfce4-screenshooter" ) end,
             {description = "Xfce screenshot", group = "screenshots"}),
     awful.key({ modkey }, "x",
               function ()

@@ -127,7 +127,7 @@ Print
     scrot 'ArcoLinux-%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f $$(xdg-user-dir PICTURES)'
 
 #screenshooter
-alt + Print
+ctrl + shift + s
     xfce4-screenshooter
 
 #################################################################
@@ -143,8 +143,8 @@ F2
 F3
     xfce4-settings-manager
 
-F12 
-    xfce4-terminal
+# F12 
+#     xfce4-terminal
 
 #################################################################
 #     MULTIMEDIA KEYS
