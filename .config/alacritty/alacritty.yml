@@ -366,7 +366,7 @@ schemes:
 # *solarized-dark
 # *tomorrow-night
 
-colors: *gruvbox-dark
+colors: *oceanic-next
 
 #######################################
 ##       END OF COLOR SCHEMES        ##
