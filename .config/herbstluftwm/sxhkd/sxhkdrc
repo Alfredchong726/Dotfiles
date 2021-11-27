@@ -1,0 +1,238 @@
+#################################################################
+# KEYBOARD BINDINGS FOR ANY TWM
+#################################################################
+
+#################################################################
+# SUPER + FUNCTION KEYS
+#################################################################
+
+#Rofi Fullscreen
+super + F11
+    rofi -theme-str 'window \{width: 100%;height: 100%;\}' -show drun
+
+#################################################################
+# SUPER + ... KEYS
+#################################################################
+
+#Firefox
+super + shift + f
+    firefox
+
+#Rofi theme selector
+super + r
+    rofi-theme-selector
+
+#TaskManager
+super + t
+    xfce4-taskmanager
+
+#Pavucontrol
+super + a
+    pavucontrol
+
+#Deadbeef
+super + m
+    deadbeef
+
+#Xkill
+super + Escape
+    xkill
+
+#ArcoLinux-logout
+super + x
+    arcolinux-logout
+
+#Wgatsapp
+super + w
+    whatsapp-for-linux
+
+#Virt-manager
+super + v
+    virt-manager
+
+#Alacritty
+super + Return
+    alacritty
+
+#################################################################
+# SUPER + SHIFT KEYS
+#################################################################
+
+#Rofi show window
+super + shift + w
+    rofi -show window
+
+#dmenu
+super + shift + d
+	dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=14'
+
+#reload sxhkd:
+super + shift + Escape
+	pkill -USR1 -x sxhkd
+
+#Shutdown now
+super + shift + s
+    shutdown now
+
+# Teams 
+super + shift + t
+    teams-for-linux
+
+# Obsidian
+super + shift + o
+    obsidian-insider
+
+#Rofi
+super + shift + Return
+    rofi -show combi
+
+# Change alacritty color theme in easy way
+super + shift + c
+    ./alchanger.sh
+
+#################################################################
+# CONTROL + ALT KEYS
+#################################################################
+
+#arcolinux-welcome-app
+ctrl + alt + w
+    arcolinux-welcome-app
+
+#arcolinux-tweak-tool
+ctrl + alt + e
+    arcolinux-tweak-tool
+
+#################################################################
+# ALT + ... KEYS
+#################################################################
+
+# Change wallpaper
+alt + space
+    nitrogen --random --set-tiled
+
+#################################################################
+# CONTROL + SHIFT KEYS
+#################################################################
+
+#################################################################
+#     SCREENSHOTS
+#################################################################
+
+#Scrot
+Print
+    scrot 'ArcoLinux-%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f $$(xdg-user-dir PICTURES)'
+
+#screenshooter
+ctrl + alt + s
+    xfce4-screenshooter
+
+#################################################################
+#     FUNCTION KEYS
+#################################################################
+
+#xfce4-terminal dropdown
+F1
+    xfce4-find-cursor
+
+F2
+    xfce4-appfinder
+
+F3
+    xfce4-settings-manager
+
+F12 
+    xfce4-terminal
+
+#################################################################
+#     MULTIMEDIA KEYS
+#################################################################
+
+#Raises volume
+XF86AudioRaiseVolume
+    amixer set Master 10%+
+
+#Lowers volume
+XF86AudioLowerVolume
+    amixer set Master 10%-
+
+#Mute
+XF86AudioMute
+    amixer -D pulse set Master 1+ toggle
+
+#PLAY
+XF86AudioPlay
+    playerctl play-pause
+
+#Next
+XF86AudioNext
+    playerctl next
+
+#previous
+XF86AudioPrev
+    playerctl previous
+
+#Stop
+XF86AudioStop
+    playerctl stop
+
+#Brightness up
+XF86MonBrightnessUp
+    xbacklight -inc 10
+
+#Brightness down
+XF86MonBrightnessDown
+    xbacklight -dec 10
+
+#########################
+#        POLYBAR        #
+#########################
+
+#Hide polybar
+super + y
+    polybar-msg cmd toggle
+
+#################################################################
+#################################################################
+##################   DESKTOP SPECIFIC    ########################
+#################################################################
+#################################################################
+
+#################################################################
+# CTRL + ALT KEYS
+#################################################################
+
+#Picom Toggle
+ctrl + alt + o
+    ~/.config/leftwm/scripts/picom-toggle.sh
+
+#################################################################
+# SUPER + KEYS
+#################################################################
+
+#################################################################
+# SUPER KEYS
+#################################################################
+
+#################################################################
+# SUPER + SHIFT KEYS
+#################################################################
+
+#################################################################
+# SUPER + CONTROL KEYS
+#################################################################
+# Reboot
+super + ctrl + r
+    reboot now
+
+#################################################################
+# ALT KEYS
+#################################################################
+
+#################################################################
+# ALT + SHIFT KEYS
+#################################################################
+
+#################################################################
+# CTRL + ALT KEYS
+#################################################################
+
