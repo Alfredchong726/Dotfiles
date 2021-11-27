@@ -3,11 +3,11 @@ import re
 import socket
 import subprocess
 from typing import List  # noqa: F401
-from libqtile import backend, layout, bar, widget, hook
+from libqtile import layout, bar, widget, hook
 from libqtile.config import Click, Drag, Group, Key, Match, Screen, Rule
 from libqtile.command import lazy
 from libqtile.widget import Spacer
-#import arcobattery
+import arcobattery
 
 #mod4 or mod = super key
 mod = "mod4"
@@ -34,13 +34,9 @@ keys = [
 # Most of our keybindings are in sxhkd file - except these
 
 # SUPER + FUNCTION KEYS
-
-    # SPAWN APPLICATIONS
     Key([mod], "f", lazy.spawn('firefox')),
     Key([mod], "Return", lazy.spawn(myTerm)),
     Key([mod], "y", lazy.spawn("deadbeef")),
-    Key([mod], "n", lazy.spawn("nitrogen")),
-    Key([mod], "c", lazy.spawn("galculator")),
     Key([mod], "o", lazy.spawn("wps")),
     Key([mod], "t", lazy.spawn("xfce4-taskmanager")),
     Key([mod], "d", lazy.spawn("thunar")),
@@ -76,12 +72,18 @@ keys = [
     Key([], "F1", lazy.spawn("xfce4-find-cursor")),
 
 # SUPER + SHIFT KEYS
+
     Key([mod, "shift"], "q", lazy.window.kill()),
     Key([mod, "shift"], "r", lazy.restart()),
 
+# CHANGE SCREEN 
+    Key([mod,], "comma", lazy.prev_screen()),
+    Key([mod,], "period", lazy.next_screen()),
+
 # QTILE LAYOUT KEYS
+    Key([mod,], "m", lazy.window.toggle_minimize()),
+    Key([mod], "n", lazy.layout.normalize()),
     Key([mod], "Tab", lazy.next_layout()),
-    Key([mod, "shift"], "Tab", lazy.prev_layout()),
 
 # CHANGE FOCUS
     Key([mod], "k", lazy.layout.up()),
@@ -89,14 +91,15 @@ keys = [
     Key([mod], "h", lazy.layout.left()),
     Key([mod], "l", lazy.layout.right()),
 
+
 # RESIZE UP, DOWN, LEFT, RIGHT
-    Key([mod, "control"], "h",
+    Key([mod, "control"], "l",
         lazy.layout.grow_right(),
         lazy.layout.grow(),
         lazy.layout.increase_ratio(),
         lazy.layout.delete(),
         ),
-    Key([mod, "control"], "l",
+    Key([mod, "control"], "h",
         lazy.layout.grow_left(),
         lazy.layout.shrink(),
         lazy.layout.decrease_ratio(),
@@ -113,11 +116,8 @@ keys = [
         lazy.layout.increase_nmaster(),
         ),
 
-    Key(["control" + 'mod1'], "s", lazy.spawn("xfce4-screenshooter")),
-    Key([mod,], "m", lazy.window.toggle_minimize()),
+
     Key([mod, "shift"], "f", lazy.window.toggle_fullscreen()),
-    Key([mod, "shift"], "n", lazy.layout.normalize()),
-    Key([mod, "shift"], "m", lazy.layout.maximize()),
 
 # FLIP LAYOUT FOR MONADTALL/MONADWIDE
     Key([mod, "control"], "f", lazy.layout.flip()),
@@ -134,25 +134,55 @@ keys = [
     Key([mod, "shift"], "h", lazy.layout.shuffle_left()),
     Key([mod, "shift"], "l", lazy.layout.shuffle_right()),
 
+# MOVE WINDOWS UP OR DOWN MONADTALL/MONADWIDE LAYOUT
+    Key([mod, "shift"], "Up", lazy.layout.shuffle_up()),
+    Key([mod, "shift"], "Down", lazy.layout.shuffle_down()),
+    Key([mod, "shift"], "Left", lazy.layout.swap_left()),
+    Key([mod, "shift"], "Right", lazy.layout.swap_right()),
+
+# TOGGLE FLOATING LAYOUT
+    Key([mod, "shift"], "Tab", lazy.window.toggle_floating()),
+
 # CHANGE WALLPAPER
     Key(["mod1"], "space", lazy.spawn("nitrogen --random --set-tiled")),
     ]
-# END_KEYS
-group_names = [("WWW", {'layout': 'max'}),
-               ("FISH", {'layout': 'monadtall'}),
-               ("BASH", {'layout': 'monadtall'}),
-               ("PYTHON", {'layout': 'monadtall'}),
-               ("PHP", {'layout': 'monadtall'}),
-               ("JAVA", {'layout': 'monadtall'}),
-               ("LUA", {'layout': 'monadtall'}),
-               ("SYS", {'layout': 'monadtall'}),
-               ("MUS", {'layout': 'monadtall'})]
 
-groups = [Group(name, **kwargs) for name, kwargs in group_names]
+groups = []
 
-for i, (name, kwargs) in enumerate(group_names, 1):
-    keys.append(Key([mod], str(i), lazy.group[name].toscreen()))        # Switch to another group
-    keys.append(Key([mod, "shift"], str(i), lazy.window.togroup(name))) # Send current window to another group
+# FOR QWERTY KEYBOARDS
+group_names = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0",]
+
+# FOR AZERTY KEYBOARDS
+#group_names = ["ampersand", "eacute", "quotedbl", "apostrophe", "parenleft", "section", "egrave", "exclam", "ccedilla", "agrave",]
+
+#group_labels = ["1 ", "2 ", "3 ", "4 ", "5 ", "6 ", "7 ", "8 ", "9 ", "0",]
+# group_labels = ["", "", "", "", "", "", "", "", "", "",]
+group_labels = ["WWW", "FISH", "BASH", "PYTHON", "JAVA", "C", "PHP", "LUA", "SYS", "MUS",]
+
+group_layouts = ["monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall",]
+#group_layouts = ["monadtall", "matrix", "monadtall", "bsp", "monadtall", "matrix", "monadtall", "bsp", "monadtall", "monadtall",]
+
+for i in range(len(group_names)):
+    groups.append(
+        Group(
+            name=group_names[i],
+            layout=group_layouts[i].lower(),
+            label=group_labels[i],
+        ))
+
+for i in groups:
+    keys.extend([
+
+#CHANGE WORKSPACES
+        Key([mod], i.name, lazy.group[i.name].toscreen()),
+        Key(["mod1"], "Tab", lazy.screen.next_group()),
+        Key(["mod1", "shift"], "Tab", lazy.screen.prev_group()),
+
+# MOVE WINDOW TO SELECTED WORKSPACE 1-10 AND STAY ON WORKSPACE
+        #Key([mod, "shift"], i.name, lazy.window.togroup(i.name)),
+# MOVE WINDOW TO SELECTED WORKSPACE 1-10 AND FOLLOW MOVED WINDOW TO WORKSPACE
+        Key([mod, "shift"], i.name, lazy.window.togroup(i.name) , lazy.group[i.name].toscreen()),
+    ])
 
 
 def init_layout_theme():
@@ -176,7 +206,6 @@ layouts = [
 ]
 
 # COLORS FOR THE BAR
-#Theme name : ArcoLinux Default
 def init_colors():
     return [["#282c34", "#282c34"],# color 0
            ["#3d3f4b", "#434758"],# color 1
@@ -380,6 +409,14 @@ def init_widgets_list():
                        padding = 0,
                        fontsize = 37
                        ),
+               arcobattery.BatteryIcon(
+                        padding=0,
+                        scale=0.7,
+                        y_poss=2,
+                        theme_path=home + "/.config/qtile/icons/battery_icons_horiz",
+                        update_interval = 5,
+                        background = colors[4]
+                        ),
                 Battery(
                         font = "Ubuntu Bold",
                         foreground = colors[7],
@@ -423,6 +460,49 @@ mouse = [
 
 dgroups_key_binder = None
 dgroups_app_rules = []
+
+# ASSIGN APPLICATIONS TO A SPECIFIC GROUPNAME
+# BEGIN
+
+#########################################################
+################ assgin apps to groups ##################
+#########################################################
+# @hook.subscribe.client_new
+# def assign_app_group(client):
+#     d = {}
+#     #####################################################################################
+#     ### Use xprop fo find  the value of WM_CLASS(STRING) -> First field is sufficient ###
+#     #####################################################################################
+#     d[group_names[0]] = ["Navigator", "Firefox", "Vivaldi-stable", "Vivaldi-snapshot", "Chromium", "Google-chrome", "Brave", "Brave-browser",
+#               "navigator", "firefox", "vivaldi-stable", "vivaldi-snapshot", "chromium", "google-chrome", "brave", "brave-browser", ]
+#     d[group_names[1]] = [ "Atom", "Subl", "Geany", "Brackets", "Code-oss", "Code", "TelegramDesktop", "Discord",
+#                "atom", "subl", "geany", "brackets", "code-oss", "code", "telegramDesktop", "discord", ]
+#     d[group_names[2]] = ["Inkscape", "Nomacs", "Ristretto", "Nitrogen", "Feh",
+#               "inkscape", "nomacs", "ristretto", "nitrogen", "feh", ]
+#     d[group_names[3]] = ["Gimp", "gimp" ]
+#     d[group_names[4]] = ["Meld", "meld", "org.gnome.meld" "org.gnome.Meld" ]
+#     d[group_names[5]] = ["Vlc","vlc", "Mpv", "mpv" ]
+#     d[group_names[6]] = ["VirtualBox Manager", "VirtualBox Machine", "Vmplayer",
+#               "virtualbox manager", "virtualbox machine", "vmplayer", ]
+#     d[group_names[7]] = ["Thunar", "Nemo", "Caja", "Nautilus", "org.gnome.Nautilus", "Pcmanfm", "Pcmanfm-qt",
+#               "thunar", "nemo", "caja", "nautilus", "org.gnome.nautilus", "pcmanfm", "pcmanfm-qt", ]
+#     d[group_names[8]] = ["Evolution", "Geary", "Mail", "Thunderbird",
+#               "evolution", "geary", "mail", "thunderbird" ]
+#     d[group_names[9]] = ["Spotify", "Pragha", "Clementine", "Deadbeef", "Audacious",
+#               "spotify", "pragha", "clementine", "deadbeef", "audacious" ]
+#     ######################################################################################
+#
+# wm_class = client.window.get_wm_class()[0]
+#
+#     for i in range(len(d)):
+#         if wm_class in list(d.values())[i]:
+#             group = list(d.keys())[i]
+#             client.togroup(group)
+#             client.group.cmd_toscreen(toggle=False)
+
+# END
+# ASSIGN APPLICATIONS TO A SPECIFIC GROUPNAME
+
 
 
 main = None
