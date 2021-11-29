@@ -366,7 +366,7 @@ schemes:
 # *solarized-dark
 # *tomorrow-night
 
-colors: *oceanic-next
+colors: *monokai-pro
 
 #######################################
 ##       END OF COLOR SCHEMES        ##
