@@ -430,8 +430,8 @@ font-2 = "Noto Sans:size=10;0"
 font-3 = "Noto Sans Mono:size=10;0"
 
 modules-left = bspwm xwindow
-modules-center = kernel
-modules-right = pavolume memory2 cpu2 date
+modules-center = jgmenu kernel
+modules-right = pavolume memory2 cpu2 date battery
 
 tray-detached = false
 tray-offset-x = 0
@@ -1379,7 +1379,7 @@ bar-empty = ─
 [module/battery]
 ;https://github.com/jaagr/polybar/wiki/Module:-battery
 type = internal/battery
-battery = BAT0
+battery = BAT1
 adapter = AC0
 full-at = 100
 
