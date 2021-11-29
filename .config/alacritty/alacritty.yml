@@ -366,7 +366,7 @@ schemes:
 # *solarized-dark
 # *tomorrow-night
 
-colors: *monokai-pro
+colors: *dracula
 
 #######################################
 ##       END OF COLOR SCHEMES        ##

@@ -91,6 +91,10 @@ keys = [
     Key([mod], "h", lazy.layout.left()),
     Key([mod], "l", lazy.layout.right()),
 
+# SCREENSHOT
+    Key(["control", "mod1"], "s", lazy.spawn("xfce4-screenshooter")),
+    Key(["control"], "s", lazy.spawn("flameshot gui")),
+
 
 # RESIZE UP, DOWN, LEFT, RIGHT
     Key([mod, "control"], "l",

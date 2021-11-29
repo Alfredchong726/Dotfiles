@@ -262,11 +262,11 @@ globalkeys = gears.table.join(
     awful.key({ modkey, "Control"  }, "r", function () awful.spawn('reboot') end,
               {description = "reboot", group = "HotKey"}),
     awful.key({ modkey, "Shift"    }, "c", function () awful.spawn("./alchanger.sh") end,
-              {description = "shutdown", group = "HotKey"}),
+              {description = "change alacritty theme", group = "HotKey"}),
     awful.key({ modkey,            }, "a", function () awful.spawn("pavucontrol") end,
               {description = "start pulseaudio", group = "HotKey"}),
     awful.key({ modkey,            }, "b", function () awful.spawn(terminal.."-e bpytop") end,
-              {description = "start pulseaudio", group = "HotKey"}),
+              {description = "open bpytop", group = "HotKey"}),
     awful.key({ "Mod1"           }, "space", function () awful.spawn( "nitrogen --random --set-tiled" ) end,
             {description = "change wallpaper", group = "HotKey"}),
     
@@ -341,6 +341,8 @@ globalkeys = gears.table.join(
     -- Screenshot
     awful.key({ "Control", "Mod1"}, "s", function () awful.spawn( "xfce4-screenshooter" ) end,
             {description = "Xfce screenshot", group = "screenshots"}),
+    awful.key({ "Control"        }, "s", function () awful.spawn( "flameshot gui" ) end,
+            {description = "flameshot screenshooter", group = "screenshots"}),
     awful.key({ modkey }, "x",
               function ()
                   awful.prompt.run {
