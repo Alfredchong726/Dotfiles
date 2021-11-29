@@ -45,6 +45,7 @@ current = false
 
 [[repos.themes]]
 name = "Dracula Rounded"
+directory = "/home/cms/.config/leftwm/themes/Dracula Rounded"
 repository = "https://github.com/AethanFoot/leftwm-theme-dracula-rounded/"
 commit = "*"
 version = "0.0.2"
@@ -53,6 +54,7 @@ current = false
 
 [[repos.themes]]
 name = "Forest"
+directory = "/home/cms/.config/leftwm/themes/Forest"
 repository = "https://github.com/lex148/forest/"
 commit = "*"
 version = "0.0.1"
@@ -117,6 +119,7 @@ current = false
 
 [[repos.themes]]
 name = "Epitaph"
+directory = "/home/cms/.config/leftwm/themes/Epitaph"
 repository = "https://github.com/VentGrey/Epitaph"
 commit = "*"
 version = "0.0.1"
@@ -149,6 +152,7 @@ name = "arcolinux"
 
 [[repos.themes]]
 name = "docky"
+directory = "/home/cms/.config/leftwm/themes/docky"
 repository = "https://github.com/arcolinux/arcolinux-leftwm-theme-docky/"
 commit = "*"
 version = "2.3.2"
@@ -232,6 +236,7 @@ current = false
 
 [[repos.themes]]
 name = "forest"
+directory = "/home/cms/.config/leftwm/themes/forest"
 repository = "https://github.com/arcolinux/arcolinux-leftwm-theme-forest/"
 commit = "*"
 version = "2.3.2"
@@ -265,6 +270,14 @@ current = false
 [[repos.themes]]
 name = "mesh"
 repository = "https://github.com/arcolinux/arcolinux-leftwm-theme-mesh/"
+commit = "*"
+version = "2.3.2"
+leftwm_versions = "*"
+current = false
+
+[[repos.themes]]
+name = "db"
+repository = "https://github.com/arcolinux/arcolinux-leftwm-theme-db/"
 commit = "*"
 version = "2.3.2"
 leftwm_versions = "*"
