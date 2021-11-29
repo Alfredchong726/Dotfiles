@@ -8,6 +8,8 @@ function run {
 }
 #starting utility applications at boot time
 run nm-applet &
+run fcitx5 &
+run flameshot &
 run pamac-tray &
 run xfce4-power-manager &
 run ./.xrandr-ext-mon &

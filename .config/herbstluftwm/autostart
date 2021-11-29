@@ -227,6 +227,8 @@ xsetroot -cursor_name left_ptr &
 sxhkd -c ~/.config/herbstluftwm/sxhkd/sxhkdrc &
 
 nm-applet &
+fcitx5 &
+flameshot &
 pamac-tray &
 xfce4-power-manager &
 numlockx off &

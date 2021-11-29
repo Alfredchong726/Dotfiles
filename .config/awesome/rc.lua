@@ -669,3 +669,4 @@ awful.spawn.with_shell("conky -c  $HOME/.config/conky/awesome/tomorrow-night-01.
 awful.spawn.with_shell("nm-applet")
 awful.spawn.with_shell("volumeicon")
 awful.spawn.with_shell("fcitx5")
+awful.spawn.with_shell("flameshot")
