@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
-SDIR="$HOME/.config/leftwm/themes/current/polybar/scripts"
+SDIR="$HOME/.config/herbstluftwm/polybar/scripts"
 
 # Launch Rofi
 MENU="$(rofi -no-config -no-lazy-grab -sep "|" -dmenu -i -p '' \
--theme $SDIR/rofi/styles.rasi \
+-theme $SDIR/styles.rasi \
 <<< " Default| Nord| Gruvbox| Dark| Cherry|")"
             case "$MENU" in
 				*Default) "$SDIR"/styles.sh --default ;;

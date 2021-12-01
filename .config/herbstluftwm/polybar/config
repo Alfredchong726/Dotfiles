@@ -301,7 +301,7 @@ content-foreground = ${color.sep}
 type = custom/text
 content = 
 content-foreground = ${color.cyan}
-click-left = ./scripts/powermenu.sh &
+click-left = ~/.config/herbstluftwm/polybar/scripts/powermenu.sh &
 
 [module/kernel]
 type = custom/script
@@ -329,5 +329,5 @@ click-right = exo-open --launch TerminalEmulator &
 type = custom/text
 content = 
 content-foreground = ${color.purple}
-click-left = ./scripts/launcher.sh &
-click-right = ./scripts/style-switch.sh &
+click-left = ~/.config/herbstluftwm/polybar/scripts/launcher.sh &
+click-right = ~/.config/herbstluftwm/polybar/scripts/style-switch.sh &
