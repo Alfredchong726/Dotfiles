@@ -87,13 +87,13 @@ padding-right = 0
 module-margin-left = 1
 module-margin-right = 1
 
-tray-detached = false
+tray-detached = true
 tray-offset-x = 0
 tray-offset-y = 0
 tray-padding = 2
 tray-maxsize = 20
 tray-scale = 1.0
-tray-position = none
+tray-position = 
 tray-background = ${color.background}
 
 scroll-up = herbstclient use_index -1

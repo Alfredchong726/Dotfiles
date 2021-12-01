@@ -18,10 +18,6 @@ super + F11
 super + shift + f
     firefox
 
-#Rofi theme selector
-super + r
-    rofi-theme-selector
-
 #TaskManager
 super + t
     xfce4-taskmanager
@@ -85,6 +81,10 @@ super + shift + o
 #Rofi
 super + shift + Return
     rofi -show combi
+
+#Rofi emoji
+super + shift + e
+    rofi -show emoji
 
 # Change alacritty color theme in easy way
 super + shift + c
