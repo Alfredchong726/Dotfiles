@@ -51,9 +51,5 @@ utils.map('x', 'J', ':move \'>+1<CR>gv-gv\'')
 -- Space ts for calling terminal
 utils.map('n', '<Leader>ts', ':bel split term://fish<CR>:resize 10<CR>i')
 
--- Call Startify
-utils.map('n', '<Leader>S', ':Startify<CR>')
-
-utils.map('n', '<Leader>S', ':Startify<CR>')
-utils.map('n', '<Leader>S', ':Startify<CR>')
-utils.map('n', '<Leader>S', ':Startify<CR>')
+-- Space db to start debug for .py file
+utils.map('n', '<Leader>db', ':sp<CR>:term python3 -m pdb %<CR>i')
