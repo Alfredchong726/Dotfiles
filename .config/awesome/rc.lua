@@ -247,7 +247,7 @@ globalkeys = gears.table.join(
               {description = "open taskmanager", group = "applications"}),
     awful.key({ modkey, "Shift"   }, "f", function () awful.spawn('firefox') end,
               {description = "open firefox", group = "applications"}),
-    awful.key({ modkey, "Shift"   }, "t", function () awful.spawn('teams-for-linux') end,
+    awful.key({ modkey, "Shift"   }, "t", function () awful.spawn('teams') end,
               {description = "open teams", group = "applications"}),
     awful.key({ modkey, "Shift"   }, "o", function () awful.spawn('obsidian-insider') end,
               {description = "open teams", group = "applications"}),
@@ -341,7 +341,7 @@ globalkeys = gears.table.join(
     -- Screenshot
     awful.key({ "Control", "Mod1"}, "s", function () awful.spawn( "xfce4-screenshooter" ) end,
             {description = "Xfce screenshot", group = "screenshots"}),
-    awful.key({ "Control"        }, "s", function () awful.spawn( "flameshot gui" ) end,
+    awful.key({ "Control", "Shift"}, "s", function () awful.spawn( "flameshot gui" ) end,
             {description = "flameshot screenshooter", group = "screenshots"}),
     awful.key({ modkey }, "x",
               function ()
