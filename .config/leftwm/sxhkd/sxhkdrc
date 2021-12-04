@@ -118,7 +118,7 @@ Print
 ctrl + alt + s
     xfce4-screenshooter
 
-ctrl + s
+ctrl + shift + s
     flameshot gui
 
 #################################################################
