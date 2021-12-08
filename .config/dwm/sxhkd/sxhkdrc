@@ -76,7 +76,7 @@ super + shift + s
 
 # Teams
 super + shift + t
-    teams-for-linux
+    teams
 
 # Obsidian
 super + shift + o
@@ -130,7 +130,7 @@ Print
 ctrl + alt + s
     xfce4-screenshooter
 
-ctrl + s 
+ctrl + shift + s
     flameshot gui
 
 #################################################################

@@ -215,8 +215,7 @@ hc pad 1 30
 #setxkbmap -layout be
 
 #Autostart applications
-# pkill -u $USER '^picom$'
-# picom
+pkill -u $USER '^picom$'
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 /usr/lib/xfce4/notifyd/xfce4-notifyd &
 
@@ -233,5 +232,6 @@ pamac-tray &
 xfce4-power-manager &
 numlockx off &
 blueberry-tray &
+picom &
 run volumeicon &
 nitrogen --random --set-tiled &

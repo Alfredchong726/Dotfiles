@@ -45,11 +45,11 @@ keys = [
     Key([mod], "a", lazy.spawn("pavucontrol")),
     Key([mod], "x", lazy.spawn("arcolinux-logout")),
     Key([mod, 'shift'], "o", lazy.spawn("obsidian-insider")),
-    Key([mod, "shift"], "t", lazy.spawn("teams-for-linux")),
+    Key([mod, "shift"], "t", lazy.spawn("teams")),
     Key([mod, "shift"], "c", lazy.spawn("./alchanger.sh")),
     Key([mod, "shift"], "Return", lazy.spawn("rofi -show run")),
     Key([mod, "shift"], "w", lazy.spawn("rofi -show window")),
-    Key([mod], "e", lazy.spawn("rofi -show emoji -modi emoji")),
+    Key([mod, "shift"], "e", lazy.spawn("rofi -show emoji -modi emoji")),
     Key([mod], "Escape", lazy.spawn("xkill")),
     Key([mod, "shift"], "d", lazy.spawn("dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=14'")),
 
@@ -93,7 +93,7 @@ keys = [
 
 # SCREENSHOT
     Key(["control", "mod1"], "s", lazy.spawn("xfce4-screenshooter")),
-    Key(["control"], "s", lazy.spawn("flameshot gui")),
+    Key(["control", "shift"], "s", lazy.spawn("flameshot gui")),
 
 
 # RESIZE UP, DOWN, LEFT, RIGHT

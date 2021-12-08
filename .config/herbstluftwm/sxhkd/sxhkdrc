@@ -46,6 +46,10 @@ super + w
 super + v
     virt-manager
 
+#Thunar
+super + d 
+    Thunar
+
 #Alacritty
 super + Return
     alacritty
@@ -72,7 +76,7 @@ super + shift + s
 
 # Teams 
 super + shift + t
-    teams-for-linux
+    teams
 
 # Obsidian
 super + shift + o
@@ -127,7 +131,7 @@ ctrl + alt + s
     xfce4-screenshooter
 
 #Flameshot
-ctrl + s 
+ctrl + shift + s
     flameshot gui
 
 #################################################################
