@@ -33,6 +33,7 @@ keys = [
 
 # Most of our keybindings are in sxhkd file - except these
 
+# START_KEYS
 # SUPER + FUNCTION KEYS
     Key([mod], "f", lazy.spawn('firefox')),
     Key([mod], "Return", lazy.spawn(myTerm)),
@@ -150,6 +151,8 @@ keys = [
 # CHANGE WALLPAPER
     Key(["mod1"], "space", lazy.spawn("nitrogen --random --set-tiled")),
     ]
+
+# END_KEYS
 
 groups = []
 
