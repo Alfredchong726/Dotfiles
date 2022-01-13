@@ -249,6 +249,8 @@ globalkeys = gears.table.join(
               {description = "open firefox", group = "applications"}),
     awful.key({ modkey, "Shift"   }, "t", function () awful.spawn('teams') end,
               {description = "open teams", group = "applications"}),
+    awful.key({ modkey            }, "x", function () awful.spawn('arcolinux-logout') end,
+              {description = "open arcolinux-logout", group = "applications"}),
     awful.key({ modkey, "Shift"   }, "o", function () awful.spawn('obsidian-insider') end,
               {description = "open teams", group = "applications"}),
     awful.key({ modkey,           }, "w", function () awful.spawn('whatsapp-for-linux') end,
@@ -343,16 +345,16 @@ globalkeys = gears.table.join(
             {description = "Xfce screenshot", group = "screenshots"}),
     awful.key({ "Control", "Shift"}, "s", function () awful.spawn( "flameshot gui" ) end,
             {description = "flameshot screenshooter", group = "screenshots"}),
-    awful.key({ modkey }, "x",
-              function ()
-                  awful.prompt.run {
-                    prompt       = "Run Lua code: ",
-                    textbox      = awful.screen.focused().mypromptbox.widget,
-                    exe_callback = awful.util.eval,
-                    history_path = awful.util.get_cache_dir() .. "/history_eval"
-                  }
-              end,
-              {description = "lua execute prompt", group = "awesome"}),
+    -- awful.key({ modkey }, "x",
+    --           function ()
+    --               awful.prompt.run {
+    --                 prompt       = "Run Lua code: ",
+    --                 textbox      = awful.screen.focused().mypromptbox.widget,
+    --                 exe_callback = awful.util.eval,
+    --                 history_path = awful.util.get_cache_dir() .. "/history_eval"
+    --               }
+    --           end,
+    --           {description = "lua execute prompt", group = "awesome"}),
     -- Menubar
     awful.key({ modkey }, "p", function() menubar.show() end,
               {description = "show the menubar", group = "launcher"})

@@ -26,8 +26,8 @@ configuration {
       sorting-method:    "name";
   }
 }
-@theme "~/.config/rofi/themes/gruvbox.rasi"
-/* @theme "~/.config/rofi/themes/nord.rasi" */
+/* @theme "~/.config/rofi/themes/gruvbox.rasi" */
+@theme "~/.config/rofi/themes/nord.rasi"
 
 
 /* configuration { */
