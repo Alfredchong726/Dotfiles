@@ -340,6 +340,17 @@ globalkeys = gears.table.join(
     awful.key({ modkey, "Shift"   }, "Return", function () awful.spawn("rofi -show run") end,
               {description = "open rofi", group = "launcher"}),
 
+    -- Special Function
+    awful.key({ "Control", "Shift"}, "e", function () awful.spawn( "edit-configs" ) end,
+            {description = "Open File to Edit", group = "Special Function"}),
+    awful.key({ "Control", "Shift"}, "p", function () awful.spawn( "powermenu" ) end,
+            {description = "Control power in short way", group = "Special Function"}),
+    awful.key({ "Control", "Shift"}, "q", function () awful.spawn( "quick-links" ) end,
+            {description = "Access different website", group = "Special Function"}),
+    awful.key({ "Control", "Shift"}, "l", function () awful.spawn( "lock" ) end,
+            {description = "Lock screen", group = "Special Function"}),
+
+
     -- Screenshot
     awful.key({ "Control", "Mod1"}, "s", function () awful.spawn( "xfce4-screenshooter" ) end,
             {description = "Xfce screenshot", group = "screenshots"}),

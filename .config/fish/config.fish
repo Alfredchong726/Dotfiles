@@ -151,7 +151,7 @@ alias ,,='cd ..'
 set PATH $PATH /usr/local/bin
 set -gx PATH $PATH /usr/local/lib/nodejs/node-v14.17.4-linux-x64/bin/
 set -gx PATH $PATH $HOME/.cargo/bin/
-set -gx PATH $PATH $HOME/.cargo/bin/
+set -gx PATH $PATH $HOME/.local/bin/
 export PATH
 
 starship init fish | source         # Start starship

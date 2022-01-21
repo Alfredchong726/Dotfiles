@@ -388,6 +388,12 @@ myKeys =
         , ("M-M1-j", sendMessage MirrorShrink)          -- Shrink vert window width
         , ("M-M1-k", sendMessage MirrorExpand)          -- Expand vert window width
 
+    -- KB_GROUP Special Function
+        , ("C-S-e", spawn "edit-configs")
+        , ("C-S-l", spawn "lock")
+        , ("C-S-p", spawn "powermenu")
+        , ("C-S-q", spawn "quick-links")
+
     -- KB_GROUP Sublayouts
     -- This is used to push windows to tabbed sublayouts, or pull them out of it.
         , ("M-C-h", sendMessage $ pullGroup L)
