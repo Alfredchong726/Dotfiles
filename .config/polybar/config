@@ -11,6 +11,12 @@
 ;
 ;=====================================================
 
+[system]
+adapter = ACAD
+battery = BAT0
+graphics_card = amdgpu_bl1
+network_interface = wlan0
+
 [global/wm]
 ;https://github.com/jaagr/polybar/wiki/Configuration#global-wm-settings
 margin-top = 0
@@ -20,12 +26,15 @@ margin-bottom = 0
 ;https://github.com/jaagr/polybar/wiki/Configuration#application-settings
 throttle-output = 5
 throttle-output-for = 10
-screenchange-reload = true
-compositing-background = over
+screenchange-reload = false
+
+compositing-background = source
 compositing-foreground = over
 compositing-overline = over
 compositing-underline = over
 compositing-border = over
+
+pseudo-transparency = false
 
 ; Define fallback values used by all module formats
 format-foreground = #FF0000
@@ -66,6 +75,25 @@ volume-max = #bf616a
 ;primary = #ffb52a
 ;secondary = #e60053
 ;alert = #bd2c40
+[color]
+background = #1a1b26
+foreground = #a9b1d6
+black = #32344a
+red = #f7768e
+green = #9ece6a
+yellow = #e0af68
+blue = #7aa2f7
+magenta = #ad8ee6
+cyan = #449dab
+white = #787c99
+altblack = #444b6a
+altred = #ff7a93
+altgreen = #b9f27c
+altyellow = #ff9e64
+altblue = #7da6ff
+altmagenta = #bb9af7
+altcyan = #0db9d7
+altwhite = #acb0d0
 
 ################################################################################
 ################################################################################
@@ -386,65 +414,67 @@ modules-right = filesystem
 ################################################################################
 
 [bar/mainbar-bspwm]
-monitor = ${env:MONITOR}
+monitor = 
 ;monitor-fallback = HDMI1
-width = 100%
-height = 30
-;offset-x = 1%
-;offset-y = 1%
-radius = 0.0
-fixed-center = true
-bottom = false
-separator = |
+monitor-strict = false
 
-background = ${colors.background}
-foreground = ${colors.foreground}
+override-redirect = false
+
+bottom = false
+fixed-center = true
+
+width = 98%
+height = 25
+
+offset-x = 1%
+offset-y = 1%
+
+background = ${color.background}
+foreground = ${color.foreground}
+
+radius-top = 0.0
+radius-bottom = 0.0
 
 line-size = 2
-line-color = #f00
+line-color = ${color.blue}
+
+border-size = 6
+border-color = ${color.background}
+
+padding = 0
+
+module-margin-left = 0
+module-margin-right = 0
 
 wm-restack = bspwm
-override-redirect = true
 
-; Enable support for inter-process messaging
-; See the Messaging wiki page for more details.
-enable-ipc = true
+font-0 = "Source Code Pro Medium:size=10;3"
+font-1 = "Iosevka Nerd Font:size=12;3"
+font-2 = "Iosevka Nerd Font:size=16;4"
+font-3 = "Iosevka Nerd Font:size=18;4"
+font-4 = "Source Code Pro Bold:size=13;3"
 
-border-size = 0
-;border-left-size = 0
-;border-right-size = 25
-;border-top-size = 0
-;border-bottom-size = 25
-border-color = #00000000
+# Default
+modules-left = spacing BLD launcher BRD sep bspwm sep spacing MLD mod MRD spacing GLD network GRD
+modules-center = 
+modules-right = MLD volume MRD spacing RLD brightness RRD spacing GLD cpu GRD spacing YLD memory YRD spacing CLD filesystems CRD sep BLD time BRD spacing
 
-padding-left = 0
-padding-right = 1
+spacing = 0
+dim-value = 1.0
 
-module-margin-left = 3
-module-margin-right = 3
-
-;https://github.com/jaagr/polybar/wiki/Fonts
-font-0 = "Noto Sans:size=10;0"
-font-1 = "FontAwesome:size=13;0"
-font-2 = "Noto Sans:size=10;0"
-font-3 = "Noto Sans Mono:size=10;0"
-
-modules-left = bspwm xwindow
-modules-center = jgmenu kernel
-modules-right = pavolume memory2 cpu2 date battery
-
+tray-position = right
 tray-detached = false
+tray-maxsize = 16
+tray-background = ${color.background}
 tray-offset-x = 0
 tray-offset-y = 0
-tray-padding = 2
-tray-maxsize = 20
+tray-padding = 0
 tray-scale = 1.0
-tray-position = right
-tray-background = ${colors.background}
+
+enable-ipc = true
 
 scroll-up = bspwm-desknext
 scroll-down = bspwm-deskprev
-
 
 ################################################################################
 ################################################################################
@@ -1377,43 +1407,56 @@ bar-empty = ─
 ################################################################################
 
 [module/battery]
-;https://github.com/jaagr/polybar/wiki/Module:-battery
 type = internal/battery
-battery = BAT1
-adapter = AC0
-full-at = 100
 
-format-charging = <animation-charging> <label-charging>
-label-charging =  %percentage%%
-format-charging-foreground = ${colors.foreground}
-format-charging-background = ${colors.background}
-format-charging-underline = #a3c725
+full-at = 99
 
-format-discharging = <ramp-capacity> <label-discharging>
-label-discharging =  %percentage%%
-format-discharging-underline = #c7ae25
-format-discharging-foreground = ${colors.foreground}
-format-discharging-background = ${colors.background}
+battery = ${system.battery}
+adapter = ${system.adapter}
 
+poll-interval = 2
+time-format = %H:%M
+
+format-charging = <animation-charging><label-charging>
+format-charging-prefix = 
+
+format-discharging = <ramp-capacity><label-discharging>
+
+format-full = <label-full>
 format-full-prefix = " "
-format-full-prefix-foreground = #a3c725
-format-full-underline = #a3c725
-format-full-foreground = ${colors.foreground}
-format-full-background = ${colors.background}
+format-full-prefix-font = 2
+format-full-prefix-foreground = ${color.background}
+format-full-prefix-background = ${color.blue}
 
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-3 = 
-ramp-capacity-4 = 
-ramp-capacity-foreground = #c7ae25
+label-charging = "%percentage%% "
+label-discharging = "%percentage%% "
+label-full = "%percentage%% "
 
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-3 = 
-animation-charging-4 = 
-animation-charging-foreground = #a3c725
+label-charging-background = ${color.blue}
+label-discharging-background = ${color.blue}
+label-full-background = ${color.blue}
+
+label-charging-foreground = ${color.background}
+label-discharging-foreground = ${color.background}
+label-full-foreground = ${color.background}
+
+ramp-capacity-0 = " "
+ramp-capacity-1 = " "
+ramp-capacity-2 = " "
+ramp-capacity-3 = " "
+ramp-capacity-4 = " "
+ramp-capacity-font = 2
+ramp-capacity-foreground = ${color.background}
+ramp-capacity-background = ${color.blue}
+
+animation-charging-0 = " "
+animation-charging-1 = " "
+animation-charging-2 = " "
+animation-charging-3 = " "
+animation-charging-4 = " "
+animation-charging-font = 2
+animation-charging-foreground = ${color.background}
+animation-charging-background = ${color.blue}
 animation-charging-framerate = 750
 
 ################################################################################
@@ -1890,14 +1933,14 @@ format-underline = #62FF00
 
 ################################################################################
 
-[module/sep]
+;[module/sep]
 ; alternative separator
-type = custom/text
-content = 
-content-foreground = ${colors.foreground}
-content-background =  ${colors.background}
-format-foreground = ${colors.foreground}
-format-background = ${colors.background}
+;type = custom/text
+;content = 
+;content-foreground = ${colors.foreground}
+;content-background =  ${colors.background}
+;format-foreground = ${colors.foreground}
+;format-background = ${colors.background}
 
 ################################################################################
 
@@ -2041,36 +2084,47 @@ click-left = variety --selector
 ################################################################################
 
 [module/volume]
-;https://github.com/jaagr/polybar/wiki/Module:-volume
-type = internal/volume
-format-volume = "<label-volume>  <bar-volume>"
+type = internal/pulseaudio
 
-label-volume = " "
-label-volume-foreground = #40ad4b
-label-muted = muted
+sink = alsa_output.pci-0000_12_00.3.analog-stereo
 
-bar-volume-width = 10
-bar-volume-foreground-0 = #40ad4b
-bar-volume-foreground-1 = #40ad4b
-bar-volume-foreground-2 = #40ad4b
-bar-volume-foreground-3 = #40ad4b
-bar-volume-foreground-4 = #40ad4b
-bar-volume-foreground-5 = #40ad4b
-bar-volume-foreground-6 = #40ad4b
-bar-volume-gradient = false
-bar-volume-indicator = 
-bar-volume-indicator-font = 2
-bar-volume-fill = 
-bar-volume-fill-font = 2
-bar-volume-empty = 
-bar-volume-empty-font = 2
-bar-volume-empty-foreground = ${colors.foreground}
-format-volume-foreground = ${colors.foreground}
-format-volume-background = ${colors.background}
-format-muted-prefix = "  "
-format-muted-prefix-foreground = "#ff0000"
-format-muted-foreground = ${colors.foreground}
-format-muted-background = ${colors.background}
+use-ui-max = false
+
+interval = 5
+
+format-volume = <ramp-volume><label-volume>
+
+format-muted = <label-muted>
+format-muted-prefix = "  "
+format-muted-prefix-font = 2
+format-muted-prefix-foreground = ${color.background}
+format-muted-prefix-background = ${color.magenta}
+
+label-volume = "%percentage%% "
+label-muted = "Mute"
+
+label-volume-background = ${color.magenta}
+label-muted-background = ${color.magenta}
+
+label-volume-foreground = ${color.background}
+label-muted-foreground = ${color.background}
+
+ramp-volume-0 = "  "
+ramp-volume-1 = "  "
+ramp-volume-2 = "  "
+ramp-volume-3 = "  "
+ramp-volume-4 = "  "
+ramp-volume-5 = "  "
+ramp-volume-6 = "  "
+ramp-volume-7 = "  "
+ramp-volume-8 = "  "
+ramp-volume-9 = "  "
+ramp-volume-font = 2
+ramp-volume-foreground = ${color.background}
+ramp-volume-background = ${color.magenta}
+
+ramp-headphones-0 = 
+ramp-headphones-1 = 
 
 ################################################################################
 
@@ -2220,3 +2274,359 @@ format-foreground = ${colors.foreground}
 format-background = ${colors.background}
 
 ###############################################################################
+[module/spacing]
+type = custom/text
+content = " "
+content-background = ${color.background}
+
+[module/sep]
+type = custom/text
+;content = 
+content = ""
+
+content-font = 3
+content-background = ${color.background}
+content-foreground = ${color.altblack}
+content-padding = 1
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[module/LD]
+type = custom/text
+content = "%{T3}%{T-}"
+content-background = ${color.background}
+content-foreground = ${color.altblack}
+
+[module/RD]
+type = custom/text
+content = "%{T3}%{T-}"
+content-background = ${color.background}
+content-foreground = ${color.altblack}
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[module/RLD]
+type = custom/text
+content = "%{T3}%{T-}"
+content-font = 3
+content-background = ${color.background}
+content-foreground = ${color.red}
+
+[module/RRD]
+type = custom/text
+content = "%{T3}%{T-}"
+content-font = 3
+content-background = ${color.background}
+content-foreground = ${color.red}
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[module/WLD]
+type = custom/text
+content = "%{T3}%{T-}"
+content-font = 3
+content-background = ${color.background}
+content-foreground = ${color.white}
+
+[module/WRD]
+type = custom/text
+content = "%{T3}%{T-}"
+content-font = 3
+content-background = ${color.background}
+content-foreground = ${color.white}
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+
+[module/CLD]
+type = custom/text
+content = "%{T3}%{T-}"
+content-font = 3
+content-background = ${color.background}
+content-foreground = ${color.cyan}
+
+[module/CRD]
+type = custom/text
+content = "%{T3}%{T-}"
+content-font = 3
+content-background = ${color.background}
+content-foreground = ${color.cyan}
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+
+[module/MLD]
+type = custom/text
+content = "%{T3}%{T-}"
+content-font = 3
+content-background = ${color.background}
+content-foreground = ${color.magenta}
+
+[module/MRD]
+type = custom/text
+content = "%{T3}%{T-}"
+content-font = 3
+content-background = ${color.background}
+content-foreground = ${color.magenta}
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+
+[module/YLD]
+type = custom/text
+content = "%{T3}%{T-}"
+content-font = 3
+content-background = ${color.background}
+content-foreground = ${color.yellow}
+
+[module/YRD]
+type = custom/text
+content = "%{T3}%{T-}"
+content-font = 3
+content-background = ${color.background}
+content-foreground = ${color.yellow}
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+
+[module/GLD]
+type = custom/text
+content = "%{T3}%{T-}"
+content-font = 3
+content-background = ${color.background}
+content-foreground = ${color.green}
+
+[module/GRD]
+type = custom/text
+content = "%{T3}%{T-}"
+content-font = 3
+content-background = ${color.background}
+content-foreground = ${color.green}
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[module/BLD]
+type = custom/text
+content = "%{T3}%{T-}"
+content-font = 3
+content-background = ${color.background}
+content-foreground = ${color.blue}
+
+[module/BRD]
+type = custom/text
+content = "%{T3}%{T-}"
+content-font = 3
+content-background = ${color.background}
+content-foreground = ${color.blue}
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[module/YPL]
+type = custom/text
+content = "%{T3}%{T-}"
+content-font = 3
+content-background = ${color.green}
+content-foreground = ${color.yellow}
+
+[module/CPL]
+type = custom/text
+content = "%{T3}%{T-}"
+content-font = 3
+content-background = ${color.yellow}
+content-foreground = ${color.cyan}
+
+[module/GPL]
+type = custom/text
+content = "%{T3}%{T-}"
+content-font = 3
+content-background = ${color.red}
+content-foreground = ${color.green}
+
+[module/RPL]
+type = custom/text
+content = "%{T3}%{T-}"
+content-font = 3
+content-background = ${color.magenta}
+content-foreground = ${color.red}
+
+[module/MPL]
+type = custom/text
+content = "%{T3}%{T-}"
+content-font = 3
+content-background = ${color.blue}
+content-foreground = ${color.magenta}
+
+[module/GMPL]
+type = custom/text
+content = "%{T3}%{T-}"
+content-font = 3
+content-background = ${color.magenta}
+content-foreground = ${color.green}
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[module/brightness]
+type = internal/backlight
+
+; Use the following command to list available cards:
+; $ ls -1 /sys/class/brightness/
+card = intel_backlight
+
+enable-scroll = true
+
+format = <ramp> <label>
+format-background = ${color.red}
+format-padding = 1
+
+label = %percentage%%
+label-foreground = ${color.background}
+
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-3 = 
+ramp-4 = 
+ramp-5 = 
+ramp-6 = 
+ramp-7 = 
+ramp-8 = 
+ramp-9 = 
+ramp-font = 2
+ramp-foreground = ${color.background}
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+[module/mod]
+type = internal/bspwm
+
+format = <label-mode>
+format-background = ${color.magenta}
+format-foreground = ${color.background}
+format-padding = 1
+format-font = 5
+
+label-monocle = "[M]"
+label-tiled = "[]="
+
+label-floating = ", ><>"
+label-pseudotiled = ", Pseudo"
+label-fullscreen = ", Full"
+
+label-locked = " | Locked"
+label-sticky = " | Sticky"
+label-private = " | Private"
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+[module/time]
+type = internal/date
+interval = 1
+format-margin = 0
+time = "%I:%M %p"
+time-alt = "%A, %m/%d/%y"
+
+format-prefix = 
+format-prefix-foreground = ${color.background}
+format-prefix-background = ${color.blue}
+
+label = %time%
+label-foreground = ${color.background}
+label-background = ${color.blue}
+label-padding = 1
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+[module/network]
+type = internal/network
+interface = wlp0s20f3
+
+interval = 1.0
+accumulate-stats = true
+unknown-as-up = true
+
+format-connected = <ramp-signal><label-connected>
+
+format-disconnected = <label-disconnected>
+format-disconnected-prefix = " 睊 "
+format-disconnected-prefix-font = 2
+format-disconnected-foreground = ${color.background}
+format-disconnected-background = ${color.green}
+
+label-connected = "%{A1:def-nmdmenu &:}%essid%%{A}"
+label-disconnected = "%{A1:def-nmdmenu &:}Offline%{A}"
+
+label-connected-foreground = ${color.background}
+label-disconnected-foreground = ${color.background}
+
+label-connected-background = ${color.green}
+label-disconnected-background = ${color.green}
+
+ramp-signal-0 = "  "
+ramp-signal-1 = "  "
+ramp-signal-2 = "  "
+ramp-signal-3 = "  "
+ramp-signal-4 = "  "
+ramp-signal-foreground = ${color.background}
+ramp-signal-background = ${color.green}
+ramp-signal-font = 2
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[module/launcher]
+type=custom/text
+content = 
+content-font = 4
+content-foreground= ${color.background}
+content-background = ${color.blue} 
+content-padding = 1
+click-left=rofi -show run
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format-prefix = " "
+format-padding = 0
+format-prefix-foreground = ${color.background}
+format-foreground = ${color.background}
+format-background = ${color.green}
+label = "%{A1:terminal -e gtop &:}%percentage%% %{A}"
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[module/memory]
+type = internal/memory
+
+interval = 1
+
+format = <label>
+format-prefix = " "
+format-prefix-foreground = ${color.background}
+format-foreground = ${color.background}
+format-background = ${color.yellow}
+
+label = "%{A1:terminal -e htop &:} %mb_used% %{A}"
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+[module/filesystems]
+type = internal/fs
+
+mount-0 = /
+interval = 30
+fixed-values = true
+
+format-mounted = <label-mounted>
+format-mounted-prefix = " "
+format-mounted-prefix-foreground = ${color.background}
+format-mounted-prefix-background = ${color.cyan}
+
+format-unmounted = <label-unmounted>
+format-unmounted-prefix = " "
+format-unmounted-prefix-foreground = ${color.background}
+format-unmounted-prefix-background = ${color.cyan}
+
+label-mounted = "%{A1:terminal -e ncdu &:} %free%%{A}"
+label-unmounted = " %mountpoint%: NA"
+label-mounted-foreground = ${color.background}
+
+label-mounted-background = ${color.cyan}
+label-unmounted-background = ${color.cyan}
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
