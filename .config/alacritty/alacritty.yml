@@ -371,7 +371,7 @@ schemes:
 # *solarized-dark
 # *tomorrow-night
 
-colors: *dracula
+colors: *doom-one
 
 #######################################
 ##              CURSOR               ##
