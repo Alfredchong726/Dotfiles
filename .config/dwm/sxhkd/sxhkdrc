@@ -14,10 +14,6 @@ super + F11
 # SUPER + ... KEYS
 #################################################################
 
-#Firefox
-super + f
-    firefox
-
 #Rofi theme selector
 super + r
     rofi-theme-selector
@@ -57,6 +53,10 @@ super + Return
 #################################################################
 # SUPER + SHIFT KEYS
 #################################################################
+
+#qutebrowser
+super + shift + q
+    qutebrowser
 
 #Rofi show window
 super + shift + w

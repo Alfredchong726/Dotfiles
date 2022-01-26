@@ -18,6 +18,6 @@ run xfce4-power-manager &
 run ./.xrandr-ext-mon &
 blueberry-tray &
 picom --config $HOME/.config/picom/picom.conf &
-conky -c $HOME/.config/conky/bspwm/gruvbox-dark-01.conkyrc &
+eww --config $HOME/.config/conkeww/ open conkeww-main &
 /usr/lib/xfce4/notifyd/xfce4-notifyd &
 nitrogen --random --set-tiled &

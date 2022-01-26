@@ -64,11 +64,6 @@ key = "Return"
 
 [[keybind]]
 command = "CloseWindow"
-modifier = ["modkey", "Shift"]
-key = "q"
-
-[[keybind]]
-command = "CloseWindow"
 modifier = ["modkey"]
 key = "q"
 

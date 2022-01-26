@@ -245,8 +245,8 @@ globalkeys = gears.table.join(
               {description = "open virtual machine", group = "applications"}),
     awful.key({ modkey,           }, "t", function () awful.spawn('xfce4-taskmanager') end,
               {description = "open taskmanager", group = "applications"}),
-    awful.key({ modkey, "Shift"   }, "f", function () awful.spawn('firefox') end,
-              {description = "open firefox", group = "applications"}),
+    awful.key({ modkey, "Shift"   }, "q", function () awful.spawn('qutebrowser') end,
+              {description = "open qutebrowser", group = "applications"}),
     awful.key({ modkey, "Shift"   }, "t", function () awful.spawn('teams') end,
               {description = "open teams", group = "applications"}),
     awful.key({ modkey            }, "x", function () awful.spawn('arcolinux-logout') end,
@@ -304,7 +304,7 @@ globalkeys = gears.table.join(
               {description = "open a terminal", group = "launcher"}),
     awful.key({ modkey, "Shift" }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
-    awful.key({ modkey, "Shift"   }, "q", awesome.quit,
+    awful.key({ "Mod1", "Shift"   }, "q", awesome.quit,
               {description = "quit awesome", group = "awesome"}),
 
     awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)          end,
@@ -685,3 +685,4 @@ awful.spawn.with_shell("nm-applet")
 awful.spawn.with_shell("volumeicon")
 awful.spawn.with_shell("fcitx5")
 awful.spawn.with_shell("flameshot")
+awful.spawn.with_shell("eww --config $HOME/.config/conkeww/ open conkeww-main")

@@ -282,6 +282,14 @@ super + o
 # SUPER + ALT KEYS
 #################################################################
 
+# Toggle floating
+super + ctrl + alt + s
+    if [ -z "$(bspc query -N -n focused.floating)" ]; then \
+        bspc node focused -t floating; \
+    else \
+        bspc node focused -t tiled; \
+    fi
+
 # Move floating window
 super + alt + {h,j,k,l}
 	bspc node -v {-20 0,0 20,0 -20,20 0}

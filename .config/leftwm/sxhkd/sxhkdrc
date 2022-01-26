@@ -14,10 +14,6 @@ super + F11
 # SUPER + ... KEYS
 #################################################################
 
-#Firefox
-super + f
-    firefox
-
 #Rofi theme selector
 super + r
     rofi-theme-selector
@@ -54,6 +50,10 @@ super + v
 # SUPER + SHIFT KEYS
 #################################################################
 
+#qutebrowser
+super + shift + q
+    qutebrowser
+
 #Rofi show window
 super + shift + w
     rofi -show window
@@ -72,7 +72,7 @@ super + shift + s
 
 # Teams 
 super + shift + t
-    teams-for-linux
+    teams
 
 # Obsidian
 super + shift + o

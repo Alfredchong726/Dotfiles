@@ -13,10 +13,10 @@ run flameshot &
 run pamac-tray &
 run xfce4-power-manager &
 run ./.xrandr-ext-mon &
-numlockx on &
+numlockx off &
 blueberry-tray &
 picom --config $HOME/.config/picom/picom.conf &
-conky -c ~/.config/conky/qtile/monokai-pro-01.conkyrc &
+eww --config $HOME/.config/conkeww/ open conkeww-main &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 /usr/lib/xfce4/notifyd/xfce4-notifyd &
 

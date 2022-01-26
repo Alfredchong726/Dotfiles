@@ -31,6 +31,7 @@ run "volumeicon"
 run slstatus &
 sxhkd -c ~/.config/arco-dwm/sxhkd/sxhkdrc &
 run "nitrogen --random --set-tiled"
+run "eww --config $HOME/.config/conkeww/ open conkeww-main"
 # run "conky -c $HOME/.config/conky/dwm/dracula-01.conkyrc"
 #you can set wallpapers in themes as well
 # feh --bg-fill /usr/share/backgrounds/arcolinux/arco-wallpaper.jpg &

@@ -14,10 +14,6 @@ super + F11
 # SUPER + ... KEYS
 #################################################################
 
-#Firefox
-super + shift + f
-    firefox
-
 #TaskManager
 super + t
     xfce4-taskmanager
@@ -57,6 +53,10 @@ super + Return
 #################################################################
 # SUPER + SHIFT KEYS
 #################################################################
+
+#qutebrowser
+super + shift + q
+    qutebrowser
 
 #Rofi show window
 super + shift + w

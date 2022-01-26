@@ -414,7 +414,9 @@ modules-right = filesystem
 ################################################################################
 
 [bar/mainbar-bspwm]
-monitor = 
+; this is for dual screen
+monitor = ${env:MONITOR}
+
 ;monitor-fallback = HDMI1
 monitor-strict = false
 

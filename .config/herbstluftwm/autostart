@@ -25,7 +25,6 @@ Mod=Mod4   # Use the super key as the main modifier
 
 hc keybind $Mod-Shift-x quit
 hc keybind $Mod-Shift-r reload
-hc keybind $Mod-Shift-q close
 hc keybind $Mod-q close
 
 #Most of the keybindings have been set in sxhkd config file
@@ -229,6 +228,7 @@ nm-applet &
 fcitx5 &
 flameshot &
 pamac-tray &
+eww --config $HOME/.config/conkeww/ open conkeww-main &
 xfce4-power-manager &
 numlockx off &
 blueberry-tray &

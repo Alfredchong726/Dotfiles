@@ -35,7 +35,6 @@ keys = [
 
 # START_KEYS
 # SUPER + FUNCTION KEYS
-    Key([mod], "f", lazy.spawn('firefox')),
     Key([mod], "Return", lazy.spawn(myTerm)),
     Key([mod], "y", lazy.spawn("deadbeef")),
     Key([mod], "o", lazy.spawn("wps")),
@@ -46,6 +45,7 @@ keys = [
     Key([mod], "a", lazy.spawn("pavucontrol")),
     Key([mod], "x", lazy.spawn("arcolinux-logout")),
     Key([mod, 'shift'], "o", lazy.spawn("obsidian-insider")),
+    Key([mod, 'shift'], "q", lazy.spawn("qutebrowser")),
     Key([mod, "shift"], "t", lazy.spawn("teams")),
     Key([mod, "shift"], "c", lazy.spawn("./alchanger.sh")),
     Key([mod, "shift"], "Return", lazy.spawn("rofi -show run")),
@@ -56,8 +56,8 @@ keys = [
 
     # QTILE FUNCTION
     Key([mod], "q", lazy.window.kill()),
-    Key([mod, "shift"], "q", lazy.shutdown()),
     Key([mod, "shift"], "r", lazy.restart()),
+    Key(["mod1", "shift"], "q", lazy.shutdown()),
 
     Key([mod, "shift"], "s", lazy.spawn(myTerm+" -e shutdown now")),
     Key([mod, "control"],"r", lazy.spawn(myTerm+" -e reboot")),
@@ -65,6 +65,12 @@ keys = [
 # CHANGE SCREEN 
     Key([mod,], "comma", lazy.prev_screen()),
     Key([mod,], "period", lazy.next_screen()),
+
+# SPECIAL FUNCTION KEY
+    Key(["control", "shift"],"p", lazy.spawn("powermenu")),
+    Key(["control", "shift"],"l", lazy.spawn("lock")),
+    Key(["control", "shift"],"e", lazy.spawn("edit-configs")),
+    Key(["control", "shift"],"q", lazy.spawn("quick-links")),
 
 # FUNCTION KEY
     Key([], "F4", lazy.spawn("~/.config/qtile/qtile_keys.sh")),
@@ -74,7 +80,6 @@ keys = [
 
 # SUPER + SHIFT KEYS
 
-    Key([mod, "shift"], "q", lazy.window.kill()),
     Key([mod, "shift"], "r", lazy.restart()),
 
 # CHANGE SCREEN 
