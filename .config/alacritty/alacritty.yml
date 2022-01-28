@@ -357,21 +357,7 @@ schemes:
       cyan:    '#54ced6'
       white:   '#282a2e'
 
-######################################################################
-## SET THEME: Choose ONE color scheme from those in the above list. ##
-## ###################################################################
-# Available themes are:
-# *doom-one
-# *dracula
-# *gruvbox-dark
-# *monokai-pro
-# *nord
-# *oceanic-next
-# *solarized-light
-# *solarized-dark
-# *tomorrow-night
-
-colors: *doom-one
+colors: *nord
 
 #######################################
 ##              CURSOR               ##

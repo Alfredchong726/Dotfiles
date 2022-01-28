@@ -93,7 +93,7 @@ end
 
 # update all packages
 function update
-    sudo pacman -Syyuu
+    sudo pacman -Syyuu --noconfirm
 end
 
 # git push in one line of command 

@@ -66,6 +66,10 @@ super + m
 # SUPER + SHIFT KEYS
 #################################################################
 
+#qutebrowser
+super + shift + q
+	qutebrowser
+
 #Rofi show window
 super + shift + w
     rofi -show window
@@ -313,10 +317,6 @@ super + control + r
 #Reload bspwm
 super + shift + r
 	~/.config/bspwm/bspwmrc
-
-#kill
-super + shift + q
-	bspc node -c
 
 # focus or send to the given desktop
 super + {_,shift + }{1-9,0}
