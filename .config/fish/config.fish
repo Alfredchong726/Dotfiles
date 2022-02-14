@@ -145,6 +145,10 @@ alias parsyu='paru -Syu --noconfirm'             # update standard pkgs and AUR 
 alias unlock='sudo rm /var/lib/pacman/db.lck'    # remove pacman lock
 alias cleanup='sudo pacman -Rns (pacman -Qtdq)'  # remove orphaned packages
 
+alias cpuname='cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c'
+alias cpuinfo='cat /proc/cpuinfo | grep physical | uniq -c'
+alias cpubit='getconf LONG_BIT'
+
 alias ,,='cd ..'
 
 # setup the environment
