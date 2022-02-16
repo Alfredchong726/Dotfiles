@@ -1,16 +1,3 @@
-/* ==========================================================================
-   Rofi color theme
-
-   Based on the Gruvbox color scheme for Vim by morhetz
-   https://github.com/morhetz/gruvbox
-
-   File: gruvbox-dark-soft.rasi
-   Desc: Gruvbox dark (soft contrast) color theme for Rofi
-   Author: bardisty <b@bah.im>
-   Source: https://github.com/bardisty/gruvbox-rofi
-   Modified: Mon Feb 12 2018 06:04:37 PST -0800
-   ========================================================================== */
-
 * {
     /* Theme settings */
     highlight: bold italic;
