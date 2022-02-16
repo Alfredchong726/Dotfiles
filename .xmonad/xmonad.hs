@@ -315,7 +315,7 @@ myKeys =
         , ("M-S-<Return>", spawn "rofi -show combi") -- Rofi
 
     -- KB_GROUP Application
-        , ("M-S-t", spawn "teams-for-linux")
+        , ("M-S-t", spawn "teams")
         , ("M-t", spawn "xfce4-taskmanager")
         , ("M-v", spawn "virt-manager")
         , ("M-d", spawn "thunar")
