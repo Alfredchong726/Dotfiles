@@ -42,6 +42,7 @@ Time:      === ${date}"
 [Ctrl]+[Shft]+Q  === Quick Links
 [Ctrl]+[Shft]+S  === Screenshot
 [Ctrl]+[Shft]+P  === Powermenu
+[Ctrl]+[Shft]+D  === Dock
 [Ctrl]+[Shft]+L  === Lock"
       )
     )

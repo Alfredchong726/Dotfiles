@@ -58,4 +58,7 @@ return require('packer').startup(function()
 
     -- Python Indent Line
     use 'Yggdroot/indentLine'
+
+    -- Unicode inserter
+    use 'chrisbra/unicode.vim'
 end)

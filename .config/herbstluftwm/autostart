@@ -74,7 +74,7 @@ hc keybind $Mod-Control-l       resize right +$resizestep
 
 #names to display in menu
 # tag_names=( {1..10} )
-tag_names=("WWW" "FISH" "BASH" "PYTHON" "JAVA" "C" "PHP" "LUA" "SYS" "MUS")
+tag_names=(" WWW " " FISH " " BASH " " PYTHON " " JAVA " " C " " PHP " " LUA " " SYS " " MUS ")
 #tag_names=("I" "II" "III" "IV" "V" "VI" "VII" "VIII" "IX" "X")
 
 #keys to press to get to the tags
@@ -104,7 +104,7 @@ for i in ${!tag_names[@]} ; do
 done
 
 # layouting
-hc keybind $Mod-s floating toggle
+hc keybind $Mod-Shift-f floating toggle
 hc keybind $Mod-f fullscreen toggle
 hc keybind $Mod-p pseudotile toggle
 # The following cycles through the available layouts within a frame, but skips
@@ -232,6 +232,6 @@ eww --config $HOME/.config/conkeww/ open conkeww-main &
 xfce4-power-manager &
 numlockx off &
 blueberry-tray &
-picom &
+picom -b  --config ~/.config/arco-dwm/picom.conf &
 run volumeicon &
 nitrogen --random --set-tiled &

@@ -41,14 +41,14 @@ key = "d"
 [[keybind]]
 command = "Execute"
 value = "leftwm-command ToggleFullScreen"
-modifier = ["modkey", "Shift"]
+modifier = ["modkey"]
 key = "f"
 
 [[keybind]]
 command = "Execute"
 value = "leftwm-command ToggleFloating"
-modifier = ["modkey"]
-key = "s"
+modifier = ["modkey", "Shift"]
+key = "f"
 
 [[keybind]]
 command = "Execute"

@@ -87,7 +87,7 @@ keys = [
     Key([mod,], "period", lazy.next_screen()),
 
 # QTILE LAYOUT KEYS
-    Key([mod,], "m", lazy.window.toggle_minimize()),
+    Key([mod], "m", lazy.window.toggle_minimize()),
     Key([mod], "n", lazy.layout.normalize()),
     Key([mod], "Tab", lazy.next_layout()),
 
@@ -127,7 +127,7 @@ keys = [
         ),
 
 
-    Key([mod, "shift"], "f", lazy.window.toggle_fullscreen()),
+    Key([mod], "f", lazy.window.toggle_fullscreen()),
 
 # FLIP LAYOUT FOR MONADTALL/MONADWIDE
     Key([mod, "control"], "f", lazy.layout.flip()),
@@ -151,7 +151,7 @@ keys = [
     Key([mod, "shift"], "Right", lazy.layout.swap_right()),
 
 # TOGGLE FLOATING LAYOUT
-    Key([mod, "shift"], "Tab", lazy.window.toggle_floating()),
+    Key([mod, "shift"], "f", lazy.window.toggle_floating()),
 
 # CHANGE WALLPAPER
     Key(["mod1"], "space", lazy.spawn("nitrogen --random --set-tiled")),

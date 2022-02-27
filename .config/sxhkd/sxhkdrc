@@ -83,7 +83,7 @@ super + shift + d
 	dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=14'
 
 #Toggle fullscreen of window
-super + shift + f
+super + f
 	bspc node --state \~fullscreen
 
 # Prompt
@@ -287,7 +287,7 @@ super + o
 #################################################################
 
 # Toggle floating
-super + ctrl + alt + s
+super + shift + f
     if [ -z "$(bspc query -N -n focused.floating)" ]; then \
         bspc node focused -t floating; \
     else \

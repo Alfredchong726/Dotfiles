@@ -347,7 +347,7 @@ myKeys =
         , ("M-S-<KP_Subtract>", shiftTo Prev nonNSP >> moveTo Prev nonNSP)  -- Shifts focused window to prev ws
 
     -- KB_GROUP Floating windows
-        , ("M-f", sendMessage (T.Toggle "floats")) -- Toggles my 'floats' layout
+        , ("M-S-f", sendMessage (T.Toggle "floats")) -- Toggles my 'floats' layout
         , ("M-C-t", withFocused $ windows . W.sink)  -- Push floating window back to tile
         -- , ("M-S-t", sinkAll)                       -- Push ALL floating windows to tile
 
@@ -376,7 +376,7 @@ myKeys =
 
     -- KB_GROUP Layouts
         , ("M-<Tab>", sendMessage NextLayout)           -- Switch to next layout
-        , ("M-<Space>", sendMessage (MT.Toggle NBFULL) >> sendMessage ToggleStruts) -- Toggles noborder/full
+        , ("M-f", sendMessage (MT.Toggle NBFULL) >> sendMessage ToggleStruts) -- Toggles noborder/full
 
     -- KB_GROUP Increase/decrease windows in the master pane or the stack
         , ("M-S-<Up>", sendMessage (IncMasterN 1))      -- Increase # of clients master pane
@@ -441,8 +441,8 @@ myKeys =
 main :: IO ()
 main = do
     -- Launching three instances of xmobar on their monitors.
-    xmproc0 <- spawnPipe "xmobar -x 0 $HOME/.config/xmobar/dracula-xmobarrc"
-    xmproc1 <- spawnPipe "xmobar -x 1 $HOME/.config/xmobar/dracula-xmobarrc"
+    xmproc0 <- spawnPipe "xmobar -x 0 $HOME/.config/xmobar/nord-xmobarrc"
+    xmproc1 <- spawnPipe "xmobar -x 1 $HOME/.config/xmobar/nord-xmobarrc"
     -- the xmonad, ya know...what the WM is named after!
     xmonad $ ewmh def
         { manageHook         = myManageHook <+> manageDocks

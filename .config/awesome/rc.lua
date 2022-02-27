@@ -351,6 +351,8 @@ globalkeys = gears.table.join(
             {description = "Access different website", group = "Special Function"}),
     awful.key({ "Control", "Shift"}, "l", function () awful.spawn( "lock" ) end,
             {description = "Lock screen", group = "Special Function"}),
+    awful.key({ "Control", "Shift"}, "d", function () awful.spawn( "dock" ) end,
+            {description = "Open File to Edit", group = "Special Function"}),
 
 
     -- Screenshot
@@ -382,7 +384,7 @@ clientkeys = gears.table.join(
         {description = "toggle fullscreen", group = "client"}),
     awful.key({ modkey,           }, "q",      function (c) c:kill()                         end,
               {description = "close", group = "client"}),
-    awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ,
+    awful.key({ modkey, "Shift"   }, "f",  awful.client.floating.toggle                     ,
               {description = "toggle floating", group = "client"}),
     awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end,
               {description = "move to master", group = "client"}),
