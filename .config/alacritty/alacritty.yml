@@ -357,7 +357,7 @@ schemes:
       cyan:    '#54ced6'
       white:   '#282a2e'
 
-colors: *dracula
+colors: *monokai-pro
 
 #######################################
 ##              CURSOR               ##

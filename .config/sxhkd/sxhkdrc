@@ -14,10 +14,6 @@ super + F11
 # SUPER + ... KEYS
 #################################################################
 
-# Firefox
-super + f
-    firefox
-
 # Bpytop
 super + b
     alacritty -e bpytop

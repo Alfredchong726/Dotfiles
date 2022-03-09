@@ -1,5 +1,6 @@
 set fish_greeting                   # No welcome message during enter fish shell
-colorscript random                  # Random colorscript when enter fish shell
+# colorscript random                  # Random colorscript when enter fish shell
+neofetch
 set TERM "xterm-256color"           # Set terminal type
 
 set fish_color_normal brcyan
@@ -136,6 +137,9 @@ alias tag='git tag'
 alias newtag='git tag -a'
 alias uncommit='git reset --hard HEAD^'
 
+#iso and version used to install ArcoLinux
+alias iso="cat /etc/dev-rel | awk -F '=' '/ISO/ {print $2}'"
+
 # pacman and yay
 alias pacsyu='sudo pacman -Syyu'                 # update only standard pkgs
 alias yaysua='yay -Sua --noconfirm'              # update only AUR pkgs (yay)
@@ -150,6 +154,22 @@ alias cpuinfo='cat /proc/cpuinfo | grep physical | uniq -c'
 alias cpubit='getconf LONG_BIT'
 
 alias ,,='cd ..'
+
+#remove
+alias rmgitcache="rm -r ~/.cache/git"
+
+#fixes
+alias fix-permissions="sudo chown -R $USER:$USER ~/.config ~/.local"
+alias keyfix="/usr/local/bin/arcolinux-fix-pacman-databases-and-keys"
+alias key-fix="/usr/local/bin/arcolinux-fix-pacman-databases-and-keys"
+alias keys-fix="/usr/local/bin/arcolinux-fix-pacman-databases-and-keys"
+alias fixkey="/usr/local/bin/arcolinux-fix-pacman-databases-and-keys"
+alias fixkeys="/usr/local/bin/arcolinux-fix-pacman-databases-and-keys"
+alias fix-key="/usr/local/bin/arcolinux-fix-pacman-databases-and-keys"
+alias fix-keys="/usr/local/bin/arcolinux-fix-pacman-databases-and-keys"
+alias fix-sddm-config="/usr/local/bin/arcolinux-fix-sddm-config"
+alias fix-pacman-conf="/usr/local/bin/arcolinux-fix-pacman-conf"
+alias fix-pacman-keyserver="/usr/local/bin/arcolinux-fix-pacman-gpg-conf"
 
 # setup the environment
 set PATH $PATH /usr/local/bin
