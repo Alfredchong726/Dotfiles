@@ -395,6 +395,7 @@ myKeys =
         , ("C-S-l", spawn "lock")
         , ("C-S-p", spawn "powermenu")
         , ("C-S-q", spawn "quick-links")
+        , ("C-S-s", spawn "flameshot gui")
 
     -- KB_GROUP Sublayouts
     -- This is used to push windows to tabbed sublayouts, or pull them out of it.
