@@ -67,21 +67,6 @@ function ll
     ls -lh $argv
  end
 
-# change wallpaper
-function change
-    nitrogen --random --set-tiled
-end
-
-# run neovide in root
-function vid
-    neovide $argv
-end
-
-# run neovide
-function vide
-    sudo neovide $argv
-end
-
 # run neovim
 function vi
     nvim $argv

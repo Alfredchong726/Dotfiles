@@ -308,7 +308,6 @@ myKeys =
     -- KB_GROUP Xmonad
         [ ("M-C-r", spawn "xmonad --recompile")  -- Recompiles xmonad
         , ("M-S-r", spawn "xmonad --restart")    -- Restarts xmonad
-        -- , ("M-S-q", io exitSuccess)              -- Quits xmonad
         , ("M-S-/", spawn "~/.xmonad/xmonad_keys.sh")
 
     -- KB_GROUP Run Prompt
@@ -324,6 +323,7 @@ myKeys =
         , ("M-S-w", spawn "rofi -show window")
         , ("M-o", spawn "wps")
         , ("M-S-o", spawn "obsidian-insider")
+        , ("M-S-b", spawn "bottles")
 
     -- KB_GROUP HotKey
         , ("M-S-s", spawn "shutdown now")
@@ -442,8 +442,8 @@ myKeys =
 main :: IO ()
 main = do
     -- Launching three instances of xmobar on their monitors.
-    xmproc0 <- spawnPipe "xmobar -x 0 $HOME/.config/xmobar/nord-xmobarrc"
-    xmproc1 <- spawnPipe "xmobar -x 1 $HOME/.config/xmobar/nord-xmobarrc"
+    xmproc0 <- spawnPipe "xmobar -x 0 $HOME/.config/xmobar/dracula-xmobarrc"
+    xmproc1 <- spawnPipe "xmobar -x 1 $HOME/.config/xmobar/dracula-xmobarrc"
     -- the xmonad, ya know...what the WM is named after!
     xmonad $ ewmh def
         { manageHook         = myManageHook <+> manageDocks

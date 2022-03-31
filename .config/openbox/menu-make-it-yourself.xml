@@ -19,7 +19,7 @@
     </item>
     <item label="Text Editor">
       <action name="Execute">
-        <command>geany</command>
+        <command>nvim</command>
       </action>
     </item>
     <separator/>
@@ -71,9 +71,9 @@
       </item>
     </menu>
     <menu id="development" label="Development">
-      <item label="Geany">
+      <item label="Nvim">
         <action name="Execute">
-          <command>geany</command>
+          <command>nvim</command>
         </action>
       </item>
       <item label="Meld">
@@ -247,7 +247,7 @@
       </item>
       <item label="Exit Appearance">
         <action name="Execute">
-          <command>gksudo geany /etc/oblogout.conf</command>
+          <command>gksudo nvim /etc/oblogout.conf</command>
         </action>
       </item>
       <item label="LightDM Appearance">
@@ -262,7 +262,7 @@
       </item>
       <item label="Slim Appearance">
         <action name="Execute">
-          <command>gksudo geany /etc/slim.conf</command>
+          <command>gksudo nvim /etc/slim.conf</command>
         </action>
       </item>
       <item label="Xfce4 Appearance">
@@ -380,13 +380,13 @@
       </item>
       <item label="Text Editor As Root">
         <action name="Execute">
-          <command>gksudo geany</command>
+          <command>gksudo nvim</command>
         </action>
       </item>
       <separator/>
       <item label="Login Settings">
         <action name="Execute">
-          <command>gksudo geany /etc/lightdm/lightdm-gtk-greeter.conf /etc/lightdm/lightdm.conf</command>
+          <command>gksudo nvim /etc/lightdm/lightdm-gtk-greeter.conf /etc/lightdm/lightdm.conf</command>
         </action>
       </item>
       <item label="GParted">

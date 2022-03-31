@@ -2,7 +2,6 @@
 
 #LAUNCHERS
 $HOME/.config/bspwm/autostart.sh
-#fix for moving spotify to specific workspace
 #bspc config external_rules_command ~/.config/bspwm/scripts/external_rules_command
 
 #BSPWM configuration
