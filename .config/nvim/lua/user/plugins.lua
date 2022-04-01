@@ -51,6 +51,8 @@ return packer.startup(function(use)
   use "lukas-reineke/indent-blankline.nvim"
   use "goolord/alpha-nvim"
   use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
+  use "akinsho/bufferline.nvim"
+  use "nvim-lualine/lualine.nvim" 
   use "folke/which-key.nvim"
 
   -- Colorschemes
@@ -88,10 +90,6 @@ return packer.startup(function(use)
     run = ":TSUpdate",
   }
   use "JoosepAlviste/nvim-ts-context-commentstring"
-
-  -- Airline
-  use 'vim-airline/vim-airline'
-  use 'vim-airline/vim-airline-themes'
 
   -- Git
   use "lewis6991/gitsigns.nvim"

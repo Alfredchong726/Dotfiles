@@ -16,6 +16,8 @@ require "user.indentline"
 require "user.alpha"
 require "user.whichkey"
 require "user.autocommands"
+require "user.lualine"
+require "user.bufferline"
 
-vim.cmd('source ~/.config/nvim/vim/airline.vim')
+-- vim.cmd('source ~/.config/nvim/vim/airline.vim')
 vim.cmd('source ~/.config/nvim/vim/execute-code.vim')
