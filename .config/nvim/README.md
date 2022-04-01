@@ -6,11 +6,11 @@
 #### Before clone the whole nvim config file into home directory you need to make sure you have vim-packer installed for managing all the vim plugins
 [vim-packer](https://github.com/hashivim/vim-packer)
 
-#### After installed tje vim-packer, can start to clone the whole nvim file into home directory
+#### After installed the vim-packer, can start to clone the whole nvim file into home directory
 
 #### Next, you need to run this command to make sure all the file has save and source
 ``` sh
-:w | luafile%
+:w | luafile %
 ```
 
 #### After source the file you can start to install all the plugins by using this command
@@ -27,30 +27,31 @@
 ###### You can follow the command show on your screen
    Command    | What will do ?
 ------------- | ------------- 
-  Space f f   | Find a file by the filename
-  Space f g   | Find a file by the content of the file
-  Space f h   | Find a file you recent opened
-  Space t c   | Change current colorscheme
+      f       | Find a file by the filename
+      e       | Create a new file
+      p       | Find project
+      r       | View the recent files
+      t       | Find a file by text
+      c       | Go to nvim config file
+      q       | Quit NeoVim
 
-#### If you want to edit this page you can go to .config/nvim/plugin/dashboard.vim to modify
-###### This function is powered by telescope you can type jj, kk, jk to exit insert mode
-   Command    | What will do ?                    | Represent
-------------- | -------------                     | -------------
-  Space       | Set no highlight find             |(:set hlsearch!)
-  Space w     | Write file                        |(:w)
-  Space w q   | Write and quit the file           |(:wq)
-  Space q     | Quit the file without saving      |(:q)
-  Space w a s | Write and source the config file  |(:w \| luafile%)
-  Space y y   | Copy the whole line               |
-  Space b d   | Add a new buffer                  |(:bd)
-  Space d d   | Detele current buffer             |(:badd)
-  Space h     | Go to first buffer                |(:bfirst)
-  Space l     | Go to last buffer                 |(:blast)
-  Space n     | Go to next buffer                 |(:bnext)
-  Space b     | Go to previous buffer             |(:bprevious)
-  jj kk jk    | To exit insert mode in fastest way|
+#### If you want to edit this page you can go to /home/username/.config/nvim/lua/user/alpha.lua to modify
+###### This function is powered by telescope you can type jk to exit insert mode
+   Command    | What will do ?                              |
+------------- | -------------                               |
+  Alt-j       | move current line down                      |
+  Alt-k       | move current line up                        |
+  Space w     | Write file                                  |
+  Space q     | Quit the file without saving                |
+  Shift t     | Calling for terminal                        |
+  Shift b     | Debug for only python file                  |
+  Shift l or h| Qucik move between next and previous buffer |
+  jk          | To exit insert mode in fastest way          |
 
-#### I am using coc-vim as my completion it support a lot of programming language completion, you can use this command to install the coc extensions
+#### You can also straightly hit the space key to view others instruction which powered by [vim-which-key](https://github.com/liuchengxu/vim-which-key)
+
+#### I am using coc.nvim as my completion it support a lot of programming language completion, you can use this command to install the coc extensions (I am not using coc.nvim anymore, instead of coc.nvim, i am using LSP, if you are interested to use LSP instead of coc.nvim you can try this [video](https://www.youtube.com/watch?v=6F3ONwrCxMg&t=757s))
+#### The troubleshot and the helps of coc.nvim will leave it here for helping
 ```sh
 :CocInstall coc-json coc-spell-checker
 ```
@@ -58,6 +59,7 @@
 
 [coc extensions](https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions)
 
+## Troubleshot
 ### Some troubles you might face during using the coc completion
 ##### "node" is not executable
 ##### build/index.js not found, please compile coc.nvim ny npm run build
