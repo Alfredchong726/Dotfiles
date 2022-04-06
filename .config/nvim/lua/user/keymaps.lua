@@ -48,6 +48,9 @@ keymap("n", "<S-t>", ":bel split term://fish<CR>:resize 10<CR>i", opts)
 -- Debug for python
 keymap("n", "<S-b>", ":sp<CR>:term python3 -m pdb %<CR>i", opts)
 
+-- Fromatting code
+keymap("n", "<S-f>", ":Autoformat<CR>", opts)
+
 -- Insert --
 -- Press jk fast to enter
 keymap("i", "jk", "<ESC>", opts)
