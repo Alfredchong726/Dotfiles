@@ -244,6 +244,11 @@ _G.packer_plugins = {
     path = "/home/cms/.local/share/nvim/site/pack/packer/start/vim-autoformat",
     url = "https://github.com/vim-autoformat/vim-autoformat"
   },
+  ["vim-surround"] = {
+    loaded = true,
+    path = "/home/cms/.local/share/nvim/site/pack/packer/start/vim-surround",
+    url = "https://github.com/tpope/vim-surround"
+  },
   ["which-key.nvim"] = {
     loaded = true,
     path = "/home/cms/.local/share/nvim/site/pack/packer/start/which-key.nvim",

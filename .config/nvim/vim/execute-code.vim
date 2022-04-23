@@ -14,14 +14,14 @@ augroup exe_code
                 \ :vsp<CR>:term java %<CR> :startinsert<CR>
 
     " execute c language code
-    autocmd filetype c nnoremap <buffer> <leader>r
+    autocmd Filetype c nnoremap <buffer> <leader>r
                 \ :vsp<CR>:term gcc %<CR> :startinsert<CR>
 
     " execute html code
-    autocmd filetype html nnoremap <buffer> <leader>r
-                \ :vsp<CR>:term firefox %<CR> 
+    autocmd Filetype html nnoremap <buffer> <leader>r
+                \ :vsp<CR>:term <CR>i
 
     " execute rust code
-    autocmd filetype rust nnoremap <buffer> <leader>r
+    autocmd Filetype rust nnoremap <buffer> <leader>r
                 \ :vsp<CR>:term cargo run %<CR> :startinsert <CR>
 augroup END

@@ -44,7 +44,7 @@ super + Escape
 
 # File manager
 super + d
-    thunar
+    Thunar
 
 # Virtual Machine
 super + v
@@ -77,10 +77,6 @@ super + shift + e
 #dmenu
 super + shift + d
 	dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=14'
-
-#Toggle fullscreen of window
-super + f
-	bspc node --state \~fullscreen
 
 # Prompt
 super + shift + Return
@@ -228,6 +224,10 @@ ctrl + alt + o
 # SUPER + KEYS
 #################################################################
 
+#Toggle fullscreen of window
+super + f
+	bspc node --state \~fullscreen
+
 # Toggle pseudo tiling of window
 super + p
 	bspc node --state \~pseudo_tiled
@@ -291,8 +291,10 @@ super + shift + f
     fi
 
 # Move floating window
-super + alt + {h,j,k,l}
-	bspc node -v {-20 0,0 20,0 -20,20 0}
+# super + alt + {h,j,k,l}
+# 	bspc node -v {-20 0,0 20,0 -20,20 0}
+super + alt + {_,shift + }{Left,Down,Up,Right}
+	~/.config/bspwm/scripts/move-window {_,edge-}{west,south,north,east}
 
 # contract a window by moving one of its side inward
 super + alt + shift + {h,j,k,l}
@@ -380,10 +382,9 @@ alt + shift + {h,j,k,l}
 #Switch here between qwerty and azerty or make new one
 #Focus selected desktop FOR QWERTY KEYBOARDS
 super + {1-9,0}
-	bspc desktop -f '^{1-9,10}'
-
+  bspc desktop -f '^{1-9,10}'
 #Focus selected desktop	FOR BELIGIAN AZERTY KEYBOARDS
-#super + {ampersand,eacute,quotedbl,apostrophe,parenleft,section,egrave,exclam,ccedilla,agrave}
+# super + {ampersand,eacute,quotedbl,apostrophe,parenleft,section,egrave,exclam,ccedilla,agrave}
 #    bspc desktop -f '^{1-9,10}'
 
 #Focus selected desktop	FOR FRNECH AZERTY KEYBOARDS
@@ -394,8 +395,8 @@ super + {1-9,0}
 
 #Switch here between qwerty and azerty or make new one
 #Move window to selected desktop FOR QWERTY KEYBOARDS
-super + shift + {1-9,0}
-    id=$(bspc query -N -n); bspc node -d ^{1-9,10}; bspc node -f ${id}}
+# super + shift + {1-9,0}
+#     id=$(bspc query -N -n); bspc node -d ^{1-9,10}; bspc node -f ${id}}
 
 #Move window to selected desktop FOR AZERTY KEYBOARDS
 #super + shift + {ampersand,eacute,quotedbl,apostrophe,parenleft,section,egrave,exclam,ccedilla,agrave}

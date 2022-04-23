@@ -1,6 +1,6 @@
 set fish_greeting                   # No welcome message during enter fish shell
 # colorscript random                  # Random colorscript when enter fish shell
-neofetch
+neofetch --source ~/.config/neofetch/1.txt
 set TERM "xterm-256color"           # Set terminal type
 
 set fish_color_normal brcyan
@@ -142,6 +142,8 @@ alias ,,='cd ..'
 
 #remove
 alias rmgitcache="rm -r ~/.cache/git"
+
+alias neofetch='neofetch --source ~/.config/neofetch/1.txt'
 
 #fixes
 alias fix-permissions="sudo chown -R $USER:$USER ~/.config ~/.local"

@@ -190,11 +190,11 @@ hc rule windowrole=xfce4-terminal-dropdown floating=on
 hc unlock
 
 #Dualmonitor setup
-# xrandr --output eDP1 --primary --mode 2160x1440 --pos 1280x0 --rotate normal --output DP1 --off --output HDMI1 --off --output HDMI2 --mode 1280x1024 --pos 0x0 --rotate normal --output VIRTUAL1 --off
+xrandr --output eDP1 --primary --mode 2160x1440 --pos 1280x0 --rotate normal --output DP1 --off --output HDMI1 --off --output HDMI2 --mode 1280x1024 --pos 0x0 --rotate normal --output VIRTUAL1 --off
 
 #Dualmonitor setup
-# hc detect_monitors
-# hc set_monitors 2160x1440+1280+0 1280x1024+0+0
+hc detect_monitors
+hc set_monitors 2160x1440+1280+0 1280x1024+0+0
 
 #room for polybar on both monitors
 #single polybar at top

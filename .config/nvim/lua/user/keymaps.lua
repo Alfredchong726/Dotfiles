@@ -43,7 +43,7 @@ keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
 keymap("n", "<A-d>", ":bd<CR>", opts)
 
 -- Calling terminal
-keymap("n", "<S-t>", ":bel split term://fish<CR>:resize 10<CR>i", opts)
+keymap("n", "<S-t>", ":vsp<CR>:term<CR>i", opts)
 
 -- Debug for python
 keymap("n", "<S-b>", ":sp<CR>:term python3 -m pdb %<CR>i", opts)

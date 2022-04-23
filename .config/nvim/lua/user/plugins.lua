@@ -97,6 +97,9 @@ return packer.startup(function(use)
   -- Code Formatter
   use 'vim-autoformat/vim-autoformat'
 
+  -- Vim Surround
+  use 'tpope/vim-surround'
+
   if PACKER_BOOTSTRAP then
     require("packer").sync()
   end
