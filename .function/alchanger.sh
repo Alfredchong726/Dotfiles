@@ -38,5 +38,3 @@ elif [[ "$choice" == 'solarized-dark' ]]; then
 elif [[ "$choice" == 'tomorrow-night' ]]; then
     sed -i '/colors:/c\colors: *tomorrow-night' $config
 fi
-
-
