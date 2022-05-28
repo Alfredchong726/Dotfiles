@@ -30,9 +30,9 @@ super + m
 super + Escape
     xkill
 
-#ArcoLinux-logout
+#ArchLinux-logout
 super + x
-    arcolinux-logout
+    archlinux-logout
 
 #Wgatsapp
 super + w
@@ -80,7 +80,7 @@ super + shift + t
 
 # Obsidian
 super + shift + o
-    obsidian-insider
+    obsidian
 
 #Rofi
 super + shift + Return
@@ -98,13 +98,13 @@ super + shift + c
 # CONTROL + ALT KEYS
 #################################################################
 
-#arcolinux-welcome-app
+#archlinux-welcome-app
 ctrl + alt + w
-    arcolinux-welcome-app
+    archlinux-welcome-app
 
-#arcolinux-tweak-tool
+#archlinux-tweak-tool
 ctrl + alt + e
-    arcolinux-tweak-tool
+    archlinux-tweak-tool
 
 #################################################################
 # ALT + ... KEYS

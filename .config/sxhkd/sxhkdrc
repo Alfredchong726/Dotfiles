@@ -22,9 +22,9 @@ super + b
 super + w
     whatsapp-for-linux
 
-# arcolinux-logout
+# archlinux-logout
 super + x
-    arcolinux-logout
+    archlinux-logout
 
 # TaskManager
 super + t
@@ -92,7 +92,7 @@ super + shift + t
 
 # Obsidian
 super + shift + o
-    obsidian-insider
+    obsidian
 
 # Change alacritty color theme in easy way
 super + shift + c
@@ -106,13 +106,13 @@ super + shift + s
 # CONTROL + ALT KEYS
 #################################################################
 
-#arcolinux-welcome-app
+#archlinux-welcome-app
 ctrl + alt + w
-    arcolinux-welcome-app
+    archlinux-welcome-app
 
-#arcolinux-tweak-tool
+#archlinux-tweak-tool
 ctrl + alt + e
-    arcolinux-tweak-tool
+    archlinux-tweak-tool
 
 #################################################################
 # ALT + ... KEYS

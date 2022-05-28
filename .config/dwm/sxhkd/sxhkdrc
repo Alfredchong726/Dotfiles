@@ -34,9 +34,9 @@ super + m
 super + Escape
     xkill
 
-#ArcoLinux-logout
+#hrcoLinux-Logout
 super + x
-    arcolinux-logout
+    archlinux-logout
 
 #Wgatsapp
 super + w
@@ -80,7 +80,7 @@ super + shift + t
 
 # Obsidian
 super + shift + o
-    obsidian-insider
+    obsidian
 
 # Change alacritty color theme in easy way
 super + shift + c
@@ -94,13 +94,13 @@ super + shift + Return
 # CONTROL + ALT KEYS
 #################################################################
 
-#arcolinux-welcome-app
+#archlinux-welcome-app
 ctrl + alt + w
-    arcolinux-welcome-app
+    archlinux-welcome-app
 
-#arcolinux-tweak-tool
+#arcjlinux-tweak-tool
 ctrl + alt + e
-    arcolinux-tweak-tool
+    archlinux-tweak-tool
 
 #################################################################
 # ALT + ... KEYS

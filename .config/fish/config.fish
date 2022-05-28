@@ -166,3 +166,6 @@ set -gx PATH $PATH $HOME/.local/bin/
 export PATH
 
 starship init fish | source         # Start starship
+
+# to use the autojump
+if test -f /home/cms/.autojump/share/autojump/autojump.fish; . /home/cms/.autojump/share/autojump/autojump.fish; end

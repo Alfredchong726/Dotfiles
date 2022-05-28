@@ -322,7 +322,7 @@ myKeys =
         , ("M-w", spawn "whatsapp-for-linux")
         , ("M-S-w", spawn "rofi -show window")
         , ("M-o", spawn "wps")
-        , ("M-S-o", spawn "obsidian-insider")
+        , ("M-S-o", spawn "obsidian")
         , ("M-S-b", spawn "bottles")
 
     -- KB_GROUP HotKey
