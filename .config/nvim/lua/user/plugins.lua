@@ -86,8 +86,8 @@ return packer.startup(function(use)
 
   -- Treesitter
   use {
-    "nvim-treesitter/nvim-treesitter",
-    run = ":TSUpdate",
+  "nvim-treesitter/nvim-treesitter",
+  run = ":TSUpdate",
   }
   use "JoosepAlviste/nvim-ts-context-commentstring"
 
@@ -99,6 +99,9 @@ return packer.startup(function(use)
 
   -- Vim Surround
   use 'tpope/vim-surround'
+
+  -- Jinja syntax
+  use 'HiPhish/jinja.vim'
 
   if PACKER_BOOTSTRAP then
     require("packer").sync()

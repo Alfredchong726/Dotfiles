@@ -144,6 +144,11 @@ _G.packer_plugins = {
     path = "/home/cms/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
     url = "https://github.com/lukas-reineke/indent-blankline.nvim"
   },
+  ["jinja.vim"] = {
+    loaded = true,
+    path = "/home/cms/.local/share/nvim/site/pack/packer/start/jinja.vim",
+    url = "https://github.com/HiPhish/jinja.vim"
+  },
   ["lualine.nvim"] = {
     loaded = true,
     path = "/home/cms/.local/share/nvim/site/pack/packer/start/lualine.nvim",
