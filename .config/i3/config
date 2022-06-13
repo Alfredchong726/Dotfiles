@@ -103,6 +103,10 @@ bindsym F3 exec --no-startup-id xfce4-appfinder
 bindsym $mod+Shift+e exec --no-startup-id archlinux-logout
 bindsym $mod+X exec --no-startup-id archlinux-logout
 
+# Quick shutdown and reboot
+bindsym $mod+Shift+s exec --no-startup-id shutdown now
+bindsym $mod+Ctrl+r exec --no-startup-id reboot
+
 ################# reload changed configuration     
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -173,6 +177,13 @@ bindsym $mod+Ctrl+h resize grow width 1 px or 1 ppt
 # choose your font
 font pango:Noto Mono Regular 13
 
+
+################# Keybindings for calling features
+
+bindsym Ctrl+shift+p exec --no-startup-id powermenu
+bindsym Ctrl+shift+q exec --no-startup-id quick-links
+bindsym Ctrl+shift+e exec --no-startup-id edit-configs
+
 ################# autostart - execute applications at boot time
 
 # USER APPLICATIONS TO START AT BOOT
@@ -207,7 +218,7 @@ exec_always --no-startup-id numlockx on
 exec --no-startup-id volumeicon
 
 # Polybar
-exec_always --no-startup-id bash /home/cms/.config/i3/polybar/launch.sh &
+exec_always --no-startup-id bash $HOME/.config/i3/polybar/launch.sh &
 
 # Set background
 exec_always --no-startup-id nitrogen --random --set-tiled&
@@ -237,6 +248,9 @@ bindsym $mod+t exec --no-startup-id xfce4-taskmanager;focus
 
 # pavucontrol
 bindsym $mod+a exec --no-startup-id pavucontrol
+
+# obsidian
+bindsym $mod+Shift+o exec --no-startup-id obsidian
 
 # xkill
 bindsym --release $mod+Escape exec xkill
