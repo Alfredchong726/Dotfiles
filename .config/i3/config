@@ -222,6 +222,9 @@ exec_always --no-startup-id bash $HOME/.config/i3/polybar/launch.sh &
 
 # Set background
 exec_always --no-startup-id nitrogen --random --set-tiled&
+
+# Fcitx5
+exec_always --no-startup-id fcitx5
 ################# system applications       
 
 exec --no-startup-id xfce4-power-manager &
@@ -258,6 +261,7 @@ bindsym --release $mod+Escape exec xkill
 # Function Keybinds
 # Browser
 bindsym $mod+shift+q exec --no-startup-id qutebrowser;focus
+bindsym $mod+shift+w exec --no-startup-id qutebrowser;focus
 
 # document comparison
 bindsym $mod+F5 exec --no-startup-id meld;focus
