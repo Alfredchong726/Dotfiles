@@ -16,6 +16,7 @@ mod2 = "control"
 home = os.path.expanduser('~')
 myTerm = 'alacritty'
 color_alert = '#ee9900'
+dm = "dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=14'"
 
 @lazy.function
 def window_to_prev_group(qtile):
@@ -35,71 +36,63 @@ keys = [
 
 # START_KEYS
 # SUPER + FUNCTION KEYS
-    Key([mod], "Return", lazy.spawn(myTerm)),
-    Key([mod], "y", lazy.spawn("deadbeef")),
-    Key([mod], "o", lazy.spawn("wps")),
-    Key([mod], "t", lazy.spawn("xfce4-taskmanager")),
-    Key([mod], "d", lazy.spawn("thunar")),
-    Key([mod], "v", lazy.spawn("VirtualBox")),
-    Key([mod], "w", lazy.spawn("whatsapp-for-linux")),
-    Key([mod], "a", lazy.spawn("pavucontrol")),
-    Key([mod], "x", lazy.spawn("archlinux-logout")),
-    Key([mod, 'shift'], "o", lazy.spawn("obsidian")),
-    Key([mod, 'shift'], "q", lazy.spawn("qutebrowser")),
-    Key([mod, "shift"], "t", lazy.spawn("teams")),
-    Key([mod, "shift"], "c", lazy.spawn("./alchanger.sh")),
-    Key([mod, "shift"], "Return", lazy.spawn("rofi -show run")),
-    Key([mod, "shift"], "w", lazy.spawn("rofi -show window")),
-    Key([mod, "shift"], "e", lazy.spawn("rofi -show emoji -modi emoji")),
-    Key([mod], "Escape", lazy.spawn("xkill")),
-    Key([mod, "shift"], "d", lazy.spawn("dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=14'")),
+    Key([mod], "Return", lazy.spawn(myTerm)),               # open terminal
+    Key([mod], "y", lazy.spawn("deadbeef")),                # music player
+    Key([mod], "o", lazy.spawn("wps")),                     # wps
+    Key([mod], "t", lazy.spawn("xfce4-taskmanager")),       # task manager
+    Key([mod], "d", lazy.spawn("thunar")),                  # file manager
+    Key([mod], "v", lazy.spawn("VirtualBox")),              # virtual box
+    Key([mod], "w", lazy.spawn("whatsapp-for-linux")),      # whatsapp
+    Key([mod], "a", lazy.spawn("pavucontrol")),             # sound manager
+    Key([mod], "x", lazy.spawn("archlinux-logout")),        # arcolinux logout
+    Key([mod, 'shift'], "o", lazy.spawn("obsidian")),       # obsidian
+    Key([mod, 'shift'], "q", lazy.spawn("qutebrowser")),    # qutebrowser
+    Key([mod, "shift"], "t", lazy.spawn("teams")),          # teams
+    Key([mod, "shift"], "c", lazy.spawn("./alchanger.sh")), # change alacritty theme
+    Key([mod, "shift"], "Return", lazy.spawn("rofi -show run")),    # rofi
+    Key([mod, "shift"], "w", lazy.spawn("rofi -show window")),      # rofi in window
+    Key([mod, "shift"], "e", lazy.spawn("rofi -show emoji -modi emoji")),   # rofi show emoji
+    Key([mod], "Escape", lazy.spawn("xkill")),              # xkill
+    Key([mod, "shift"], "d", lazy.spawn(dm)),               # dmenu
 
     # QTILE FUNCTION
-    Key([mod], "q", lazy.window.kill()),
-    Key([mod, "shift"], "r", lazy.restart()),
-    Key(["mod1", "shift"], "q", lazy.shutdown()),
+    Key([mod], "q", lazy.window.kill()),                                # kill window
+    Key([mod, "shift"], "r", lazy.restart()),                           # restart qtile
+    Key(["mod1", "shift"], "q", lazy.shutdown()),                       # shutdown qtile
 
-    Key([mod, "shift"], "s", lazy.spawn(myTerm+" -e shutdown now")),
-    Key([mod, "control"],"r", lazy.spawn(myTerm+" -e reboot")),
+    Key([mod, "shift"], "s", lazy.spawn(myTerm+" -e shutdown now")),    # shitdown computer
+    Key([mod, "control"],"r", lazy.spawn(myTerm+" -e reboot")),         # reboot
     
 # CHANGE SCREEN 
-    Key([mod,], "comma", lazy.prev_screen()),
-    Key([mod,], "period", lazy.next_screen()),
+    Key([mod,], "comma", lazy.prev_screen()),                           # move monitor to previous
+    Key([mod,], "period", lazy.next_screen()),                          # move monitor to next
 
 # SPECIAL FUNCTION KEY
-    Key(["control", "shift"],"p", lazy.spawn("powermenu")),
-    Key(["control", "shift"],"l", lazy.spawn("lock")),
-    Key(["control", "shift"],"e", lazy.spawn("edit-configs")),
-    Key(["control", "shift"],"q", lazy.spawn("quick-links")),
+    Key(["control", "shift"],"p", lazy.spawn("powermenu")),             # powermenu
+    Key(["control", "shift"],"l", lazy.spawn("lock")),                  # lock
+    Key(["control", "shift"],"e", lazy.spawn("edit-configs")),          # edit config file
+    Key(["control", "shift"],"q", lazy.spawn("quick-links")),           # quick link to specific website
 
 # FUNCTION KEY
-    Key([], "F4", lazy.spawn("~/.config/qtile/qtile_keys.sh")),
-    Key([], "F3", lazy.spawn("xfce4-settings-manager")),
-    Key([], "F2", lazy.spawn("xfce4-appfinder")),
-    Key([], "F1", lazy.spawn("xfce4-find-cursor")),
-
-# SUPER + SHIFT KEYS
-
-    Key([mod, "shift"], "r", lazy.restart()),
-
-# CHANGE SCREEN 
-    Key([mod,], "comma", lazy.prev_screen()),
-    Key([mod,], "period", lazy.next_screen()),
+    Key([], "F4", lazy.spawn("/home/cms/.config/qtile/qtile_keys.sh")), # show qtile key bindings
+    Key([], "F3", lazy.spawn("xfce4-settings-manager")),                # xfce4 setting manager
+    Key([], "F2", lazy.spawn("xfce4-appfinder")),                       # xfce4 app finder
+    Key([], "F1", lazy.spawn("xfce4-find-cursor")),                     # xfce4 find curosr
 
 # QTILE LAYOUT KEYS
-    Key([mod], "m", lazy.window.toggle_minimize()),
-    Key([mod], "n", lazy.layout.normalize()),
-    Key([mod], "Tab", lazy.next_layout()),
+    Key([mod], "m", lazy.window.toggle_minimize()),                     # minimize window
+    Key([mod], "n", lazy.layout.normalize()),                           # normilize window
+    Key([mod], "Tab", lazy.next_layout()),                              # change layout
 
 # CHANGE FOCUS
-    Key([mod], "k", lazy.layout.up()),
-    Key([mod], "j", lazy.layout.down()),
-    Key([mod], "h", lazy.layout.left()),
-    Key([mod], "l", lazy.layout.right()),
+    Key([mod], "k", lazy.layout.up()),                                  # move focus to up
+    Key([mod], "j", lazy.layout.down()),                                # move focus to down
+    Key([mod], "h", lazy.layout.left()),                                # move focus to left
+    Key([mod], "l", lazy.layout.right()),                               # move focus to right
 
 # SCREENSHOT
-    Key(["control", "mod1"], "s", lazy.spawn("xfce4-screenshooter")),
-    Key(["control", "shift"], "s", lazy.spawn("flameshot gui")),
+    Key(["control", "mod1"], "s", lazy.spawn("xfce4-screenshooter")),   # xfce4 screenshot
+    Key(["control", "shift"], "s", lazy.spawn("flameshot gui")),        # flameshot
 
 
 # RESIZE UP, DOWN, LEFT, RIGHT
@@ -127,10 +120,10 @@ keys = [
         ),
 
 
-    Key([mod], "f", lazy.window.toggle_fullscreen()),
+    Key([mod], "f", lazy.window.toggle_fullscreen()),       # toggle fullscreen
 
 # FLIP LAYOUT FOR MONADTALL/MONADWIDE
-    Key([mod, "control"], "f", lazy.layout.flip()),
+    Key([mod, "control"], "f", lazy.layout.flip()),         # flip layout for monadtall
 
 # FLIP LAYOUT FOR BSP
     Key([mod, "mod1"], "k", lazy.layout.flip_up()),
@@ -144,17 +137,11 @@ keys = [
     Key([mod, "shift"], "h", lazy.layout.shuffle_left()),
     Key([mod, "shift"], "l", lazy.layout.shuffle_right()),
 
-# MOVE WINDOWS UP OR DOWN MONADTALL/MONADWIDE LAYOUT
-    Key([mod, "shift"], "Up", lazy.layout.shuffle_up()),
-    Key([mod, "shift"], "Down", lazy.layout.shuffle_down()),
-    Key([mod, "shift"], "Left", lazy.layout.swap_left()),
-    Key([mod, "shift"], "Right", lazy.layout.swap_right()),
-
 # TOGGLE FLOATING LAYOUT
-    Key([mod, "shift"], "f", lazy.window.toggle_floating()),
+    Key([mod, "shift"], "f", lazy.window.toggle_floating()),    # toggle floating
 
 # CHANGE WALLPAPER
-    Key(["mod1"], "space", lazy.spawn("nitrogen --random --set-tiled")),
+    Key(["mod1"], "space", lazy.spawn("nitrogen --random --set-tiled")),    # change wallpaper
     ]
 
 # END_KEYS
@@ -563,6 +550,7 @@ floating_layout = layout.Floating(float_rules=[
     Match(wm_class='toolbar'),
     Match(wm_class='Arandr'),
     Match(wm_class='feh'),
+    Match(wm_class='yad'),
     Match(wm_class='Galculator'),
     Match(wm_class='arcolinux-logout'),
     Match(wm_class='xfce4-terminal'),
