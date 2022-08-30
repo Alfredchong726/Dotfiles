@@ -12,7 +12,7 @@ run fcitx5 &
 run flameshot &
 run pamac-tray &
 run xfce4-power-manager &
-run ./.xrandr-ext-mon &
+run ./.xrandr_horizontal.sh &
 numlockx off &
 blueberry-tray &
 picom --config $HOME/.config/picom/picom.conf &

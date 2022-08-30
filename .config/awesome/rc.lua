@@ -684,7 +684,7 @@ client.connect_signal("property::maximized", border_adjust)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 
 awful.spawn.with_shell("nitrogen --random --set-tiled")
-awful.spawn.with_shell("xrandr --output eDP1 --right-of HDMI2 --output HDMI2")
+awful.spawn.with_shell("xrandr --output eDP1 --primary --mode 2160x1440 --pos 1920x0 --rotate normal --output DP1 --off --output HDMI1 --off --output HDMI2 --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off")
 awful.spawn.with_shell("picom --config  $HOME/.config/picom/picom.conf")
 awful.spawn.with_shell("conky -c  $HOME/.config/conky/awesome/tomorrow-night-01.conkyrc")
 awful.spawn.with_shell("nm-applet")

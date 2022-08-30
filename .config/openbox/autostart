@@ -5,6 +5,8 @@ nitrogen --random --set-tiled
 tint2 &
 $HOME/.config/polybar/launch.sh &
 
+$HOME/.xrandr_horizontal.sh &
+
 #bluetooth#
 (blueberry-tray) &
 

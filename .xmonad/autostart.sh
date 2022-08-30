@@ -10,7 +10,7 @@ function run {
 run nm-applet &
 run pamac-tray &
 run xfce4-power-manager &
-run ./.xrandr-ext-mon &
+run ./.xrandr_horizontal.sh &
 numlockx on &
 blueberry-tray &
 picom --config $HOME/.config/picom/picom.conf &

@@ -32,6 +32,8 @@ run slstatus &
 sxhkd -c ~/.config/arco-dwm/sxhkd/sxhkdrc &
 run "nitrogen --random --set-tiled"
 run "eww --config $HOME/.config/conkeww/ open conkeww-main"
+run "xrandr --output eDP1 --primary --mode 2160x1440 --pos 1920x0 --rotate normal --output DP1 --off --output HDMI1 --off --output HDMI2 --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off
+"
 # run "conky -c $HOME/.config/conky/dwm/dracula-01.conkyrc"
 #you can set wallpapers in themes as well
 # feh --bg-fill /usr/share/backgrounds/arcolinux/arco-wallpaper.jpg &

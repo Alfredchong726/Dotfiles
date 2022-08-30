@@ -31,7 +31,8 @@ set $right l
 ################# Single and Dual screen
 
 # current displays
-exec --no-startup-id xrandr --output DP0 --right-of HDMI-0 --auto
+exec --no-startup-id xrandr --output eDP1 --primary --mode 2160x1440 --pos 1920x0 --rotate normal --output DP1 --off --output HDMI1 --off --output HDMI2 --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off
+
 
 # setting variables for later use
 # use xrandr and/or arandr to know the names of your monitors
