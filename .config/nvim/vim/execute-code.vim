@@ -19,9 +19,13 @@ augroup exe_code
 
     " execute html code
     autocmd Filetype html nnoremap <buffer> <leader>r
-                \ :vsp<CR>:term <CR>i
+                \ :vsp<CR>:term chromium %<CR>i
 
     " execute rust code
     autocmd Filetype rust nnoremap <buffer> <leader>r
                 \ :vsp<CR>:term cargo run %<CR> :startinsert <CR>
+
+    " execute golang code
+    autocmd Filetype go nnoremap <buffer> <leader>r
+                \ :sp<CR>:term go run %<CR> :startinsert <CR>
 augroup END
