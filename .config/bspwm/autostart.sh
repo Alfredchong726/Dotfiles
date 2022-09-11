@@ -15,7 +15,7 @@ run fcitx5 &
 run flameshot &
 run pamac-tray &
 run xfce4-power-manager &
-run ./.xrandr_horizontal.sh &
+run ~/.xrandr_horizontal.sh &
 blueberry-tray &
 picom --config $HOME/.config/picom/picom.conf &
 eww --config $HOME/.config/conkeww/ open conkeww-main &
