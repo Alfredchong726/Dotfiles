@@ -158,6 +158,8 @@ alias fix-sddm-config="/usr/local/bin/arcolinux-fix-sddm-config"
 alias fix-pacman-conf="/usr/local/bin/arcolinux-fix-pacman-conf"
 alias fix-pacman-keyserver="/usr/local/bin/arcolinux-fix-pacman-gpg-conf"
 
+# open xampp in shortest way
+alias xampp='cd /opt/lampp && sudo ./manager-linux-x64.run'
 # setup the environment
 set PATH $PATH /usr/local/bin
 set -gx PATH $PATH /usr/local/lib/nodejs/node-v14.17.4-linux-x64/bin/

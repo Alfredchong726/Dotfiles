@@ -14,3 +14,17 @@
   :wm-ignore true
   (conkeww-panes)
   )
+
+(defwindow conkeww-main
+  :monitor 0
+  :geometry (geometry :x "-1%"
+                      :width 350
+                      :y "20px"
+                      :hexpand false
+                      :anchor "center right"
+              )
+  :windowtype "dock"
+  :stacking "bg"
+  :wm-ignore true
+  (conkeww-panes)
+  )
