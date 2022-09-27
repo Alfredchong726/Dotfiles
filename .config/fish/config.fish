@@ -159,12 +159,13 @@ alias fix-pacman-conf="/usr/local/bin/arcolinux-fix-pacman-conf"
 alias fix-pacman-keyserver="/usr/local/bin/arcolinux-fix-pacman-gpg-conf"
 
 # open xampp in shortest way
-alias xampp='cd /opt/lampp && sudo ./manager-linux-x64.run'
+alias xampp='sudo /opt/lampp/lampp start && cd /opt/lampp && sudo ./manager-linux-x64.run'
 # setup the environment
 set PATH $PATH /usr/local/bin
 set -gx PATH $PATH /usr/local/lib/nodejs/node-v14.17.4-linux-x64/bin/
 set -gx PATH $PATH $HOME/.cargo/bin/
 set -gx PATH $PATH $HOME/.local/bin/
+set -gx PATH $PATH $HOME/.local/share/gem/ruby/3.0.0/bin/
 export PATH
 
 starship init fish | source         # Start starship
