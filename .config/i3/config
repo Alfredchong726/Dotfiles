@@ -184,6 +184,7 @@ font pango:Noto Mono Regular 13
 bindsym Ctrl+shift+p exec --no-startup-id powermenu
 bindsym Ctrl+shift+q exec --no-startup-id quick-links
 bindsym Ctrl+shift+e exec --no-startup-id edit-configs
+bindsym Ctrl+shift+l exec --no-startup-id lock
 
 ################# autostart - execute applications at boot time
 

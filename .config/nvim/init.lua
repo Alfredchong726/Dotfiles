@@ -20,3 +20,10 @@ require "user.lualine"
 require "user.bufferline"
 
 vim.cmd('source ~/.config/nvim/vim/execute-code.vim')
+
+-- vscode and nvim only settings
+if (vim.g.vscode) then
+    -- VSCode extension
+else
+    -- ordinary neovim
+end

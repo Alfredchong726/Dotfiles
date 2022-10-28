@@ -1,6 +1,5 @@
 set fish_greeting                   # No welcome message during enter fish shell
 # colorscript random                  # Random colorscript when enter fish shell
-neofetch --source ~/.config/neofetch/1.txt
 set TERM "xterm-256color"           # Set terminal type
 
 set fish_color_normal brcyan
@@ -169,6 +168,11 @@ set -gx PATH $PATH $HOME/.local/share/gem/ruby/3.0.0/bin/
 export PATH
 
 starship init fish | source         # Start starship
+neofetch --source ~/.config/neofetch/neofetch.txt # Start neofetch
+./.jitang.sh
+export GTK_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus
 
 # to use the autojump
 if test -f /home/cms/.autojump/share/autojump/autojump.fish; . /home/cms/.autojump/share/autojump/autojump.fish; end
