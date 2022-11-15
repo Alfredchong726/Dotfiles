@@ -191,7 +191,7 @@ bindsym Ctrl+shift+l exec --no-startup-id lock
 # USER APPLICATIONS TO START AT BOOT
 
 # ArcoLinux Welcome App
-exec --no-startup-id dex $HOME/.config/autostart/arcolinux-welcome-app.desktop
+# exec --no-startup-id dex $HOME/.config/autostart/arcolinux-welcome-app.desktop
 
 # Autotiling
 exec_always --no-startup-id autotiling
@@ -276,13 +276,13 @@ for_window [class="Thunar"] focus
 bindsym $mod+d exec --no-startup-id thunar;focus
 
 # music
-bindsym $mod+m exec --no-startup-id deadbeef;focus
+bindsym $mod+m exec --no-startup-id audacious;focus
 
 ################# screenshots                      
 
 bindsym Print exec --no-startup-id scrot 'ArcoLinux-%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f $$(xdg-user-dir PICTURES)'
 bindsym Control+mod1+s exec --no-startup-id xfce4-screenshooter
-bindsym Control+Shift+s exec --no-startup-id flameshot gui -i
+bindsym Control+Shift+s exec --no-startup-id flameshot gui
 
 ################# floating or tiled rules         
 
