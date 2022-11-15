@@ -1,0 +1,54 @@
+#!/usr/bin/env bash
+
+dir="~/.config/polybar/scripts/rofi"
+browser="firefox"
+uptime=$(uptime -p | sed -e 's/up //g')
+
+rofi_command="rofi"
+
+#Options
+github="Github"
+personal_website="Personal Website"
+monkey_type="MonkeyType"
+wallpaper="Wallpaper"
+archwiki="Archwiki"
+aur="ArchLinux AUR"
+
+# Confirmation
+confirm_exit() {
+	rofi -dmenu\
+		-i\
+		-no-fixed-num-lines\
+		-p "Are You Sure? : "\
+		-theme $dir/confirm.rasi
+}
+
+# Message
+msg() {
+	rofi -theme "$dir/message.rasi" -e "Available Options  -  yes / y / no / n"
+}
+
+options="$github\n$personal_website\n$monkey_type\n$wallpaper\n$archwiki\n$aur"
+
+chosen="$(echo -e "$options" | $rofi_command -p "Uptime: $uptime" -dmenu -i -selected-row 0)"
+
+case "$chosen" in
+  $github)
+    firefox --new-window "https://github.com"
+  ;;
+  $personal_website)
+    firefox --new-window "https://alfredchong726.github.io"
+  ;;
+  $monkey_type)
+    firefox --new-window "https://monkeytype.com/"
+  ;;
+  $wallpaper)
+    firefox --new-window "https://www.peakpx.com/en/search?q=anime&device=2"
+  ;;
+  $archwiki)
+    firefox --new-window "https://wiki.archlinux.org/"
+  ;;
+  $aur)
+    firefox --new-window "https://aur.archlinux.org/"
+  ;;
+esac
