@@ -95,7 +95,7 @@ schemes:
       focused_match:
         foreground: '#44475a'
         background: '#ffb86c'
-      bar:
+      colors.footer_bar:
         background: '#282a36'
         foreground: '#f8f8f2'
     line_indicator:
@@ -357,7 +357,7 @@ schemes:
       cyan:    '#54ced6'
       white:   '#282a2e'
 
-colors: *doom-one
+colors: *dracula
 
 #######################################
 ##              CURSOR               ##
