@@ -12,6 +12,7 @@ declare -a options=(
 "solarized-light"
 "solarized-dark"
 "tomorrow-night"
+"catppuccin"
 "quit"
 )
 
@@ -37,4 +38,6 @@ elif [[ "$choice" == 'solarized-dark' ]]; then
     sed -i '/colors:/c\colors: *solarized-dark' $config
 elif [[ "$choice" == 'tomorrow-night' ]]; then
     sed -i '/colors:/c\colors: *tomorrow-night' $config
+elif [[ "$choice" == 'catppuccin' ]]; then
+    sed -i '/colors:/c\colors: *catppuccin' $config
 fi
