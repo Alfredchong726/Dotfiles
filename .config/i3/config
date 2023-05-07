@@ -31,7 +31,11 @@ set $right l
 ################# Single and Dual screen
 
 # current displays
+<<<<<<< HEAD
 exec --no-startup-id xrandr --output eDP1 --primary --mode 2160x1440 --pos 0x0 --rotate normal --output DP1 --off --output HDMI1 --off --output HDMI2 --mode 1920x1080 --pos 2160x0 --rotate normal --output VIRTUAL1 --off
+=======
+exec --no-startup-id xrandr --output eDP1 --primary --mode 2160x1440 --pos 1920x0 --rotate normal --output DP1 --off --output HDMI1 --off --output HDMI2 --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off
+>>>>>>> 2796cc601c52fee9944b2a709eeae864f17beec8
 
 
 # setting variables for later use
