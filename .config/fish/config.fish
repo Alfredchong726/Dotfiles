@@ -1,6 +1,6 @@
-set fish_greeting                   # No welcome message during enter fish shell
+set fish_greeting # No welcome message during enter fish shell
 # colorscript random                  # Random colorscript when enter fish shell
-set TERM "xterm-256color"           # Set terminal type
+set TERM xterm-256color # Set terminal type
 colorscript random
 
 set fish_color_normal brcyan
@@ -15,22 +15,19 @@ set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
 
 # Path to Oh My Fish install.
 set -q XDG_DATA_HOME
-  and set -gx OMF_PATH "$XDG_DATA_HOME/omf"
-  or set -gx OMF_PATH "$HOME/.local/share/omf"
+and set -gx OMF_PATH "$XDG_DATA_HOME/omf"
+or set -gx OMF_PATH "$HOME/.local/share/omf"
 
 # Load Oh My Fish configuration.
 source $OMF_PATH/init.fish
 
 function fish_user_key_bindings
-  # fish_default_key_bindings
-  fish_vi_key_bindings
-  end
+    # fish_default_key_bindings
+    fish_vi_key_bindings
+end
 
 function Get_Qtile
-    sed -n '/START_KEYS/,/END_KEYS/p' ~/.config/qtile/config.py | \
-    grep -v '#' | \
-    grep 'Key' | \
-    sed -e 's/^[ \t]*//'
+    sed -n '/START_KEYS/,/END_KEYS/p' ~/.config/qtile/config.py | grep -v '#' | grep Key | sed -e 's/^[ \t]*//'
 end
 
 # v function can easily get into file
@@ -56,8 +53,8 @@ function f -a change
         set len_of_has_git (count $has_git)
 
         if test $len_of_has_git -eq 1
-           cd $has_git
-           cd ..
+            cd $has_git
+            cd ..
         end
     end
     nvim $file
@@ -65,7 +62,7 @@ end
 
 function ll
     ls -lh $argv
- end
+end
 
 # run neovim
 function vi
@@ -91,7 +88,7 @@ end
 
 # straghitly get into init.lua file
 function edit
-    cd  ~/.config/nvim
+    cd ~/.config/nvim
     nvim init.lua
 end
 
@@ -126,13 +123,13 @@ alias uncommit='git reset --hard HEAD^'
 alias iso="cat /etc/dev-rel | awk -F '=' '/ISO/ {print $2}'"
 
 # pacman and yay
-alias pacsyu='sudo pacman -Syyu'                 # update only standard pkgs
-alias yaysua='yay -Sua --noconfirm'              # update only AUR pkgs (yay)
-alias yaysyu='yay -Syu --noconfirm'              # update standard pkgs and AUR pkgs (yay)
-alias parsua='paru -Sua --noconfirm'             # update only AUR pkgs (paru)
-alias parsyu='paru -Syu --noconfirm'             # update standard pkgs and AUR pkgs (paru)
-alias unlock='sudo rm /var/lib/pacman/db.lck'    # remove pacman lock
-alias cleanup='sudo pacman -Rns (pacman -Qtdq)'  # remove orphaned packages
+alias pacsyu='sudo pacman -Syyu' # update only standard pkgs
+alias yaysua='yay -Sua --noconfirm' # update only AUR pkgs (yay)
+alias yaysyu='yay -Syu --noconfirm' # update standard pkgs and AUR pkgs (yay)
+alias parsua='paru -Sua --noconfirm' # update only AUR pkgs (paru)
+alias parsyu='paru -Syu --noconfirm' # update standard pkgs and AUR pkgs (paru)
+alias unlock='sudo rm /var/lib/pacman/db.lck' # remove pacman lock
+alias cleanup='sudo pacman -Rns (pacman -Qtdq)' # remove orphaned packages
 
 alias cpuname='cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c'
 alias cpuinfo='cat /proc/cpuinfo | grep physical | uniq -c'
@@ -166,13 +163,15 @@ set -gx PATH $PATH $HOME/.local/bin/
 set -gx PATH $PATH $HOME/.local/share/gem/ruby/3.0.0/bin/
 export PATH
 
-set -gx JAVA_HOME /usr/lib/jvm/java-19-openjdk
+set -gx JAVA_HOME /usr/lib/jvm/java-20-openjdk
 set -gx CHROME_EXECUTABLE /usr/bin/chromium
 
-starship init fish | source         # Start starship
+starship init fish | source # Start starship
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
 
 # to use the autojump
-if test -f /home/cms/.autojump/share/autojump/autojump.fish; . /home/cms/.autojump/share/autojump/autojump.fish; end
+if test -f /home/cms/.autojump/share/autojump/autojump.fish
+    . /home/cms/.autojump/share/autojump/autojump.fish
+end

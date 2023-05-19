@@ -43,6 +43,9 @@ augroup exe_code
   " execute golang code
   autocmd Filetype go nnoremap <buffer> <leader>r
             \ :sp<CR>:term go run %<CR> :startinsert <CR>
+  " execute php code
+  autocmd Filetype php nnoremap <buffer> <leader>r
+            \ :sp<CR>:term php %<CR> :startinsert <CR>
 augroup END
 ]],
   true
