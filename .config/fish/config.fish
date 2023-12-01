@@ -74,6 +74,15 @@ function vim
     sudo nvim $argv
 end
 
+#run neovide
+function vid
+    neovide $argv
+end
+
+# run neovide in root
+function vide
+    sudo neovide $argv
+end
 # update all packages
 function update
     sudo pacman -Syyuu --noconfirm

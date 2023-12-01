@@ -1,10 +1,9 @@
 #!/bin/bash
 
 function run {
-  if ! pgrep $1 ;
-  then
-    $@&
-  fi
+	if ! pgrep $1; then
+		$@ &
+	fi
 }
 #starting utility applications at boot time
 run nm-applet &
@@ -22,4 +21,4 @@ eww --config $HOME/.config/conkeww/ open conkeww-main &
 
 #starting user applications at boot time
 run volumeicon &
-nitrogen --random --set-tiled &
+nitrogen --random --set-zoom-fill --head=0 && nitrogen --random --set-zoom-fill --head=1 &

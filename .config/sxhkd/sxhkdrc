@@ -63,8 +63,8 @@ super + m
 #################################################################
 
 #qutebrowser
-super + shift + q
-	qutebrowser
+super + shift + b
+	brave
 
 #Rofi show window
 super + shift + w
@@ -120,7 +120,7 @@ ctrl + alt + e
 
 # Change wallpaper
 alt + space
-    nitrogen --random --set-tiled
+    nitrogen --random --set-zoom-fill --head=0 && nitrogen --random --set-zoom-fill --head=1
 
 #################################################################
 # CONTROL + SHIFT KEYS

@@ -31,9 +31,10 @@ set $right l
 ################# Single and Dual screen
 
 # current displays
-exec --no-startup-id xrandr --output eDP1 --primary --mode 2160x1440 --pos 0x0 --rotate normal --output DP1 --off --output HDMI1 --off --output HDMI2 --mode 1920x1080 --pos 2160x0 --rotate normal --output VIRTUAL1 --off
-exec --no-startup-id xrandr --output eDP1 --primary --mode 2160x1440 --pos 1920x0 --rotate normal --output DP1 --off --output HDMI1 --off --output HDMI2 --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off
+#
+# exec --no-startup-id xrandr --output eDP-1 --mode 2160x1440 --pos 0x0 --rotate normal --output DP-1 --off --output HDMI-1 --off --output HDMI-2 --mode 1920x1080 --pos 2160x0 --rotate normal
 
+exec --no-startup-id xrandr --output eDP-1 --primary --mode 2160x1440 --pos 1920x0 --rotate normal --output DP-1 --off --output HDMI-1 --off --output HDMI-1 --mode 1920x1080 --pos 0x0 --rotate normal
 
 # setting variables for later use
 # use xrandr and/or arandr to know the names of your monitors
@@ -224,8 +225,7 @@ exec --no-startup-id volumeicon
 exec_always --no-startup-id bash $HOME/.config/i3/polybar/launch.sh &
 
 # Set background
-exec_always --no-startup-id nitrogen --random --set-tiled&
-
+exec_always --no-startup-id nitrogen --random --set-zoom-fill --head=0 && nitrogen --random --set-zoom-fill --head=1
 # Fcitx5
 exec_always --no-startup-id fcitx5
 ################# system applications       
@@ -263,8 +263,8 @@ bindsym --release $mod+Escape exec xkill
 
 # Function Keybinds
 # Browser
-bindsym $mod+shift+q exec --no-startup-id qutebrowser;focus
-bindsym $mod+shift+w exec --no-startup-id qutebrowser;focus
+# bindsym $mod+shift+q exec --no-startup-id qutebrowser;focus
+bindsym $mod+shift+w exec --no-startup-id brave;focus
 
 # document comparison
 bindsym $mod+F5 exec --no-startup-id meld;focus
@@ -324,7 +324,7 @@ for_window [class="Alacritty"] focus
 
 ################# nitrogen for wallpapers      
 
-bindsym mod1+space exec --no-startup-id nitrogen --random --set-tiled
+bindsym mod1+space exec --no-startup-id nitrogen --random --set-zoom-fill --head=0 && nitrogen --random --set-zoom-fill --head=1
 
 ################# audio settings                   
 
@@ -339,8 +339,8 @@ bindsym XF86AudioStop exec --no-startup-id playerctl stop
 
 ################# xbacklight                       
 
-bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 20 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5% # increase screen brightness
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%- # decrease screen brightness
 
 ################# bar toggle                       
 
