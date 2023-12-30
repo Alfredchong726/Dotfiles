@@ -722,7 +722,7 @@ end)
 awful.spawn.with_shell("nitrogen --random --set-zoom-fill --head=0")
 awful.spawn.with_shell("nitrogen --random --set-zoom-fill --head=1")
 awful.spawn.with_shell(
-	"xrandr --output eDP1 --primary --mode 2160x1440 --pos 0x0 --rotate normal --output DP1 --off --output HDMI1 --off --output HDMI2 --mode 1920x1080 --pos 2160x0 --rotate normal --output VIRTUAL1 --off"
+	"xrandr --output eDP-1 --primary --mode 2160x1440 --pos 1920x0 --rotate normal --output DP-1 --off --output HDMI-1 --off --output HDMI-1 --mode 1920x1080 --pos 0x0 --rotate normal"
 )
 awful.spawn.with_shell("picom --config  $HOME/.config/picom/picom.conf")
 awful.spawn.with_shell("conky -c  $HOME/.config/conky/awesome/tomorrow-night-01.conkyrc")

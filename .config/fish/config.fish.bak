@@ -81,7 +81,7 @@ end
 
 # run neovide in root
 function vide
-    sudo nvim $argv
+    sudo neovide $argv
 end
 # update all packages
 function update

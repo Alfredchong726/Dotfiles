@@ -34,8 +34,9 @@ set $right l
 #
 # exec --no-startup-id xrandr --output eDP-1 --mode 2160x1440 --pos 0x0 --rotate normal --output DP-1 --off --output HDMI-1 --off --output HDMI-2 --mode 1920x1080 --pos 2160x0 --rotate normal
 
-exec --no-startup-id xrandr --output eDP-1 --primary --mode 2160x1440 --pos 1920x0 --rotate normal --output DP-1 --off --output HDMI-1 --off --output HDMI-1 --mode 1920x1080 --pos 0x0 --rotate normal
+# exec --no-startup-id xrandr --output eDP-1 --primary --mode 2160x1440 --pos 1920x0 --rotate normal --output DP-1 --off --output HDMI-1 --off --output HDMI-1 --mode 1920x1080 --pos 0x0 --rotate normal
 
+exec --no-startup-id xrandr --output eDP1 --mode 2160x1440 --pos 1920x0 --rotate normal --output DP1 --off --output HDMI1 --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI2 --off --output VIRTUAL1 --off
 # setting variables for later use
 # use xrandr and/or arandr to know the names of your monitors
 # use this line to tell which monitor is on the right
@@ -100,7 +101,7 @@ bindsym F1 exec --no-startup-id xfce4-find-cursor
 bindsym F2 exec --no-startup-id xfce4-appfinder --collapsed
 
 # start xfce-appfinder
-bindsym F3 exec --no-startup-id xfce4-appfinder
+# bindsym F3 exec --no-startup-id xfce4-appfinder
 
 # ArcoLinux Logout
 bindsym $mod+Shift+e exec --no-startup-id archlinux-logout
