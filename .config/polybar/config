@@ -1282,7 +1282,8 @@ ws-icon-6 = ""
 ws-icon-7 = ""
 ws-icon-8 = ""
 ws-icon-9 = ""
-ws-icon-default = " "
+;ws-icon-default = " "
+ws-icon-default = "FISH"
 
 
 format = <label-state> <label-mode>
