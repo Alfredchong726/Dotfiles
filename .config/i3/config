@@ -36,7 +36,7 @@ set $right l
 
 # exec --no-startup-id xrandr --output eDP-1 --primary --mode 2160x1440 --pos 1920x0 --rotate normal --output DP-1 --off --output HDMI-1 --off --output HDMI-1 --mode 1920x1080 --pos 0x0 --rotate normal
 
-exec --no-startup-id xrandr --output eDP1 --mode 2160x1440 --pos 1920x0 --rotate normal --output DP1 --off --output HDMI1 --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI2 --off --output VIRTUAL1 --off
+exec --no-startup-id xrandr --output eDP --mode 2560x1600 --pos 1920x0 --rotate normal --output HDMI-A-0 --mode 1920x1080 --pos 0x0 --rotate normal
 # setting variables for later use
 # use xrandr and/or arandr to know the names of your monitors
 # use this line to tell which monitor is on the right

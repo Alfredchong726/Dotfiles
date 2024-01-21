@@ -1,122 +1,174 @@
 {
-	"layer": "top",
-	"position": "top",
+    "layer": "top", // Waybar at top layer
+    "position": "top", // Waybar position (top|bottom|left|right)
+    "height": 40,
+    "margin": "0 0 0 0",
+    "spacing":0,
 
-	"modules-left": [
-		"hyprland/workspaces"
-	],
-	"modules-center": [
-	],
-	"modules-right": [
-        "custom/packages",
-		"cpu",
-		"memory",
-		"disk",
-        "network#wifi",
-        "battery",
-        "pulseaudio",
-		"clock",
-		"tray",
-        "custom/notification"
-	],
-    "hyprland/workspaces": {
+    // Choose the order of the modules
+
+    "modules-left": ["custom/launcher", "hyprland/workspaces", "hyprland/window"],
+    "modules-right": [ "custom/pacman", "custom/network_traffic", "disk", "custom/weather","backlight", "custom/keyboard-layout",  "temperature",  "cpu", "memory", "battery", "pulseaudio", "network", "tray", "idle_inhibitor", "clock","custom/power"],
+
+ // Modules configuration
+
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "on-click": "activate",
+    "all-outputs": true,
+    "sort-by-number": true,
+    "format-icons": {
+      "1": "WWW",
+      "2": "DEV",
+      "3": "FISH",
+      "4": "BASH",
+      "5": "PHP",
+      "6": "PYTHON",
+      "7": "LUA",
+      "8": "C",
+      "9": "SYS",
+      "10": "MUS",
+      "focused": "",
+      "default": ""
+    },
+    "on-scroll-up": "hyprctl dispatch workspace e+1",
+    "on-scroll-down": "hyprctl dispatch workspace e-1",
+    },
+    "hyprland/window": {
+        "format": "{}",
+	"icon":true,
+	"icon-size" : 20
+    },
+    "idle_inhibitor": {
         "format": "{icon}",
-        "format-icons": {
-            "default": " ",
-            "active": " ",
-            "urgent": " "
-            /* "default": "", */
-            /* "active": "", */
-            /* "urgent": "" */
-	    },
-        "on-scroll-up": "hyprctl dispatch workspace e+1",
-        "on-scroll-down": "hyprctl dispatch workspace e-1",
+       "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
     },
-	"clock": {
-        "format": "{: %I:%M %p}",
-		"tooltip": false
-	},
-	"hyprland/window": {
-		"max-length": 60,
-		"separate-outputs": false
-	},
-	"memory": {
-		"interval": 5,
-		"format": " {}%"
-	},
-	"cpu": {
-		"interval": 5,
-		"format": " {usage:2}%",
-        "tooltip": false
-	},
-    "disk": {
-        "format": "  {free}/{total}",
-        "tooltip": false
+    "tray": {
+        "icon-size": 20,
+        "spacing": 5
     },
-	"custom/packages": {
-		"exec": "~/.local/bin/packagecount",
-		"format": " {}",
-		"interval": 45
-	},
-    "network#wifi": {
+    "clock": {
+        "tooltip-format": "<big>{:%A, %d.%B %Y }</big>\n<tt><small>{calendar}</small></tt>",
+        "format": " {:%a %d %b  %I:%M %p}",	//12 hour format
+        //"format": " {:%a %d %b  %H:%M}",	//24 hour format
+        "format-alt": " {:%d/%m/%Y  %H:%M:%S}",
+        "timezones": [ "Asia/Kuala_Lumpur" ],
+        //"max-length": 200
         "interval": 1,
-        "interface": "wlp0s20f3",
-        "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
-        "format-wifi": "{icon} {signalStrength}%",
-        "format-disconnected": "󰤮",
-        "tooltip": false,
+        "on-click": "~/.config/waybar/scripts/OCV",
     },
-	"tray": {
-		//"icon-size": 24,
-		"spacing": 12
-	},
+    "cpu": {
+        "format": "🖳{usage}%",
+        "on-click": "foot -e htop"
+    },
+    "memory": {
+        "format": "🖴 {: >3}%",
+        "on-click": "foot -e htop"
+    },
+    "temperature": {
+        "thermal-zone": 7,  // Check with: # cat /sys/class/hwmon/hwmon*/temp1_input
+        "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        "critical-threshold": 80,
+        "format-critical": "{temperatureC}°C ",
+        "format": "{temperatureC}°C "
+    },
+    "backlight": {
+        // "device": "acpi_video1",
+        "format": "{icon} {percent: >3}%",
+        "format-icons": ["", ""],
+        "on-scroll-down": "brightnessctl -c backlight set 1%-",
+        "on-scroll-up": "brightnessctl -c backlight set +1%",
+        "on-click": "~/.config/waybar/scripts/backlight-hint.sh"
+    },
+    "battery": {
+        "states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity: >3}%",
+        "format-icons": ["", "", "", "", ""]
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        //"format-icons": ["", "", "", "", "", "", "", "", "", ""]
+        //"format": "&#x202b;{icon}&#x202c; {capacity}%",
+        //"format-icons": ["ﱉ","ﱊ","ﱌ","ﱍ","ﱋ"]
+    },
+      "network": {
+        //"interface": "wlp0s20f3", // (Optional) To force the use of this interface  "format-wifi": "  {essid}",
+        "format": "⚠Disabled",
+        "format-wifi": " ",
+        "format-ethernet": "{ifname}: {ipaddr}/{cidr}",
+        "format-linked": "{ifname} (No IP)",
+        "format-disconnected": "⚠Disabled",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "family": "ipv4",
+        "tooltip-format-wifi": "  {ifname} @ {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%\nFreq: {frequency}MHz\nUp: {bandwidthUpBits} Down: {bandwidthDownBits}",
+        "tooltip-format-ethernet": " {ifname}\nIP: {ipaddr}\n up: {bandwidthUpBits} down: {bandwidthDownBits}",
+        //"min-length": 2,
+        //"max-length": 2,
+        "on-click": "nm-connection-editor"
+    },
+     "custom/pacman": {
+        "format": " {}",
+        "interval": 7200,                     // every two hours
+        "exec": "checkupdates | wc -l",       // # of updates
+        //"exec": "i=$(checkupdates); echo \"$i\" |wc -l; echo \"$i\" |column -t |tr '\n' '\r'",       // # of updates and tooltip details
+        "exec-if": "exit 0",                  // always run; consider advanced run conditions
+        "on-click": "foot -e update", // update system
+        "signal": 8
+    },
+    "custom/power": {
+      	"format":"⏻",
+       	"on-click": "nwgbar",
+      	"tooltip": false,
+   },
+   "custom/keyboard-layout": {
+      	"format": " Cheat", // Icon: keyboard
+        "on-click": "~/.config/waybar/scripts/keyhint.sh",
+     },
+     "custom/launcher": {
+    	"format":"",
+    	"on-click": "exec nwg-drawer -c 7 -is 70 -spacing 23",
+    	"tooltip": false,
+     },
+     "custom/network_traffic": {
+             "exec": "~/.config/waybar/scripts/network_traffic.sh",
+             "return-type": "json",
+             "format-ethernet": "{icon} {ifname} ⇣{bandwidthDownBytes} ⇡{bandwidthUpBytes}",    // optional
+},
     "pulseaudio": {
+        "scroll-step": 3, // %, can be a float
         "format": "{icon} {volume}% {format_source}",
         "format-bluetooth": "{volume}% {icon} {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
         "format-muted": " {format_source}",
-        "format-source": " {volume}%",
+        //"format-source": "{volume}% ",
+        //"format-source-muted": "",
+        "format-source": "",
         "format-source-muted": "",
         "format-icons": {
             "headphone": "",
-            "hands-free": "",
-            "headset": "",
+            "hands-free": "",
+            "headset": "",
             "phone": "",
             "portable": "",
             "car": "",
             "default": ["", "", ""]
         },
-        "on-click": "pavucontrol"
-    },
-    "custom/notification": {
-        "tooltip": false,
-        "format": "{icon} {}",
-        "format-icons": {
-            "notification": "<span foreground='red'><sup></sup></span>",
-            "none": "",
-            "dnd-notification": "<span foreground='red'><sup></sup></span>",
-            "dnd-none": "",
-            "inhibited-notification": "<span foreground='red'><sup></sup></span>",
-            "inhibited-none": "",
-            "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
-            "dnd-inhibited-none": ""
+        "on-click": "pavucontrol",
+        "on-click-right": "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
         },
-        "return-type": "json",
-        "exec-if": "which swaync-client",
-        "exec": "swaync-client -swb",
-        "on-click": "swaync-client -t -sw",
-        "escape": true
-    },
-    "battery": {
-        "states": {
-            "warning": 30,
-            "critical": 15
+        "disk": {
+            "format": "  {free}/{total}",
+            "tooltip": false
         },
-        "format": "{icon} {capacity}%",
-        "format-charging": "󰂄 {capacity}%",
-        "format-plugged": "󱘖 {capacity}%",
-        "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
-        "on-click": "",
-        "tooltip": false
+        "custom/weather": {
+        "exec": "curl 'https://wttr.in/Essen?format=2'",
+        "interval": 900,
+	    "on-click": "yad --html --uri='https://wttr.in/Essen' --center --fixed --width=1000 --height=680 --timeout=60 --timeout-indicator=right"
+        },
     }
-}

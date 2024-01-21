@@ -1,7 +1,6 @@
 set fish_greeting # No welcome message during enter fish shell
 # colorscript random                  # Random colorscript when enter fish shell
 set TERM xterm-256color # Set terminal type
-colorscript random
 
 set fish_color_normal brcyan
 set fish_color_autosuggestion '#7d7d7d'
@@ -166,6 +165,7 @@ alias fix-pacman-keyserver="/usr/local/bin/arcolinux-fix-pacman-gpg-conf"
 alias xampp='sudo /opt/lampp/lampp start && cd /opt/lampp && sudo ./manager-linux-x64.run'
 # setup the environment
 set PATH $PATH /usr/local/bin
+set PATH $PATH /usr/bin
 set -gx PATH $PATH /usr/local/lib/nodejs/node-v14.17.4-linux-x64/bin/
 set -gx PATH $PATH $HOME/.cargo/bin/
 set -gx PATH $PATH $HOME/.local/bin/
