@@ -172,7 +172,7 @@ set -gx PATH $PATH $HOME/.local/bin/
 set -gx PATH $PATH $HOME/.local/share/gem/ruby/3.0.0/bin/
 export PATH
 
-set -gx JAVA_HOME /usr/lib/jvm/java-20-openjdk
+set -gx JAVA_HOME /usr/lib/jvm/java-17-openjdk
 set -gx CHROME_EXECUTABLE /usr/bin/chromium
 
 starship init fish | source # Start starship
