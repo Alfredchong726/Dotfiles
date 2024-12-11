@@ -1,5 +1,8 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
+SETUVAR --export ANDROID_HOME:/home/cms/Android/Sdk
+SETUVAR --export --path PATH:/home/cms/Android/Sdk/cmdline\x2dtools/latest/bin\x1e/home/cms/Android/Sdk/platform\x2dtools\x1e/home/cms/Android/Sdk/emulator\x1e\x2elocal/bin/bear\x1e/usr/local/sbin\x1e/usr/local/bin\x1e/usr/bin\x1e/home/cms/\x2elocal/share/flatpak/exports/bin\x1e/usr/lib/jvm/default/bin\x1e/usr/bin/site_perl\x1e/usr/bin/vendor_perl\x1e/usr/bin/core_perl\x1e/usr/local/bin\x1e/usr/bin\x1e/usr/local/lib/nodejs/node\x2dv14\x2e17\x2e4\x2dlinux\x2dx64/bin/\x1e/home/cms/\x2ecargo/bin/\x1e/home/cms/\x2elocal/bin/\x1e/home/cms/\x2elocal/share/gem/ruby/3\x2e0\x2e0/bin/\x1e/home/cms/\x2elocal/share/gem/ruby/3\x2e3\x2e0/bin\x1e/usr/local/bin\x1e/usr/bin\x1e/usr/local/lib/nodejs/node\x2dv14\x2e17\x2e4\x2dlinux\x2dx64/bin/\x1e/home/cms/\x2ecargo/bin/\x1e/home/cms/\x2elocal/bin/\x1e/home/cms/\x2elocal/share/gem/ruby/3\x2e0\x2e0/bin/\x1e/home/cms/\x2elocal/share/gem/ruby/3\x2e3\x2e0/bin
+SETUVAR --export QT_QPA_PLATFORM:xcb
 SETUVAR __fish_initialized:3400
 SETUVAR fish_color_cancel:\x2dr
 SETUVAR fish_color_comment:red

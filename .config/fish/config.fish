@@ -9,6 +9,10 @@ set fish_color_error '#ff6c6b'
 set fish_color_param brcyan
 
 
+### Set Environment Variable
+set -gx XDG_CURRENT_DESKTOP hyprland
+set -gx XDG_SESSION_DESKTOP hyprland
+
 ### "bat" as manpager
 set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
 
@@ -163,6 +167,10 @@ alias fix-pacman-keyserver="/usr/local/bin/arcolinux-fix-pacman-gpg-conf"
 
 # open xampp in shortest way
 alias xampp='sudo /opt/lampp/lampp start && cd /opt/lampp && sudo ./manager-linux-x64.run'
+
+# open vmware with correct scalling
+alias vmware-autosize='env GDK_BACKEND=x11 GKD_SCALE=2 GDK_DPI_SCALE=1.5 vmware'
+
 # setup the environment
 set PATH $PATH /usr/local/bin
 set PATH $PATH /usr/bin
@@ -170,15 +178,25 @@ set -gx PATH $PATH /usr/local/lib/nodejs/node-v14.17.4-linux-x64/bin/
 set -gx PATH $PATH $HOME/.cargo/bin/
 set -gx PATH $PATH $HOME/.local/bin/
 set -gx PATH $PATH $HOME/.local/share/gem/ruby/3.0.0/bin/
+set -gx PATH $PATH $HOME/.local/share/gem/ruby/3.3.0/bin
+set -gx PATH $PATH $HOME/android-sdk/platform-tools
+set -gx PATH $PATH /usr/bin/flutter/bin
+set -gx PATH $PATH $ANDROID_SDK_ROOT/emulator $ANDROID_SDK_ROOT/platform-tools $PATH
+
 export PATH
 
-set -gx JAVA_HOME /usr/lib/jvm/java-17-openjdk
+set -gx JAVA_HOME /usr/lib/jvm/java-21-openjdk
+set -gx ANDROID_SDK_ROOT /home/cms/Android/Sdk
+set -gx ANDROID_AVD_HOME /home/cms/.android/avd
+set -gx ANDROID_HOME $HOME/android-sdk
 set -gx CHROME_EXECUTABLE /usr/bin/chromium
+set -gx QT_PLUGIN_PATH $HOME/Android/Sdk/emulator/lib64/qt/plugins
 
 starship init fish | source # Start starship
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
+export QT_QPA_PLATFORM=wayland
 
 # to use the autojump
 if test -f /home/cms/.autojump/share/autojump/autojump.fish
